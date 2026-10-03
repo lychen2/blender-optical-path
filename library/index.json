@@ -45,7 +45,9 @@
       ],
       "axis": "+X",
       "provenance": "Mixed assembly: reviewed Thorlabs support/mount CAD with illustrative optical geometry",
-      "source_record": "provenance/assembly_manifest.json"
+      "source_record": "provenance/assembly_manifest.json",
+      "mirror_mount_sku": "POLARIS-K1S5",
+      "mount_interface": "M4 counterbore, nominal M4x12 screw; native TR50/M post"
     },
     {
       "id": "assembly/gold_mirror",
@@ -60,7 +62,9 @@
       ],
       "axis": "+X",
       "provenance": "Mixed assembly: reviewed Thorlabs support/mount CAD with illustrative optical geometry",
-      "source_record": "provenance/assembly_manifest.json"
+      "source_record": "provenance/assembly_manifest.json",
+      "mirror_mount_sku": "POLARIS-K1S5",
+      "mount_interface": "M4 counterbore, nominal M4x12 screw; native TR50/M post"
     },
     {
       "id": "assembly/biconvex_lens",
@@ -75,7 +79,9 @@
       ],
       "axis": "+X",
       "provenance": "Mixed assembly: reviewed Thorlabs support/mount CAD with illustrative optical geometry",
-      "source_record": "provenance/assembly_manifest.json"
+      "source_record": "provenance/assembly_manifest.json",
+      "lens_mount_sku": "KM100",
+      "mount_interface": "Native 25.4 mm optic pocket, measured rim seating; M4 nominal fastener"
     },
     {
       "id": "assembly/biconcave_lens",
@@ -90,7 +96,9 @@
       ],
       "axis": "+X",
       "provenance": "Mixed assembly: reviewed Thorlabs support/mount CAD with illustrative optical geometry",
-      "source_record": "provenance/assembly_manifest.json"
+      "source_record": "provenance/assembly_manifest.json",
+      "lens_mount_sku": "KM100",
+      "mount_interface": "Native 25.4 mm optic pocket, measured rim seating; M4 nominal fastener"
     },
     {
       "id": "assembly/plano_window",
@@ -119,8 +127,9 @@
         100
       ],
       "axis": "+X",
-      "provenance": "Mixed assembly: reviewed Thorlabs support/mount CAD with illustrative optical geometry",
-      "source_record": "provenance/assembly_manifest.json"
+      "provenance": "Reviewed RMS10X objective and standard supports with nominal RMS adapter plate",
+      "source_record": "provenance/assembly_manifest.json",
+      "objective_sku": "RMS10X"
     },
     {
       "id": "assembly/half_wave_plate",
@@ -791,11 +800,12 @@
         "rear": [
           18,
           0,
-          125
+          115.77056
         ]
       },
-      "provenance": "Repository-authored nominal schematic geometry",
-      "source_record": "provenance/schematic_modules.json"
+      "provenance": "Reviewed RMS10X objective on nominal focus stand; interface unverified",
+      "source_record": "provenance/schematic_modules.json",
+      "objective_sku": "RMS10X"
     },
     {
       "id": "schematic/xy_stage",

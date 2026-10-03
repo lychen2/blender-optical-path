@@ -48,6 +48,41 @@ for item in index['assets']:
         assert not any(o.get('support_length_mm') for o in col.objects), item['id']
         if any(o.get('mount_height_mm') is not None for o in col.objects):
             assert any(o.name.startswith('Module mounting adapter') for o in col.objects), item['id']
+    if item['id'] in ('assembly/kinematic_mirror', 'assembly/gold_mirror'):
+        assert col['mirror_mount_sku'] == 'POLARIS-K1S5'
+        assert not any(o.name.startswith('Official optic / KM100') for o in col.all_objects)
+        # Evaluate uninstanced source objects in a temporary linked collection.
+        active_scene = bpy.context.scene
+        active_scene.collection.children.link(col)
+        bpy.context.view_layer.update()
+        mount = next(o for o in col.all_objects if o.get('mount_source_asset') == 'thorlabs/POLARIS-K1S5')
+        from mathutils import Matrix
+        transform = Matrix(json.loads(mount['native_to_assembly']))
+        native_seat = Vector((25.371151733613, 3.224097397248, 32.026709096853))
+        seat = transform @ native_seat
+        assert (transform.to_3x3() @ Vector((0,-1,0)) - Vector((0,0,-1))).length < 1e-5
+        post = next(o for o in col.all_objects if o.name.startswith('Standard support / TR50_M / 0'))
+        bounds = [post.matrix_world @ Vector(v) for v in post.bound_box]
+        center = sum(bounds, Vector()) / 8
+        assert abs(center.x-seat.x) < 1e-4 and abs(center.y-seat.y) < 1e-4
+        assert abs(max(v.z for v in bounds)-seat.z) < 1e-4
+        assert abs(seat.z-74.6) < 1e-4
+        assert any(o.name.startswith('Nominal M4 mounting screw / head') for o in col.all_objects)
+        assert not any(o.name.startswith('Standard support / TR50_M / 1') for o in col.all_objects)
+        active_scene.collection.children.unlink(col)
+    if item['id'] in ('assembly/biconvex_lens','assembly/biconcave_lens'):
+        assert col['lens_mount_sku'] == 'KM100'
+        assert not any(o.name.startswith('Official optic / LMR1_M') for o in col.all_objects)
+        active_scene=bpy.context.scene
+        active_scene.collection.children.link(col);bpy.context.view_layer.update()
+        post=next(o for o in col.all_objects if o.name.startswith('Standard support / TR50_M / 0'))
+        assert abs(max((post.matrix_world @ Vector(v)).z for v in post.bound_box)-74.6)<1e-4
+        assert any(o.get('mount_source_asset')=='thorlabs/KM100' for o in col.all_objects)
+        active_scene.collection.children.unlink(col)
+    if item['id']=='assembly/microscope_objective':
+        assert col['objective_sku']=='RMS10X'
+        assert any(o.get('objective_source_asset')=='thorlabs/RMS10X' for o in col.all_objects)
+        assert not any(o.name.startswith('Objective satin cylindrical body') for o in col.all_objects)
     checks.append(item['id'])
 api=runpy.run_path(str(PACKAGE/'tools/optics.py'))
 original_scenes=set(bpy.data.scenes)
@@ -61,6 +96,12 @@ c=api['place_asset']('assembly/kinematic_mirror',(200,0,100),scene=scene,at_opti
 assert (c.matrix_world @ Vector((0,0,100))-Vector((.2,0,.1))).length<1e-6
 assert abs(c.scale.x-.001)<1e-8
 api['add_beam']([(0,0,100),(200,0,100)],scene=scene)
+envelope=api['add_beam']([(0,0,100),(100,0,100),(200,0,100)],scene=scene,radii_mm=[4,.8,3])
+assert all(abs(p.radius*3-r)<1e-5 for p,r in zip(envelope.data.splines[0].points,[4,.8,3]))
+for bad in ([1], [1,0,2], [1,float('nan'),2], [1,True,2]):
+    try:api['add_beam']([(0,0,0),(1,0,0),(2,0,0)],scene=scene,radii_mm=bad)
+    except ValueError:pass
+    else:raise AssertionError('Invalid envelope radii accepted')
 api['add_annotation']('M1',(200,-20,0),scene=scene)
 assert not any(o.type=='FONT' for o in scene.objects)
 assert json.loads(scene['opl_post_render_annotations'])[0]['text']=='M1'
@@ -107,4 +148,7 @@ report={'status':'passed','blender':bpy.app.version_string,'asset_count':len(che
         'invalid_request_rejection':True,'mcp_python_entrypoint':True,
         'live_mcp_transport':'not tested; no connected server exposed'}
 report['post_render_annotations_only'] = True
+report['polaris_mounts_seated_upright'] = True
+report['km100_lens_mounts_and_rms10x_objective'] = True
+report['variable_radius_envelope'] = True
 print('PACKAGE_CHECK_PASSED '+json.dumps(report))

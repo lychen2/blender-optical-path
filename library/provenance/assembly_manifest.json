@@ -318,5 +318,243 @@
     "post": "TR50/M",
     "objective_mount": "Fixed plate and reducer based on publication reference",
     "visible_text": "Removed from assembly geometry"
-  }
+  },
+  "mirror_mount_revision": [
+    {
+      "asset_id": "assembly/kinematic_mirror",
+      "source_asset": "thorlabs/POLARIS-K1S5",
+      "transform": [
+        [
+          0.0,
+          0.0,
+          -1.0,
+          18.739709854125977
+        ],
+        [
+          -1.0,
+          0.0,
+          0.0,
+          25.371150970458984
+        ],
+        [
+          0.0,
+          1.0,
+          0.0,
+          71.37590026855469
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "optic_front_mm": [
+        0,
+        0,
+        100
+      ],
+      "optic_stop_x_mm": -3,
+      "post_center_xy_mm": [
+        -13.286999999999995,
+        0
+      ],
+      "mounting_face_z_mm": 74.6,
+      "counterbore_seat_z_mm": 81.66120000000001,
+      "mounting_hole": "4.699 mm clearance, 7.540 mm counterbore; axis aligned to post",
+      "fastener": "Nominal M4x12 socket head; replaces protruding post stud",
+      "limitations": "Thread fit, preload and torque unverified; no fabrication claim"
+    },
+    {
+      "asset_id": "assembly/gold_mirror",
+      "source_asset": "thorlabs/POLARIS-K1S5",
+      "transform": [
+        [
+          0.0,
+          0.0,
+          -1.0,
+          18.739709854125977
+        ],
+        [
+          -1.0,
+          0.0,
+          0.0,
+          25.371150970458984
+        ],
+        [
+          0.0,
+          1.0,
+          0.0,
+          71.37590026855469
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "optic_front_mm": [
+        0,
+        0,
+        100
+      ],
+      "optic_stop_x_mm": -3,
+      "post_center_xy_mm": [
+        -13.286999999999995,
+        0
+      ],
+      "mounting_face_z_mm": 74.6,
+      "counterbore_seat_z_mm": 81.66120000000001,
+      "mounting_hole": "4.699 mm clearance, 7.540 mm counterbore; axis aligned to post",
+      "fastener": "Nominal M4x12 socket head; replaces protruding post stud",
+      "limitations": "Thread fit, preload and torque unverified; no fabrication claim"
+    }
+  ],
+  "lens_mount_revision": [
+    {
+      "asset_id": "assembly/biconvex_lens",
+      "source_asset": "thorlabs/KM100",
+      "native_to_assembly": [
+        [
+          7.549790126404332e-08,
+          -1.0,
+          8.742277657347586e-08,
+          2.788285493850708
+        ],
+        [
+          -1.0,
+          -7.549790126404332e-08,
+          6.6002361555513294e-15,
+          0.08442120254039764
+        ],
+        [
+          0.0,
+          -8.742277657347586e-08,
+          -1.0,
+          98.9111557006836
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "mounting_face_z_mm": 74.6,
+      "optic_rim_stop_x_mm": -2.183265447616577,
+      "clear_aperture_mm": 23.876,
+      "limitations": "Nominal lens edge and M4 screw; retaining force, thread engagement and full collision clearance unverified. XY adjustment requires a separate stage.",
+      "seating_side": "+X",
+      "annular_stop_radius_mm": 11.938,
+      "pocket_depth_mm": 7.493,
+      "nominal_outer_annulus_width_mm": 4.366530895233154
+    },
+    {
+      "asset_id": "assembly/biconcave_lens",
+      "source_asset": "thorlabs/KM100",
+      "native_to_assembly": [
+        [
+          7.549790126404332e-08,
+          -1.0,
+          8.742277657347586e-08,
+          0.7864910364151001
+        ],
+        [
+          -1.0,
+          -7.549790126404332e-08,
+          6.6002361555513294e-15,
+          0.08442120254039764
+        ],
+        [
+          0.0,
+          -8.742277657347586e-08,
+          -1.0,
+          98.9111557006836
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "mounting_face_z_mm": 74.6,
+      "optic_rim_stop_x_mm": -4.185060024261475,
+      "clear_aperture_mm": 23.876,
+      "limitations": "Nominal lens edge and M4 screw; retaining force, thread engagement and full collision clearance unverified. XY adjustment requires a separate stage.",
+      "seating_side": "+X",
+      "annular_stop_radius_mm": 11.938,
+      "pocket_depth_mm": 7.493,
+      "nominal_outer_annulus_width_mm": 8.37012004852295
+    }
+  ],
+  "objective_revision": [
+    {
+      "asset_id": "assembly/microscope_objective",
+      "source_asset": "thorlabs/RMS10X",
+      "native_to_assembly": [
+        [
+          0.0,
+          0.0,
+          1.0,
+          -27.100000381469727
+        ],
+        [
+          1.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          1.0,
+          0.0,
+          100.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "shoulder_x_mm": -27.1,
+      "front_x_mm": 7.17476,
+      "band": "Native groove z20..21.194 mm, yellow material",
+      "limitations": "Nominal RMS reducer; thread engagement and imaging conjugates unverified"
+    },
+    {
+      "asset_id": "schematic/vertical_objective",
+      "source_asset": "thorlabs/RMS10X",
+      "native_to_assembly": [
+        [
+          1.0,
+          0.0,
+          0.0,
+          18.0
+        ],
+        [
+          0.0,
+          -1.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          -1.0,
+          111.2747573852539
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "front_z_mm": 77,
+      "limitations": "Nominal support arm; mating interface unverified"
+    }
+  ]
 }

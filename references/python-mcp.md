@@ -30,6 +30,8 @@ api['add_beam']([(-120, 0, 100), (0, 0, 100), (150, 0, 100)], scene=scene)
 
 This example shows placement, not an image-forming prescription. The camera anchor is a nominal assembly reference; inspect the front aperture and sensor if exact path endpoints matter. `rotation_deg` is XYZ Euler rotation in degrees. Coordinates and beam radii are in millimetres and convert automatically into the target scene's unit scale. `new_workspace` uses millimetres. For an existing metric metre-based scene the instance scale becomes `0.001`, without changing pre-existing objects or scene units.
 
+`add_beam` defaults to a 3 mm radius. Pass `radii_mm=[r0, r1, ...]` to draw an envelope with one positive finite radius per path point; keep its length equal to `points_mm`. Derive the radii from the agreed optical model before rendering: the helper interpolates a schematic surface and does not propagate rays or a Gaussian beam. The [dual-wavelength example](../examples/README.md) supplies normalized paraxial checkpoints separately from display coordinates.
+
 For native CAD use `place_asset('thorlabs/LMR1/M', position_mm=(0,0,0))`. `at_optical_center=True` rejects CAD parts without measured anchors. `place_asset` creates a new instance each time; `load_asset` reuses the already imported source collection. No operation clears the scene or silently saves files.
 
 ## Post-render annotations
@@ -64,7 +66,7 @@ The request property and response JSON avoid reliance on shell quoting. For `new
 | `inspect` / `validate` | None | Scene inventory / structural checks |
 | `new_workspace` | Optional `name` | New millimetre scene name |
 | `add_component` | `asset_id`, optional `position_mm`, `rotation_deg`, `name`, `at_optical_center` | Created object name |
-| `add_beam` | `points_mm`, optional `radius_mm`, `color`, `name` | Created beam object name |
+| `add_beam` | `points_mm`, optional `radius_mm` (default 3 mm), `radii_mm`, `color`, `name` | Created beam object name |
 | `add_annotation` | `text`, optional `position_mm`, `size_mm` | Post-render annotation record; no 3D text |
 
 Mutating calls are not idempotent: inspect the result after a timeout before retrying, so repeated MCP calls do not create duplicate components. Exceptions set an error result and propagate to the MCP tool. Native scene operations remain available for moving, rotating and deleting specific instances.

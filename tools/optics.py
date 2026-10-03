@@ -100,13 +100,18 @@ def place_asset(asset_id, position_mm=(0, 0, 0), rotation_deg=(0, 0, 0),
     return obj
 
 
-def add_beam(points_mm, name='Beam', radius_mm=.6, color=(.05, .65, .18), scene=None):
+def add_beam(points_mm, name='Beam', radius_mm=3, color=(.05, .65, .18), scene=None,
+             radii_mm=None):
     scene = scene or bpy.context.scene
     points = [finite_vector(p, 'point') for p in points_mm]
     if len(points) < 2 or any((a-b).length < 1e-9 for a, b in zip(points, points[1:])):
         raise ValueError('Beam needs at least two points and no zero-length segment')
     if not math.isfinite(radius_mm) or radius_mm <= 0:
         raise ValueError('radius_mm must be positive and finite')
+    radii = list(radii_mm) if radii_mm is not None else [radius_mm] * len(points)
+    if len(radii) != len(points) or any(isinstance(r, bool) or not isinstance(r, (int, float))
+                                       or not math.isfinite(r) or r <= 0 for r in radii):
+        raise ValueError('radii_mm must contain one positive finite radius per point')
     rgb = finite_vector(color, 'color')
     if any(v < 0 or v > 1 for v in rgb):
         raise ValueError('Color channels must be between 0 and 1')
@@ -117,8 +122,10 @@ def add_beam(points_mm, name='Beam', radius_mm=.6, color=(.05, .65, .18), scene=
     curve.bevel_resolution = 3
     spline = curve.splines.new('POLY')
     spline.points.add(len(points)-1)
-    for p, co in zip(spline.points, points):
+    curve.use_fill_caps = True
+    for p, co, radius in zip(spline.points, points, radii):
         p.co = (* (co * factor), 1)
+        p.radius = radius / radius_mm
     material = bpy.data.materials.new(name + ' / color')
     material.diffuse_color = (*rgb, 1)
     material.use_nodes = True
@@ -129,7 +136,8 @@ def add_beam(points_mm, name='Beam', radius_mm=.6, color=(.05, .65, .18), scene=
     curve.materials.append(material)
     obj = bpy.data.objects.new(name, curve)
     scene.collection.objects.link(obj)
-    obj['diagram_scope'] = 'Authored schematic path; no ray tracing or propagation calculation'
+    obj['radii_mm'] = json.dumps(radii)
+    obj['diagram_scope'] = 'Authored schematic envelope; no ray tracing or propagation calculation'
     return obj
 
 

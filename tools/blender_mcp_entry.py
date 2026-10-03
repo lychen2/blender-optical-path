@@ -26,7 +26,8 @@ def execute(request, scene):
         return {'object': obj.name, 'asset_id': obj['opl_asset_id'], 'location': list(obj.location)}
     if action == 'add_beam':
         obj = api['add_beam'](request['points_mm'], request.get('name', 'Beam'),
-                              request.get('radius_mm', .6), request.get('color', [.05, .65, .18]), scene)
+                              request.get('radius_mm', 3), request.get('color', [.05, .65, .18]), scene,
+                              radii_mm=request.get('radii_mm'))
         return {'object': obj.name, 'points': len(request['points_mm'])}
     if action in ('add_annotation', 'add_label'):
         return api['add_annotation'](request['text'], request.get('position_mm', [0, 0, 0]),

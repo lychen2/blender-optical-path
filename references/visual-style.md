@@ -1,64 +1,55 @@
-# Visual direction for optical figures
+# Visual style workflow
 
-Choose a visual brief before setting up the camera and renderer. The style should explain the optical path at the intended figure size, not decorate it. These anchors guide manual or scripted art direction; they are not automatic presets.
+This file owns the shared visual rules. [Shading recipes](shading-presets.md) own individual looks and reusable prompts; [compact composition](compact-floating-prompt.md) owns floating-layout guidance. Optical decisions belong in [preflight](optical-preflight.md), not in a material preset.
 
-## Set the brief
+## 1. Set a visual brief
 
-Record these choices beside the assembly script:
+Start from the agreed optical model and answered preferences. Default to compact floating optics and Matte Technical styling when no reference overrides them. Ask about unresolved optical and visual choices together, not one question after each render.
 
-| Field | What to decide |
-| --- | --- |
-| Style anchor | Editorial scientific figure, simplified 3D schematic, Cycles studio render, technical axonometric, or a supplied reference |
-| Composition | View direction, projection, crop and space for post-render annotations |
-| Beam treatment | Actual geometry, material, color meaning and where the path begins/ends |
-| Surface and light | Key-light direction, softness, background treatment and material emphasis |
-| Series rules | Terms and visual encodings to preserve; features that change in each figure |
+Record presentation mode, final figure size, composition/camera, component prominence, material roles, beam/channel encoding, lighting/background and 2D-label plan beside the script. Manufacturer dimensions remain intact in source assets and mechanical views. Floating display copies can use shorter gaps and enlarged optical symbols; recheck their optical anchors after scaling.
 
-Use a specific anchor for each new figure. A Nature Photonics-inspired brief means restrained scientific editorial composition, not compliance with that journal's submission rules or imitation of a particular published figure. Blender Cycles is a renderer, not a complete style: specify surfaces, light and camera as well.
+Extract the reference's visual hierarchy and spacing, not just its palette. Make small optics identifiable, keep sources subordinate and let the beam route connect the composition. Use the canvas efficiently while reserving room for nearby labels. Renderer names and journal names are not complete styles: specify actual materials, light and camera.
 
-## Example directions
+## 2. Assign material roles before shading
 
-| Anchor | Camera and beam | Light, background and material emphasis |
+| Role | Preserve across styles | Common failure to reject |
 | --- | --- | --- |
-| Editorial scientific figure | Compact high-oblique view; thin colored paths with consistent branch colors | Broad upper-left key, warm-white background, matte dark mounts with restrained metallic edges |
-| Simplified 3D schematic | Orthographic three-quarter view; flat translucent ribbons through the optical centers | Soft upper-right key, cool pale-gray background, diffuse surfaces with reduced hardware contrast |
-| Cycles studio render | Moderate perspective; narrow luminous cores without a fog halo | Large rear-side key, charcoal background, satin metal and controlled glass reflections |
-| Technical axonometric | Elevated axonometric view; sparse ray bundles where they explain focusing | Broad front-side key, neutral paper background, pale ceramic-like schematic housings and crisp aperture edges |
+| Coated mount | Dark anodized finish; readable aperture | Unassigned white material, bright bare-metal shader |
+| Exposed metal/barrel | Restrained satin depth and actual component shape | Uniform oily plastic, clipped reflections, broad black RMS barrel bands (thin Textbook outlines are intentional) |
+| Optical surface | Visible tint, edge and aperture; actual film plane | Nearly invisible glass, milky white face, all-purpose black ink ramp |
+| Beam | Calculated envelope, thick body, stable channel meaning | Unchanged tube through focusing optics, black outlines, washed-out color |
+| Background | Clear separation from optics and labels | Large floor shadows, decorative fog, dirty AO, gradient overwhelming the route |
 
-Choose one coherent direction. Do not combine all effects. Preserve the native geometry of standard parts; reduce visual clutter with framing, contrast and visibility choices rather than stretching CAD. Material emphasis changes appearance, not claims about the physical material.
+Assign roles explicitly where possible. A blanket shader based on one material or a loose name match can tint the wrong objects. Inspect node inputs and rendered appearance; viewport color alone is insufficient. Copy materials locally rather than changing source CAD for one illustration.
 
-## Beam language and construction
+Optical glass is a readable symbol in an apparatus overview. Lower transmission and moderate reflections when physical transparency erases its shape. Keep the face visible before adding a rim. For splitters, balance a clearly visible tinted shell against the need to see the internal film and beam junction; edge strokes alone do not rescue an almost invisible cube. Use a nonrefractive transparent/surface mixture for this illustrative view. A glass IOR is material- and wavelength-dependent; illustrative opacity is not measured transmission or a splitting ratio.
 
-Do not use “glowing volumetric” as a stock description. Pick the representation that communicates the path, then describe what is actually rendered:
+## 3. Choose a distinct shading recipe
 
-- **Thin colored path:** a narrow curve for propagation or branch routing, with little or no emission.
-- **Translucent ribbon:** a flat or gently shaped strip when a sheet or broad route is useful.
-- **Narrow luminous core:** modest emission with no large bloom halo; suitable for a darker scene.
-- **Sparse ray bundle:** several distinct rays to communicate convergence or divergence only when the geometry is justified.
-- **Restrained scattering cone:** a volumetric illustration when the brief calls for visible scattering; do not imply that an ordinary beam is visible in clean air.
+Use [five shading recipes](shading-presets.md). Their differences must come from more than a changed background:
 
-`add_beam` creates a constant-radius schematic curve. Ribbons, bundles and volumes require additional authored geometry or materials. None of these representations calculates wave propagation. Rotate descriptions by changing the actual representation, not by substituting synonyms for the same effect.
+- **Matte Technical:** satin/diffuse material separation, soft continuous shading, restrained optical transparency.
+- **Soft Lab:** dark field, directional highlights and bounded faint beam scattering where useful.
+- **Illustrated Geometry:** warm paper field, muted continuous volume shading, selective hardware contours; no black glass, beam or objective-barrel outline. PBS shells may use a slightly stronger cyan edge cue so the split/merge junction remains visible.
+- **Textbook White:** true white field, flat lighting-independent or near-flat colors, thin black component edges, no gloss, no floor shadows. Exclude beams from the contour pass.
+- **Cel / Toon:** discrete tone bands and fine role-specific contours; cyan optic edges, gray hardware edges, no black beam outline or broad black objective rim.
 
-## Variation across figures
+For a style comparison, hold geometry, camera, framing, optical topology, labels and channel identities fixed. Confirm the variants remain distinguishable at thumbnail size. For a new unrelated figure, vary key light, palette emphasis and view purposefully; preserve any locked user/venue conditions. Do not add random optical tilt, decenter or uneven supports to remove a synthetic appearance. Physical symmetry may be required.
 
-For successive independent figures, change **key-light direction, background treatment and material emphasis** rather than reusing one lighting rig and palette. Also choose a distinct camera or beam treatment where it improves the explanation. Inspect the previous brief before choosing the next.
+## 4. Preserve beam meaning
 
-For related panels, preserve component names, abbreviations, physical topology, channel-color meanings and annotation typography. Allocate a different visual focus to each panel: overall route, interaction region, or detector-side detail. Vary illumination direction, background value within the agreed palette and which material surfaces carry contrast. Do not rename the same beam or swap color meanings to create novelty.
+Default to thick beam envelopes. Thin single-line paths require an explicit request. Use the preflight model for expansion, convergence, shared foci, recollimation and dispersion. The on-axis chief ray can remain straight while envelope boundaries focus. A finite drawn waist can be a documented display floor; it is not automatically a calculated diffraction waist.
 
-An example three-panel set:
+`add_beam` draws a curve with constant radius or per-vertex `radii_mm`; it does not derive optical behavior. Ribbons, outlined bundles and bounded scattering volumes require additional authored geometry/materials. A scattered halo does not establish diffraction or measured air scattering.
 
-| Panel | Constant meaning | Distinct visual treatment |
-| --- | --- | --- |
-| Overview | BS, M1, M2, Detector; green illumination path | High-oblique camera, left key, warm-white field, matte mount silhouettes |
-| Beam-splitter detail | Same terms and path colors | Closer lower view, right key, slightly cooler background, glass-interface emphasis |
-| Detection detail | Same Detector name and path colors | Detector-facing crop, rear key, pale neutral field, satin housing edges |
+Use consistent channel colors. Visible hues are approximate display encodings, and infrared wavelengths require explicit false colors. A combined-channel color is not another wavelength. Do not add a spectrum without spectral input and a dispersive element.
 
-Respect a user's locked background, material or lighting specification. For controlled comparisons, identical lighting may be essential; keep the constraint and vary only unconstrained presentation choices. Never alter geometry or data merely to make panels look different.
+## 5. Preview, correct and preserve the lesson
 
-## Text belongs after rendering
+Before final resolution, inspect the entire composition at its intended display width and crops of high-risk regions: small lenses, objective rings, splitter interfaces, focal waists and crowded labels. For outlines, inspect grazing angles; a Layer Weight ramp is not a fixed-pixel contour and can blacken faces if reversed or applied indiscriminately. Check silhouettes without letting internal CAD detail become a knot of lines.
 
-The 3D scene contains hardware and beams, not component names or callouts. Add labels, panel letters, dimensions and leader lines to a separate 2D overlay after the clean render. Use `add_annotation` only to store optional anchor metadata; it does not perform projection or compositing. Gallery captions are browsing aids and must not be copied into the optical scene.
+When feedback reveals a recurring visual error, make three linked changes: generalize the rule here (or refine its existing owner), update the affected recipe's reusable prompt/acceptance criteria, and correct its implementation. Keep the generic prompt reusable across other apparatus layouts; put asset-specific selections in the example script. Rerender affected styles and inspect actual artifacts before declaring the issue solved. Remove obsolete or conflicting instructions instead of appending another exception.
 
-## Review at final size
+Render optics/hardware/beams without text. Add names, plane markers, dimensions and leaders in a separate editable 2D overlay. Prefer short nearby labels, alternating above/below crowded branches. Dark backgrounds need light text. Avoid long crossing leaders, white text halos on light fields and crowded image-plane/z labels. Source provenance belongs in metadata; relevant physical assumptions belong in captions or the example documentation.
 
-Check path readability, clipping, occlusion, mirror orientation, support contact and aperture visibility. Reduce bloom, reflections or depth of field if they hide optical relationships. Avoid arbitrary neon colors, excessive gloss, decorative fog and repeated isometric compositions. Verify the small version, not only a zoomed viewport. Preserve the clean render and the editable overlay separately.
+Acceptance: the path reads at final size; optics and coating planes are visible; black mounts remain dark; thin black Textbook component edges separate adjacent flat faces; PBS shells stay translucent enough to reveal the beam junction and their interface remains identifiable; Illustrated PBS edges stay cyan rather than black; no excessive glass transparency or unintended contour; each requested style has a distinct shading treatment; labels are legible and collision-free. Apply [release checks](release-checks.md) for physical interfaces and packaging. A prompt improves repeatability but does not guarantee a first-pass result; iterate on previews before delivery.
