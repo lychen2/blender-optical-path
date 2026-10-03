@@ -1,0 +1,114 @@
+[
+  {
+    "sku": "BE1_M",
+    "solid": 0,
+    "source_sha256": "aa81964bc60a9f816812a5c5aeb239414b85e526b27e2ecee7f967a058351982",
+    "removed_face_range": [
+      31,
+      254
+    ],
+    "faces_before": 255,
+    "faces_after": 28,
+    "filled_volume_mm3": 0.2849910701365843,
+    "valid": true,
+    "outer_bounds_unchanged": true
+  },
+  {
+    "sku": "CF038-P5",
+    "solid": 0,
+    "source_sha256": "a78703d4c2c46d4ce38085abb2f6328d93f16b008289833e954c2940cef142a9",
+    "removed_face_range": [
+      81,
+      297
+    ],
+    "faces_before": 298,
+    "faces_after": 80,
+    "filled_volume_mm3": 16.7925469791835,
+    "valid": true,
+    "outer_bounds_unchanged": true
+  },
+  {
+    "sku": "CF125",
+    "solid": 0,
+    "source_sha256": "ba545938939093c6200c5b8fce1ee700073a3872057b13f17a6e7d5b862ba417",
+    "removed_face_range": [
+      74,
+      289
+    ],
+    "faces_before": 290,
+    "faces_after": 87,
+    "filled_volume_mm3": 1.6843666892837064,
+    "valid": true,
+    "outer_bounds_unchanged": true
+  },
+  {
+    "sku": "PH20_M",
+    "solid": 1,
+    "source_sha256": "4dcfb26a3ddcbc56366d7fcb980292627eadb8ffd574992b7f90f3331e167622",
+    "removed_face_range": [
+      39,
+      309
+    ],
+    "faces_before": 310,
+    "faces_after": 41,
+    "filled_volume_mm3": 0.23355653728935977,
+    "valid": true,
+    "outer_bounds_unchanged": true
+  },
+  {
+    "sku": "PH30_M",
+    "solid": 1,
+    "source_sha256": "7f222c33d9dbc984100694f9717f2895e4a11a414eab4813f7d624db64fb6852",
+    "removed_face_range": [
+      39,
+      309
+    ],
+    "faces_before": 310,
+    "faces_after": 41,
+    "filled_volume_mm3": 0.2335565372900419,
+    "valid": true,
+    "outer_bounds_unchanged": true
+  },
+  {
+    "sku": "PH40_M",
+    "solid": 1,
+    "source_sha256": "e1461277434200a0ff90537bac2e105bd214e9061bb960ce5e26f769868840de",
+    "removed_face_range": [
+      39,
+      309
+    ],
+    "faces_before": 310,
+    "faces_after": 41,
+    "filled_volume_mm3": 0.23355653729413461,
+    "valid": true,
+    "outer_bounds_unchanged": true
+  },
+  {
+    "sku": "PH50_M",
+    "solid": 1,
+    "source_sha256": "7e6701d90a65167892b36fbffdb787bc08e7aef607443d9787cfc6543523b393",
+    "removed_face_range": [
+      39,
+      309
+    ],
+    "faces_before": 310,
+    "faces_after": 41,
+    "filled_volume_mm3": 0.2335565372934525,
+    "valid": true,
+    "outer_bounds_unchanged": true
+  },
+  {
+    "sku": "PH75_M",
+    "solid": 1,
+    "source_sha256": "ec26270fcc2f78c1a7041b56cb017be12abaf185ff9f8ec7d0b859ca04e2497c",
+    "removed_face_range": [
+      39,
+      309
+    ],
+    "faces_before": 310,
+    "faces_after": 41,
+    "filled_volume_mm3": 0.2335565372934525,
+    "valid": true,
+    "outer_bounds_unchanged": true
+  }
+]

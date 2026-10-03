@@ -1,0 +1,70 @@
+{
+  "product": {
+    "id": "8309b374-ea31-470e-a81d-67951fb1260e",
+    "code": "WG11050-B",
+    "name": "WG11050-B",
+    "assets": [
+      {
+        "id": "b349412b-2ac3-461b-9ded-f12c73a6ee9e",
+        "name": "10723-E0W.pdf",
+        "url": "https://thin01mstroc282prod.dxcloud.episerver.net/globalassets/items/w/wg/wg1/wg11050-b/10723-e0w.pdf?v=0116034742",
+        "group": "CAD PDF",
+        "optiUrl": "https://media.thorlabs.com/globalassets/items/w/wg/wg1/wg11050-b/10723-e0w.pdf?v=0116034742"
+      },
+      {
+        "id": "94b35764-3f66-4377-8b18-85951e13a601",
+        "name": "10723-E0W.dxf",
+        "url": "https://thin01mstroc282prod.dxcloud.episerver.net/globalassets/items/w/wg/wg1/wg11050-b/10723-e0w.dxf?v=0116034743",
+        "group": "CAD DXF",
+        "optiUrl": "https://media.thorlabs.com/globalassets/items/w/wg/wg1/wg11050-b/10723-e0w.dxf?v=0116034743"
+      },
+      {
+        "id": "47a9a657-7be7-4f15-a4bd-24eefde53c5c",
+        "name": "10723-E0W.sldprt",
+        "url": "https://thin01mstroc282prod.dxcloud.episerver.net/globalassets/items/w/wg/wg1/wg11050-b/10723-e0w.sldprt?v=0116034743",
+        "group": "Solidworks",
+        "optiUrl": "https://media.thorlabs.com/globalassets/items/w/wg/wg1/wg11050-b/10723-e0w.sldprt?v=0116034743"
+      },
+      {
+        "id": "65bfb1fd-ba75-4f83-a97c-d39999a41c4b",
+        "name": "10723-E0W.step",
+        "url": "https://thin01mstroc282prod.dxcloud.episerver.net/globalassets/items/w/wg/wg1/wg11050-b/10723-e0w.step?v=0116034744",
+        "group": "Step",
+        "optiUrl": "https://media.thorlabs.com/globalassets/items/w/wg/wg1/wg11050-b/10723-e0w.step?v=0116034744"
+      },
+      {
+        "id": "dddd12f2-3160-4043-b174-304e87d6b703",
+        "name": "10723-E0W.html",
+        "url": "https://thin01mstroc282prod.dxcloud.episerver.net/globalassets/items/w/wg/wg1/wg11050-b/10723-e0w.html?v=0116034744",
+        "group": "eDrawing / 3D Model",
+        "optiUrl": "https://media.thorlabs.com/globalassets/items/w/wg/wg1/wg11050-b/10723-e0w.html?v=0116034744"
+      },
+      {
+        "id": "0f620142-76da-4cab-bc88-11437183cb42",
+        "name": "10723-S02.zar",
+        "url": "https://thin01mstroc282prod.dxcloud.episerver.net/globalassets/items/w/wg/wg1/wg11050-b/10723-s02.zar?v=0116034742",
+        "group": "Zemax (ZAR)",
+        "optiUrl": "https://media.thorlabs.com/globalassets/items/w/wg/wg1/wg11050-b/10723-s02.zar?v=0116034742"
+      }
+    ],
+    "downloaded": [
+      {
+        "path": "WG11050-B/10723-E0W.pdf",
+        "url": "https://media.thorlabs.com/globalassets/items/w/wg/wg1/wg11050-b/10723-e0w.pdf?v=0116034742",
+        "sha256": "73731521248057ef99b26b1ae8c69a316b0286c5fb370bda44d4edc1e1f19672",
+        "kind": "CAD PDF"
+      },
+      {
+        "path": "WG11050-B/10723-E0W.step",
+        "url": "https://media.thorlabs.com/globalassets/items/w/wg/wg1/wg11050-b/10723-e0w.step?v=0116034744",
+        "sha256": "b72a88eecf2d27efc1d2203c161506706c6fb8ed1be7e231ceb5fd657bfcb0bc",
+        "kind": "Step"
+      }
+    ],
+    "retrieved_utc": "2026-09-27T13:25:06.474230+00:00"
+  },
+  "source_sha256": "b72a88eecf2d27efc1d2203c161506706c6fb8ed1be7e231ceb5fd657bfcb0bc",
+  "mesh_sha256": "f4813355a66c51dabf10416554b881bb17428fac8b0b6c7f03355c46ce91a958",
+  "label_treatment": "source geometry retained",
+  "cleanup": null
+}

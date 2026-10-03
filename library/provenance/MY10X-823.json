@@ -1,0 +1,66 @@
+{
+  "product": {
+    "id": "12198ad9-f68c-4506-84b6-87cbff8f4999",
+    "code": "MY10X-823",
+    "name": "MY10X-823",
+    "assets": [
+      {
+        "id": "883b8f4d-6616-4866-b379-427888a698a4",
+        "name": "TTN189222-E0W.pdf",
+        "url": "https://thin01mstroc282prod.dxcloud.episerver.net/globalassets/items/m/my/my1/my10x-823/ttn189222-e0w.pdf?v=0116013311",
+        "group": "CAD PDF",
+        "optiUrl": "https://media.thorlabs.com/globalassets/items/m/my/my1/my10x-823/ttn189222-e0w.pdf?v=0116013311"
+      },
+      {
+        "id": "cc1b5011-0bb3-4da9-977e-bfdf776d9397",
+        "name": "TTN189222-E0W.dxf",
+        "url": "https://thin01mstroc282prod.dxcloud.episerver.net/globalassets/items/m/my/my1/my10x-823/ttn189222-e0w.dxf?v=0116013312",
+        "group": "CAD DXF",
+        "optiUrl": "https://media.thorlabs.com/globalassets/items/m/my/my1/my10x-823/ttn189222-e0w.dxf?v=0116013312"
+      },
+      {
+        "id": "7f925404-9e92-4947-b297-8fc2f1427f50",
+        "name": "TTN189222-E0W.sldprt",
+        "url": "https://thin01mstroc282prod.dxcloud.episerver.net/globalassets/items/m/my/my1/my10x-823/ttn189222-e0w.sldprt?v=0116013312",
+        "group": "Solidworks",
+        "optiUrl": "https://media.thorlabs.com/globalassets/items/m/my/my1/my10x-823/ttn189222-e0w.sldprt?v=0116013312"
+      },
+      {
+        "id": "236fa70a-89bf-48b3-9fc8-0e4994cbbee5",
+        "name": "TTN189222-E0W.step",
+        "url": "https://thin01mstroc282prod.dxcloud.episerver.net/globalassets/items/m/my/my1/my10x-823/ttn189222-e0w.step?v=0116013312",
+        "group": "Step",
+        "optiUrl": "https://media.thorlabs.com/globalassets/items/m/my/my1/my10x-823/ttn189222-e0w.step?v=0116013312"
+      },
+      {
+        "id": "8ddcc1f7-a680-4130-90e9-447cca776cf9",
+        "name": "TTN189222-E0W.html",
+        "url": "https://thin01mstroc282prod.dxcloud.episerver.net/globalassets/items/m/my/my1/my10x-823/ttn189222-e0w.html?v=0116013313",
+        "group": "eDrawing / 3D Model",
+        "optiUrl": "https://media.thorlabs.com/globalassets/items/m/my/my1/my10x-823/ttn189222-e0w.html?v=0116013313"
+      }
+    ],
+    "downloaded": [
+      {
+        "path": "MY10X-823/TTN189222-E0W.pdf",
+        "url": "https://media.thorlabs.com/globalassets/items/m/my/my1/my10x-823/ttn189222-e0w.pdf?v=0116013311",
+        "sha256": "587a49f4eafc9ca37c91219ccb2bbc1444c4b4bc376bf727c880c4d78e861ce4",
+        "kind": "CAD PDF"
+      },
+      {
+        "path": "MY10X-823/TTN189222-E0W.step",
+        "url": "https://media.thorlabs.com/globalassets/items/m/my/my1/my10x-823/ttn189222-e0w.step?v=0116013312",
+        "sha256": "957a8a33ae2d4d8adead48f5f3467c03ebbf9cd8bf4e0f685008ee492b68b5a0",
+        "kind": "Step"
+      }
+    ],
+    "retrieved_utc": "2026-09-27T14:12:48.167583+00:00"
+  },
+  "source_sha256": "957a8a33ae2d4d8adead48f5f3467c03ebbf9cd8bf4e0f685008ee492b68b5a0",
+  "mesh_sha256": "9d9cb2b0ed3238ee5cd4c63d4843c3bb9466c6731ab2d6b821fa843f202f8f24",
+  "label_treatment": "reviewed engraving removal",
+  "cleanup": {
+    "sha256": "957a8a33ae2d4d8adead48f5f3467c03ebbf9cd8bf4e0f685008ee492b68b5a0",
+    "changes": []
+  }
+}

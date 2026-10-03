@@ -1,0 +1,63 @@
+{
+  "product": {
+    "id": "0c02550d-3c69-44c8-9a4d-04688e51119e",
+    "code": "KM100",
+    "name": "KM100",
+    "assets": [
+      {
+        "id": "e481c118-856c-4d20-8837-e1b20d765ed8",
+        "name": "6628-E0W.pdf",
+        "url": "https://thin01mstroc282prod.dxcloud.episerver.net/globalassets/items/k/km/km1/km100/6628-e0w.pdf?v=0116115950",
+        "group": "CAD PDF",
+        "optiUrl": "https://media.thorlabs.com/globalassets/items/k/km/km1/km100/6628-e0w.pdf?v=0116115950"
+      },
+      {
+        "id": "cdeaba35-c0ed-4f22-b9b8-6a98cb4a48d5",
+        "name": "6628-E0W.dxf",
+        "url": "https://thin01mstroc282prod.dxcloud.episerver.net/globalassets/items/k/km/km1/km100/6628-e0w.dxf?v=0116115950",
+        "group": "CAD DXF",
+        "optiUrl": "https://media.thorlabs.com/globalassets/items/k/km/km1/km100/6628-e0w.dxf?v=0116115950"
+      },
+      {
+        "id": "5d73e44c-c94e-4f59-933c-181f7487e7ef",
+        "name": "6628-E0W.sldprt",
+        "url": "https://thin01mstroc282prod.dxcloud.episerver.net/globalassets/items/k/km/km1/km100/6628-e0w.sldprt?v=0116115951",
+        "group": "Solidworks",
+        "optiUrl": "https://media.thorlabs.com/globalassets/items/k/km/km1/km100/6628-e0w.sldprt?v=0116115951"
+      },
+      {
+        "id": "e5db9ef8-d31a-4fb8-b512-ba6fef95f304",
+        "name": "6628-E0W.html",
+        "url": "https://thin01mstroc282prod.dxcloud.episerver.net/globalassets/items/k/km/km1/km100/6628-e0w.html?v=0116115951",
+        "group": "eDrawing / 3D Model",
+        "optiUrl": "https://media.thorlabs.com/globalassets/items/k/km/km1/km100/6628-e0w.html?v=0116115951"
+      },
+      {
+        "id": "a0573019-2fb0-4a4a-9607-a8faf317d7ed",
+        "name": "6628-E0W.step",
+        "url": "https://thin01mstroc282prod.dxcloud.episerver.net/globalassets/items/k/km/km1/km100/6628-e0w.step?v=0116115952",
+        "group": "Step",
+        "optiUrl": "https://media.thorlabs.com/globalassets/items/k/km/km1/km100/6628-e0w.step?v=0116115952"
+      }
+    ],
+    "downloaded": [
+      {
+        "path": "KM100/6628-E0W.pdf",
+        "url": "https://media.thorlabs.com/globalassets/items/k/km/km1/km100/6628-e0w.pdf?v=0116115950",
+        "sha256": "676f1fe912ed09fab2beb4dba9224f259cbb2db819cb6980cdb3a153eb650a88",
+        "kind": "CAD PDF"
+      },
+      {
+        "path": "KM100/6628-E0W.step",
+        "url": "https://media.thorlabs.com/globalassets/items/k/km/km1/km100/6628-e0w.step?v=0116115952",
+        "sha256": "1e93ada28a3ca69455bb189c920cb181dcbdcb3ea3e31e66f33c1e281c6e8b82",
+        "kind": "Step"
+      }
+    ],
+    "retrieved_utc": "2026-09-27T13:24:18.342697+00:00"
+  },
+  "source_sha256": "1e93ada28a3ca69455bb189c920cb181dcbdcb3ea3e31e66f33c1e281c6e8b82",
+  "mesh_sha256": "3b7ac01acc484ae74079a11d1f23a109f3268dca45cfef31ea41a7053bc6f025",
+  "label_treatment": "reviewed engraving removal",
+  "cleanup": null
+}

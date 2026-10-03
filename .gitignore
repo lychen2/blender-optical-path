@@ -1,0 +1,15 @@
+__pycache__/
+*.py[cod]
+*.blend[0-9]*
+.DS_Store
+.venv*/
+node_modules/
+# Local outputs and downloaded CAD sources
+output/
+outputs/
+cad-sources/
+*.step
+*.stp
+*.sldprt
+library/validation.json
+library/delivery_validation.json

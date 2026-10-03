@@ -1,0 +1,519 @@
+{
+  "scope": "Nominal offline modules",
+  "modules": [
+    {
+      "id": "schematic/tube_lens",
+      "label": "Tube lens",
+      "collection": "Schematic / Tube lens",
+      "kind": "offline_schematic_module",
+      "sku": "",
+      "anchor_mm": [
+        0,
+        0,
+        100
+      ],
+      "axis": "+X",
+      "ports_mm": {},
+      "provenance": "Repository-authored nominal schematic geometry",
+      "source_record": "provenance/schematic_modules.json"
+    },
+    {
+      "id": "schematic/lens_tube",
+      "label": "Lens tube",
+      "collection": "Schematic / Lens tube",
+      "kind": "offline_schematic_module",
+      "sku": "",
+      "anchor_mm": [
+        0,
+        0,
+        100
+      ],
+      "axis": "+X",
+      "ports_mm": {},
+      "provenance": "Repository-authored nominal schematic geometry",
+      "source_record": "provenance/schematic_modules.json"
+    },
+    {
+      "id": "schematic/cage_plate",
+      "label": "Cage plate and rods",
+      "collection": "Schematic / Cage plate and rods",
+      "kind": "offline_schematic_module",
+      "sku": "",
+      "anchor_mm": [
+        0,
+        0,
+        100
+      ],
+      "axis": "+X",
+      "ports_mm": {},
+      "provenance": "Repository-authored nominal schematic geometry",
+      "source_record": "provenance/schematic_modules.json"
+    },
+    {
+      "id": "schematic/bandpass_filter",
+      "label": "Bandpass filter",
+      "collection": "Schematic / Bandpass filter",
+      "kind": "offline_schematic_module",
+      "sku": "",
+      "anchor_mm": [
+        0,
+        0,
+        100
+      ],
+      "axis": "+X",
+      "ports_mm": {},
+      "provenance": "Repository-authored nominal schematic geometry",
+      "source_record": "provenance/schematic_modules.json"
+    },
+    {
+      "id": "schematic/nd_filter",
+      "label": "Neutral density filter",
+      "collection": "Schematic / Neutral density filter",
+      "kind": "offline_schematic_module",
+      "sku": "",
+      "anchor_mm": [
+        0,
+        0,
+        100
+      ],
+      "axis": "+X",
+      "ports_mm": {},
+      "provenance": "Repository-authored nominal schematic geometry",
+      "source_record": "provenance/schematic_modules.json"
+    },
+    {
+      "id": "schematic/linear_polarizer",
+      "label": "Linear polarizer",
+      "collection": "Schematic / Linear polarizer",
+      "kind": "offline_schematic_module",
+      "sku": "",
+      "anchor_mm": [
+        0,
+        0,
+        100
+      ],
+      "axis": "+X",
+      "ports_mm": {},
+      "provenance": "Repository-authored nominal schematic geometry",
+      "source_record": "provenance/schematic_modules.json"
+    },
+    {
+      "id": "schematic/filter_wheel",
+      "label": "Filter wheel",
+      "collection": "Schematic / Filter wheel",
+      "kind": "offline_schematic_module",
+      "sku": "",
+      "anchor_mm": null,
+      "axis": null,
+      "ports_mm": {},
+      "provenance": "Repository-authored nominal schematic geometry",
+      "source_record": "provenance/schematic_modules.json"
+    },
+    {
+      "id": "schematic/cylindrical_lens",
+      "label": "Cylindrical lens",
+      "collection": "Schematic / Cylindrical lens",
+      "kind": "offline_schematic_module",
+      "sku": "",
+      "anchor_mm": [
+        0,
+        0,
+        100
+      ],
+      "axis": "+X",
+      "ports_mm": {},
+      "provenance": "Repository-authored nominal schematic geometry",
+      "source_record": "provenance/schematic_modules.json"
+    },
+    {
+      "id": "schematic/sample_slide",
+      "label": "Sample slide holder",
+      "collection": "Schematic / Sample slide holder",
+      "kind": "offline_schematic_module",
+      "sku": "",
+      "anchor_mm": [
+        0,
+        0,
+        100
+      ],
+      "axis": "+X",
+      "ports_mm": {},
+      "provenance": "Repository-authored nominal schematic geometry",
+      "source_record": "provenance/schematic_modules.json"
+    },
+    {
+      "id": "schematic/condenser",
+      "label": "Condenser",
+      "collection": "Schematic / Condenser",
+      "kind": "offline_schematic_module",
+      "sku": "",
+      "anchor_mm": [
+        0,
+        0,
+        100
+      ],
+      "axis": "+X",
+      "ports_mm": {},
+      "provenance": "Repository-authored nominal schematic geometry",
+      "source_record": "provenance/schematic_modules.json"
+    },
+    {
+      "id": "schematic/led_illuminator",
+      "label": "LED illuminator",
+      "collection": "Schematic / LED illuminator",
+      "kind": "offline_schematic_module",
+      "sku": "",
+      "anchor_mm": [
+        0,
+        0,
+        100
+      ],
+      "axis": "+X",
+      "ports_mm": {
+        "output": [
+          11,
+          0,
+          100
+        ]
+      },
+      "provenance": "Repository-authored nominal schematic geometry",
+      "source_record": "provenance/schematic_modules.json"
+    },
+    {
+      "id": "schematic/dichroic",
+      "label": "Dichroic mirror",
+      "collection": "Schematic / Dichroic mirror",
+      "kind": "offline_schematic_module",
+      "sku": "",
+      "anchor_mm": [
+        0,
+        0,
+        100
+      ],
+      "axis": "+X",
+      "ports_mm": {},
+      "provenance": "Repository-authored nominal schematic geometry",
+      "source_record": "provenance/schematic_modules.json"
+    },
+    {
+      "id": "schematic/epi_cube",
+      "label": "Epi illumination cube",
+      "collection": "Schematic / Epi illumination cube",
+      "kind": "offline_schematic_module",
+      "sku": "",
+      "anchor_mm": [
+        0,
+        0,
+        100
+      ],
+      "axis": "+X",
+      "ports_mm": {
+        "input": [
+          -19,
+          0,
+          100
+        ],
+        "transmitted": [
+          19,
+          0,
+          100
+        ],
+        "reflected": [
+          0,
+          19,
+          100
+        ]
+      },
+      "provenance": "Repository-authored nominal schematic geometry",
+      "source_record": "provenance/schematic_modules.json"
+    },
+    {
+      "id": "schematic/vertical_objective",
+      "label": "Vertical objective stand",
+      "collection": "Schematic / Vertical objective stand",
+      "kind": "offline_schematic_module",
+      "sku": "",
+      "anchor_mm": [
+        18,
+        0,
+        77
+      ],
+      "axis": "-Z",
+      "ports_mm": {
+        "front": [
+          18,
+          0,
+          77
+        ],
+        "rear": [
+          18,
+          0,
+          125
+        ]
+      },
+      "provenance": "Repository-authored nominal schematic geometry",
+      "source_record": "provenance/schematic_modules.json"
+    },
+    {
+      "id": "schematic/xy_stage",
+      "label": "XY sample stage",
+      "collection": "Schematic / XY sample stage",
+      "kind": "offline_schematic_module",
+      "sku": "",
+      "anchor_mm": null,
+      "axis": null,
+      "ports_mm": {},
+      "provenance": "Repository-authored nominal schematic geometry",
+      "source_record": "provenance/schematic_modules.json"
+    },
+    {
+      "id": "schematic/pinhole",
+      "label": "Spatial filter pinhole",
+      "collection": "Schematic / Spatial filter pinhole",
+      "kind": "offline_schematic_module",
+      "sku": "",
+      "anchor_mm": [
+        0,
+        0,
+        100
+      ],
+      "axis": "+X",
+      "ports_mm": {},
+      "provenance": "Repository-authored nominal schematic geometry",
+      "source_record": "provenance/schematic_modules.json"
+    },
+    {
+      "id": "schematic/beam_expander",
+      "label": "Beam expander",
+      "collection": "Schematic / Beam expander",
+      "kind": "offline_schematic_module",
+      "sku": "",
+      "anchor_mm": [
+        0,
+        0,
+        100
+      ],
+      "axis": "+X",
+      "ports_mm": {},
+      "provenance": "Repository-authored nominal schematic geometry",
+      "source_record": "provenance/schematic_modules.json"
+    },
+    {
+      "id": "schematic/retroreflector",
+      "label": "Corner cube retroreflector",
+      "collection": "Schematic / Corner cube retroreflector",
+      "kind": "offline_schematic_module",
+      "sku": "",
+      "anchor_mm": [
+        0,
+        0,
+        100
+      ],
+      "axis": "+X",
+      "ports_mm": {},
+      "provenance": "Repository-authored nominal schematic geometry",
+      "source_record": "provenance/schematic_modules.json"
+    },
+    {
+      "id": "schematic/delay_stage",
+      "label": "Delay stage",
+      "collection": "Schematic / Delay stage",
+      "kind": "offline_schematic_module",
+      "sku": "",
+      "anchor_mm": null,
+      "axis": null,
+      "ports_mm": {},
+      "provenance": "Repository-authored nominal schematic geometry",
+      "source_record": "provenance/schematic_modules.json"
+    },
+    {
+      "id": "schematic/npbs_cube",
+      "label": "Nonpolarizing splitter cube",
+      "collection": "Schematic / Nonpolarizing splitter cube",
+      "kind": "offline_schematic_module",
+      "sku": "",
+      "anchor_mm": [
+        0,
+        0,
+        100
+      ],
+      "axis": "+X",
+      "ports_mm": {
+        "input": [
+          -19,
+          0,
+          100
+        ],
+        "transmitted": [
+          19,
+          0,
+          100
+        ],
+        "reflected": [
+          0,
+          19,
+          100
+        ]
+      },
+      "provenance": "Repository-authored nominal schematic geometry",
+      "source_record": "provenance/schematic_modules.json"
+    },
+    {
+      "id": "schematic/etalon",
+      "label": "Fabry-Perot etalon",
+      "collection": "Schematic / Fabry-Perot etalon",
+      "kind": "offline_schematic_module",
+      "sku": "",
+      "anchor_mm": [
+        0,
+        0,
+        100
+      ],
+      "axis": "+X",
+      "ports_mm": {},
+      "provenance": "Repository-authored nominal schematic geometry",
+      "source_record": "provenance/schematic_modules.json"
+    },
+    {
+      "id": "schematic/uv_source",
+      "label": "UV illumination source",
+      "collection": "Schematic / UV illumination source",
+      "kind": "offline_schematic_module",
+      "sku": "",
+      "anchor_mm": [
+        0,
+        0,
+        100
+      ],
+      "axis": "+X",
+      "ports_mm": {
+        "output": [
+          11,
+          0,
+          100
+        ]
+      },
+      "provenance": "Repository-authored nominal schematic geometry",
+      "source_record": "provenance/schematic_modules.json"
+    },
+    {
+      "id": "schematic/shutter",
+      "label": "Beam shutter",
+      "collection": "Schematic / Beam shutter",
+      "kind": "offline_schematic_module",
+      "sku": "",
+      "anchor_mm": [
+        0,
+        0,
+        100
+      ],
+      "axis": "+X",
+      "ports_mm": {},
+      "provenance": "Repository-authored nominal schematic geometry",
+      "source_record": "provenance/schematic_modules.json"
+    },
+    {
+      "id": "schematic/photomask",
+      "label": "Photomask holder",
+      "collection": "Schematic / Photomask holder",
+      "kind": "offline_schematic_module",
+      "sku": "",
+      "anchor_mm": [
+        0,
+        0,
+        100
+      ],
+      "axis": "+X",
+      "ports_mm": {},
+      "provenance": "Repository-authored nominal schematic geometry",
+      "source_record": "provenance/schematic_modules.json"
+    },
+    {
+      "id": "schematic/wafer_chuck",
+      "label": "Wafer and vacuum chuck",
+      "collection": "Schematic / Wafer and vacuum chuck",
+      "kind": "offline_schematic_module",
+      "sku": "",
+      "anchor_mm": [
+        0,
+        0,
+        21.5
+      ],
+      "axis": "+Z",
+      "ports_mm": {},
+      "provenance": "Repository-authored nominal schematic geometry",
+      "source_record": "provenance/schematic_modules.json"
+    },
+    {
+      "id": "schematic/slm",
+      "label": "Reflective SLM",
+      "collection": "Schematic / Reflective SLM",
+      "kind": "offline_schematic_module",
+      "sku": "",
+      "anchor_mm": [
+        0,
+        0,
+        100
+      ],
+      "axis": "+X",
+      "ports_mm": {
+        "surface": [
+          1.5,
+          0,
+          100
+        ]
+      },
+      "provenance": "Repository-authored nominal schematic geometry",
+      "source_record": "provenance/schematic_modules.json"
+    },
+    {
+      "id": "schematic/dmd",
+      "label": "DMD modulator",
+      "collection": "Schematic / DMD modulator",
+      "kind": "offline_schematic_module",
+      "sku": "",
+      "anchor_mm": [
+        0,
+        0,
+        100
+      ],
+      "axis": "+X",
+      "ports_mm": {
+        "surface": [
+          1.5,
+          0,
+          100
+        ]
+      },
+      "provenance": "Repository-authored nominal schematic geometry",
+      "source_record": "provenance/schematic_modules.json"
+    },
+    {
+      "id": "schematic/scan_head",
+      "label": "Two-axis scanning head",
+      "collection": "Schematic / Two-axis scanning head",
+      "kind": "offline_schematic_module",
+      "sku": "",
+      "anchor_mm": [
+        0,
+        0,
+        100
+      ],
+      "axis": "+X",
+      "ports_mm": {
+        "input": [
+          22,
+          0,
+          100
+        ],
+        "output": [
+          -10,
+          36,
+          100
+        ]
+      },
+      "provenance": "Repository-authored nominal schematic geometry",
+      "source_record": "provenance/schematic_modules.json"
+    }
+  ]
+}

@@ -1,0 +1,245 @@
+{
+  "product": {
+    "id": "cf29abc1-b6f6-493c-9fac-8b6e09d6f46a",
+    "code": "POLARIS-K1S5",
+    "name": "POLARIS-K1S5",
+    "assets": [
+      {
+        "id": "6cc9ffab-3781-4384-98f3-cfe40318d440",
+        "name": "TTN102675-E0W.pdf",
+        "url": "https://thin01mstroc282prod.dxcloud.episerver.net/globalassets/items/p/po/pol/polaris-k1s5/ttn102675-e0w.pdf?v=0116021948",
+        "group": "CAD PDF",
+        "optiUrl": "https://media.thorlabs.com/globalassets/items/p/po/pol/polaris-k1s5/ttn102675-e0w.pdf?v=0116021948"
+      },
+      {
+        "id": "b4c04e64-28a6-4c8b-a7fe-b8af8404e4b2",
+        "name": "TTN102675-E0W.dxf",
+        "url": "https://thin01mstroc282prod.dxcloud.episerver.net/globalassets/items/p/po/pol/polaris-k1s5/ttn102675-e0w.dxf?v=0116021949",
+        "group": "CAD DXF",
+        "optiUrl": "https://media.thorlabs.com/globalassets/items/p/po/pol/polaris-k1s5/ttn102675-e0w.dxf?v=0116021949"
+      },
+      {
+        "id": "966ad313-2f63-464b-99df-ef0d012879f8",
+        "name": "TTN102675-E0W.sldprt",
+        "url": "https://thin01mstroc282prod.dxcloud.episerver.net/globalassets/items/p/po/pol/polaris-k1s5/ttn102675-e0w.sldprt?v=0116021950",
+        "group": "Solidworks",
+        "optiUrl": "https://media.thorlabs.com/globalassets/items/p/po/pol/polaris-k1s5/ttn102675-e0w.sldprt?v=0116021950"
+      },
+      {
+        "id": "9e978545-a3ae-4847-ad0b-89bee02538cb",
+        "name": "TTN102675-E0W.html",
+        "url": "https://thin01mstroc282prod.dxcloud.episerver.net/globalassets/items/p/po/pol/polaris-k1s5/ttn102675-e0w.html?v=0116021951",
+        "group": "eDrawing / 3D Model",
+        "optiUrl": "https://media.thorlabs.com/globalassets/items/p/po/pol/polaris-k1s5/ttn102675-e0w.html?v=0116021951"
+      },
+      {
+        "id": "0f7a3c3c-e4e8-4298-97ec-966e61908a60",
+        "name": "TTN102675-E0W.step",
+        "url": "https://thin01mstroc282prod.dxcloud.episerver.net/globalassets/items/p/po/pol/polaris-k1s5/ttn102675-e0w.step?v=0116021952",
+        "group": "Step",
+        "optiUrl": "https://media.thorlabs.com/globalassets/items/p/po/pol/polaris-k1s5/ttn102675-e0w.step?v=0116021952"
+      },
+      {
+        "id": "62ba2b1d-5c33-4a35-87aa-365541d32467",
+        "name": "TTN102675-S01.pdf",
+        "url": "https://thin01mstroc282prod.dxcloud.episerver.net/globalassets/items/p/po/pol/polaris-k1s5/ttn102675-s01.pdf?v=0116021952",
+        "group": "Spec Sheet",
+        "optiUrl": "https://media.thorlabs.com/globalassets/items/p/po/pol/polaris-k1s5/ttn102675-s01.pdf?v=0116021952"
+      }
+    ],
+    "downloaded": [
+      {
+        "path": "POLARIS-K1S5/TTN102675-E0W.pdf",
+        "url": "https://media.thorlabs.com/globalassets/items/p/po/pol/polaris-k1s5/ttn102675-e0w.pdf?v=0116021948",
+        "sha256": "289549bb15294fdfd24e71b61feac3cb01c03e7fcc01f6e399141c7612589dc0",
+        "kind": "CAD PDF"
+      },
+      {
+        "path": "POLARIS-K1S5/TTN102675-E0W.step",
+        "url": "https://media.thorlabs.com/globalassets/items/p/po/pol/polaris-k1s5/ttn102675-e0w.step?v=0116021952",
+        "sha256": "92da9e159d1222b490b7448113d8ec032ab8bb53855eb06519d349bb5ef02a32",
+        "kind": "Step"
+      }
+    ],
+    "retrieved_utc": "2026-09-27T14:43:56.517689+00:00"
+  },
+  "source_sha256": "92da9e159d1222b490b7448113d8ec032ab8bb53855eb06519d349bb5ef02a32",
+  "mesh_sha256": "bd40eef7c562bcda1d84a0a069c33746bf2fe9aafa30a40b41167ee33da31837",
+  "label_treatment": "reviewed engraving removal",
+  "cleanup": {
+    "sha256": "92da9e159d1222b490b7448113d8ec032ab8bb53855eb06519d349bb5ef02a32",
+    "checks": [
+      {
+        "solid": 0,
+        "valid": true,
+        "bounds_unchanged": true,
+        "volume_added_mm3": -0.0007246364839375019,
+        "mesh_method": "whole-solid",
+        "faces_before": 231,
+        "faces_after": 231
+      },
+      {
+        "solid": 1,
+        "valid": true,
+        "bounds_unchanged": true,
+        "volume_added_mm3": 0.6197584647352414,
+        "mesh_method": "per-face, welded coordinates",
+        "faces_before": 660,
+        "faces_after": 238
+      },
+      {
+        "solid": 2,
+        "valid": true,
+        "bounds_unchanged": true,
+        "volume_added_mm3": 4.630074101896753e-12,
+        "mesh_method": "whole-solid",
+        "faces_before": 4,
+        "faces_after": 4
+      },
+      {
+        "solid": 3,
+        "valid": true,
+        "bounds_unchanged": true,
+        "volume_added_mm3": -1.6742205843911506e-08,
+        "mesh_method": "whole-solid",
+        "faces_before": 65,
+        "faces_after": 65
+      },
+      {
+        "solid": 4,
+        "valid": true,
+        "bounds_unchanged": true,
+        "volume_added_mm3": 4.024855115858372e-09,
+        "mesh_method": "whole-solid",
+        "faces_before": 65,
+        "faces_after": 65
+      },
+      {
+        "solid": 5,
+        "valid": true,
+        "bounds_unchanged": true,
+        "volume_added_mm3": -1.6732201402192004e-08,
+        "mesh_method": "whole-solid",
+        "faces_before": 65,
+        "faces_after": 65
+      },
+      {
+        "solid": 6,
+        "valid": true,
+        "bounds_unchanged": true,
+        "volume_added_mm3": -1.351607892274842e-08,
+        "mesh_method": "whole-solid",
+        "faces_before": 2,
+        "faces_after": 2
+      },
+      {
+        "solid": 7,
+        "valid": true,
+        "bounds_unchanged": true,
+        "volume_added_mm3": -1.3516064711893705e-08,
+        "mesh_method": "whole-solid",
+        "faces_before": 2,
+        "faces_after": 2
+      },
+      {
+        "solid": 8,
+        "valid": true,
+        "bounds_unchanged": true,
+        "volume_added_mm3": -4.567013434098044e-12,
+        "mesh_method": "whole-solid",
+        "faces_before": 4,
+        "faces_after": 4
+      },
+      {
+        "solid": 9,
+        "valid": true,
+        "bounds_unchanged": true,
+        "volume_added_mm3": -1.4956924587750109e-12,
+        "mesh_method": "whole-solid",
+        "faces_before": 4,
+        "faces_after": 4
+      },
+      {
+        "solid": 10,
+        "valid": true,
+        "bounds_unchanged": true,
+        "volume_added_mm3": -6.448175327022909e-13,
+        "mesh_method": "whole-solid",
+        "faces_before": 4,
+        "faces_after": 4
+      },
+      {
+        "solid": 11,
+        "valid": true,
+        "bounds_unchanged": true,
+        "volume_added_mm3": 1.4974688156144111e-12,
+        "mesh_method": "whole-solid",
+        "faces_before": 4,
+        "faces_after": 4
+      },
+      {
+        "solid": 12,
+        "valid": true,
+        "bounds_unchanged": true,
+        "volume_added_mm3": 2.4433788325950445e-12,
+        "mesh_method": "whole-solid",
+        "faces_before": 4,
+        "faces_after": 4
+      },
+      {
+        "solid": 13,
+        "valid": true,
+        "bounds_unchanged": true,
+        "volume_added_mm3": -1.509903313490213e-11,
+        "mesh_method": "whole-solid",
+        "faces_before": 50,
+        "faces_after": 50
+      },
+      {
+        "solid": 14,
+        "valid": true,
+        "bounds_unchanged": true,
+        "volume_added_mm3": 1.2647660696529783e-12,
+        "mesh_method": "whole-solid",
+        "faces_before": 2,
+        "faces_after": 2
+      },
+      {
+        "solid": 15,
+        "valid": true,
+        "bounds_unchanged": true,
+        "volume_added_mm3": -0.00035772437131242896,
+        "mesh_method": "whole-solid",
+        "faces_before": 10,
+        "faces_after": 10
+      },
+      {
+        "solid": 16,
+        "valid": true,
+        "bounds_unchanged": true,
+        "volume_added_mm3": -0.00035732126855236856,
+        "mesh_method": "whole-solid",
+        "faces_before": 10,
+        "faces_after": 10
+      },
+      {
+        "solid": 17,
+        "valid": true,
+        "bounds_unchanged": true,
+        "volume_added_mm3": -0.0003573212692629113,
+        "mesh_method": "whole-solid",
+        "faces_before": 10,
+        "faces_after": 10
+      },
+      {
+        "solid": 18,
+        "valid": true,
+        "bounds_unchanged": true,
+        "volume_added_mm3": -0.0003577320181449295,
+        "mesh_method": "whole-solid",
+        "faces_before": 10,
+        "faces_after": 10
+      }
+    ]
+  }
+}

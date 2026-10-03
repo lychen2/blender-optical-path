@@ -1,0 +1,63 @@
+{
+  "product": {
+    "id": "544c4b7e-b7e3-4f88-b389-a6554a5a1b8b",
+    "code": "ER2",
+    "name": "ER2",
+    "assets": [
+      {
+        "id": "cce58ac1-c4df-4195-9142-91e9e4003c5e",
+        "name": "0780-E0W.pdf",
+        "url": "https://thin01mstroc282prod.dxcloud.episerver.net/globalassets/items/e/er/er2/er2/0780-e0w.pdf?v=0116112047",
+        "group": "CAD PDF",
+        "optiUrl": "https://media.thorlabs.com/globalassets/items/e/er/er2/er2/0780-e0w.pdf?v=0116112047"
+      },
+      {
+        "id": "44faf523-25f1-4f6d-913f-e3f14d1fc07f",
+        "name": "0780-E0W.dxf",
+        "url": "https://thin01mstroc282prod.dxcloud.episerver.net/globalassets/items/e/er/er2/er2/0780-e0w.dxf?v=0116112048",
+        "group": "CAD DXF",
+        "optiUrl": "https://media.thorlabs.com/globalassets/items/e/er/er2/er2/0780-e0w.dxf?v=0116112048"
+      },
+      {
+        "id": "2f632e65-5fd1-4e07-b714-ee7bbc8602d8",
+        "name": "0780-E0W.sldprt",
+        "url": "https://thin01mstroc282prod.dxcloud.episerver.net/globalassets/items/e/er/er2/er2/0780-e0w.sldprt?v=0116112048",
+        "group": "Solidworks",
+        "optiUrl": "https://media.thorlabs.com/globalassets/items/e/er/er2/er2/0780-e0w.sldprt?v=0116112048"
+      },
+      {
+        "id": "c4e99ea7-5259-4d44-8cff-98b8f35eac35",
+        "name": "0780-E0W.step",
+        "url": "https://thin01mstroc282prod.dxcloud.episerver.net/globalassets/items/e/er/er2/er2/0780-e0w.step?v=0116112049",
+        "group": "Step",
+        "optiUrl": "https://media.thorlabs.com/globalassets/items/e/er/er2/er2/0780-e0w.step?v=0116112049"
+      },
+      {
+        "id": "825e3c58-30fd-487c-bfe8-3abdc44ad0b8",
+        "name": "0780-E0W.html",
+        "url": "https://thin01mstroc282prod.dxcloud.episerver.net/globalassets/items/e/er/er2/er2/0780-e0w.html?v=0116112049",
+        "group": "eDrawing / 3D Model",
+        "optiUrl": "https://media.thorlabs.com/globalassets/items/e/er/er2/er2/0780-e0w.html?v=0116112049"
+      }
+    ],
+    "downloaded": [
+      {
+        "path": "ER2/0780-E0W.pdf",
+        "url": "https://media.thorlabs.com/globalassets/items/e/er/er2/er2/0780-e0w.pdf?v=0116112047",
+        "sha256": "0943b162731e40e2d7c870a0b8099b933e3335c42976b136b7aa96e4d768084a",
+        "kind": "CAD PDF"
+      },
+      {
+        "path": "ER2/0780-E0W.step",
+        "url": "https://media.thorlabs.com/globalassets/items/e/er/er2/er2/0780-e0w.step?v=0116112049",
+        "sha256": "08b5cdcf2087bb6920f4f4f5298d5e5bf9fda660c8581d5182701ab7e5e5a2ee",
+        "kind": "Step"
+      }
+    ],
+    "retrieved_utc": "2026-09-27T13:24:47.864645+00:00"
+  },
+  "source_sha256": "08b5cdcf2087bb6920f4f4f5298d5e5bf9fda660c8581d5182701ab7e5e5a2ee",
+  "mesh_sha256": "73740ffb4616f3a376c4c6ea613883bdbc0e4a4d1db6712defbf9499fad9b1ec",
+  "label_treatment": "source geometry retained",
+  "cleanup": null
+}

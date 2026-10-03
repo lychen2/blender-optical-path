@@ -1,0 +1,63 @@
+{
+  "product": {
+    "id": "a524b28b-55f8-4895-b3c4-a9f756af40e4",
+    "code": "LMR1/M",
+    "name": "LMR1/M",
+    "assets": [
+      {
+        "id": "2332d30c-a81a-4aee-8250-db1259c646e1",
+        "name": "0002-E0W.pdf",
+        "url": "https://thin01mstroc282prod.dxcloud.episerver.net/globalassets/items/l/lm/lmr/lmr1_m/0002-e0w.pdf?v=0116125235",
+        "group": "CAD PDF",
+        "optiUrl": "https://media.thorlabs.com/globalassets/items/l/lm/lmr/lmr1_m/0002-e0w.pdf?v=0116125235"
+      },
+      {
+        "id": "84be8736-feae-4619-b047-89e87f87b066",
+        "name": "0002-E0W.dxf",
+        "url": "https://thin01mstroc282prod.dxcloud.episerver.net/globalassets/items/l/lm/lmr/lmr1_m/0002-e0w.dxf?v=0116125234",
+        "group": "CAD DXF",
+        "optiUrl": "https://media.thorlabs.com/globalassets/items/l/lm/lmr/lmr1_m/0002-e0w.dxf?v=0116125234"
+      },
+      {
+        "id": "2e85ef68-79e9-414f-afd7-3cc318784e60",
+        "name": "0002-E0W.sldprt",
+        "url": "https://thin01mstroc282prod.dxcloud.episerver.net/globalassets/items/l/lm/lmr/lmr1_m/0002-e0w.sldprt?v=0116125234",
+        "group": "Solidworks",
+        "optiUrl": "https://media.thorlabs.com/globalassets/items/l/lm/lmr/lmr1_m/0002-e0w.sldprt?v=0116125234"
+      },
+      {
+        "id": "c0f65bab-9fe5-451f-a392-8988391084aa",
+        "name": "0002-E0W.step",
+        "url": "https://thin01mstroc282prod.dxcloud.episerver.net/globalassets/items/l/lm/lmr/lmr1_m/0002-e0w.step?v=0116125235",
+        "group": "Step",
+        "optiUrl": "https://media.thorlabs.com/globalassets/items/l/lm/lmr/lmr1_m/0002-e0w.step?v=0116125235"
+      },
+      {
+        "id": "8f1e7b69-a459-4415-b419-4ea7c105f423",
+        "name": "0002-E0W.html",
+        "url": "https://thin01mstroc282prod.dxcloud.episerver.net/globalassets/items/l/lm/lmr/lmr1_m/0002-e0w.html?v=0116125235",
+        "group": "eDrawing / 3D Model",
+        "optiUrl": "https://media.thorlabs.com/globalassets/items/l/lm/lmr/lmr1_m/0002-e0w.html?v=0116125235"
+      }
+    ],
+    "downloaded": [
+      {
+        "path": "LMR1_M/0002-E0W.pdf",
+        "url": "https://media.thorlabs.com/globalassets/items/l/lm/lmr/lmr1_m/0002-e0w.pdf?v=0116125235",
+        "sha256": "799f5f4dd9d7a6c5e0b60c652f7e0486bbb3de8fe5f6afda2f72541ce88c924c",
+        "kind": "CAD PDF"
+      },
+      {
+        "path": "LMR1_M/0002-E0W.step",
+        "url": "https://media.thorlabs.com/globalassets/items/l/lm/lmr/lmr1_m/0002-e0w.step?v=0116125235",
+        "sha256": "cf779637f670686cc4b315f554d23d065e3a7ea55fdc3d188ffb21050cea832b",
+        "kind": "Step"
+      }
+    ],
+    "retrieved_utc": "2026-09-27T13:24:18.032573+00:00"
+  },
+  "source_sha256": "cf779637f670686cc4b315f554d23d065e3a7ea55fdc3d188ffb21050cea832b",
+  "mesh_sha256": "0162d24c34df4262502c45bf9be255ed4c2ff034829d062b087b5a75aa142b76",
+  "label_treatment": "reviewed engraving removal",
+  "cleanup": null
+}

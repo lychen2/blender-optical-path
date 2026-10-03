@@ -1,0 +1,267 @@
+{
+  "BE1_M": {
+    "valid_brep": true,
+    "solids": 1,
+    "bounds_mm": [
+      [
+        -15.873224,
+        15.873224
+      ],
+      [
+        -15.875,
+        15.875
+      ],
+      [
+        0.0,
+        12.319
+      ]
+    ],
+    "vertices": 3032,
+    "triangles": 2986
+  },
+  "CF038-P5": {
+    "valid_brep": true,
+    "solids": 1,
+    "bounds_mm": [
+      [
+        -18.161,
+        18.161
+      ],
+      [
+        -47.492993,
+        3.81
+      ],
+      [
+        0.0,
+        12.192
+      ]
+    ],
+    "vertices": 4042,
+    "triangles": 4096
+  },
+  "CF125": {
+    "valid_brep": true,
+    "solids": 1,
+    "bounds_mm": [
+      [
+        -18.161,
+        18.161
+      ],
+      [
+        -69.971993,
+        3.81
+      ],
+      [
+        0.0,
+        12.192
+      ]
+    ],
+    "vertices": 4278,
+    "triangles": 4318
+  },
+  "PH20_M": {
+    "valid_brep": true,
+    "solids": 6,
+    "bounds_mm": [
+      [
+        -12.49451,
+        12.49451
+      ],
+      [
+        -20.374,
+        12.5
+      ],
+      [
+        0.0,
+        20.0
+      ]
+    ],
+    "vertices": 126141,
+    "triangles": 233932
+  },
+  "PH30_M": {
+    "valid_brep": true,
+    "solids": 6,
+    "bounds_mm": [
+      [
+        -12.49451,
+        12.49451
+      ],
+      [
+        -20.374,
+        12.5
+      ],
+      [
+        0.0,
+        30.0
+      ]
+    ],
+    "vertices": 126175,
+    "triangles": 233966
+  },
+  "PH40_M": {
+    "valid_brep": true,
+    "solids": 6,
+    "bounds_mm": [
+      [
+        -12.49451,
+        12.49451
+      ],
+      [
+        -20.374,
+        12.5
+      ],
+      [
+        0.0,
+        40.0
+      ]
+    ],
+    "vertices": 126175,
+    "triangles": 233966
+  },
+  "PH50_M": {
+    "valid_brep": true,
+    "solids": 6,
+    "bounds_mm": [
+      [
+        -12.49451,
+        12.49451
+      ],
+      [
+        -22.5171,
+        12.5
+      ],
+      [
+        0.0,
+        50.0
+      ]
+    ],
+    "vertices": 126175,
+    "triangles": 233966
+  },
+  "PH75_M": {
+    "valid_brep": true,
+    "solids": 6,
+    "bounds_mm": [
+      [
+        -12.49451,
+        12.49451
+      ],
+      [
+        -22.5171,
+        12.5
+      ],
+      [
+        0.0,
+        75.0
+      ]
+    ],
+    "vertices": 126175,
+    "triangles": 233966
+  },
+  "TR100_M": {
+    "valid_brep": true,
+    "solids": 2,
+    "bounds_mm": [
+      [
+        -6.334517,
+        6.334517
+      ],
+      [
+        -6.3373,
+        6.3373
+      ],
+      [
+        0.0,
+        104.9528
+      ]
+    ],
+    "vertices": 7932,
+    "triangles": 9516,
+    "post_body_length_mm": 99.99980000000014
+  },
+  "TR20_M": {
+    "valid_brep": true,
+    "solids": 2,
+    "bounds_mm": [
+      [
+        -6.334517,
+        6.334517
+      ],
+      [
+        -6.3373,
+        6.3373
+      ],
+      [
+        0.0,
+        24.9428
+      ]
+    ],
+    "vertices": 7902,
+    "triangles": 9284,
+    "post_body_length_mm": 19.989800000000145
+  },
+  "TR30_M": {
+    "valid_brep": true,
+    "solids": 2,
+    "bounds_mm": [
+      [
+        -6.334517,
+        6.334517
+      ],
+      [
+        -6.3373,
+        6.3373
+      ],
+      [
+        0.0,
+        34.9504
+      ]
+    ],
+    "vertices": 7932,
+    "triangles": 9516,
+    "post_body_length_mm": 29.997400000000145
+  },
+  "TR50_M": {
+    "valid_brep": true,
+    "solids": 2,
+    "bounds_mm": [
+      [
+        -6.334517,
+        6.334517
+      ],
+      [
+        -6.3373,
+        6.3373
+      ],
+      [
+        0.0,
+        54.9656
+      ]
+    ],
+    "vertices": 7932,
+    "triangles": 9516,
+    "post_body_length_mm": 50.01260000000014
+  },
+  "TR75_M": {
+    "valid_brep": true,
+    "solids": 2,
+    "bounds_mm": [
+      [
+        -6.334517,
+        6.334517
+      ],
+      [
+        -6.3373,
+        6.3373
+      ],
+      [
+        0.0,
+        79.9592
+      ]
+    ],
+    "vertices": 7932,
+    "triangles": 9516,
+    "post_body_length_mm": 75.00620000000015
+  }
+}

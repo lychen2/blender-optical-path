@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1160" height="290" viewBox="0 0 1160 290" role="img" aria-labelledby="title desc">
+<title id="title">From optical topology to a finished figure</title>
+<desc id="desc">Define the topology, assemble and choose a visual style, render without text, then add names and callouts in a separate two-dimensional overlay.</desc>
+<defs><marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0L10 5L0 10" fill="none" stroke="#334155" stroke-width="1.5"/></marker></defs>
+<rect width="1160" height="290" fill="white"/>
+<text x="580.0" y="44.0" text-anchor="middle" dominant-baseline="middle" font-family="DejaVu Sans,Arial,sans-serif" font-size="28" fill="#1e293b">From optical topology to a finished figure</text>
+<rect x="35" y="110" width="235" height="90" rx="12" fill="#e2e8f0" stroke="#334155" stroke-width="2"/>
+<text x="152.5" y="143.3" text-anchor="middle" dominant-baseline="middle" font-family="DejaVu Sans,Arial,sans-serif" font-size="18" fill="#1e293b">Define the topology</text>
+<text x="152.5" y="166.70000000000002" text-anchor="middle" dominant-baseline="middle" font-family="DejaVu Sans,Arial,sans-serif" font-size="18" fill="#1e293b">Ports + beam branches</text>
+<path d="M 275 155 h 40" stroke="#334155" stroke-width="2" marker-end="url(#arrow)"/>
+<rect x="320" y="110" width="235" height="90" rx="12" fill="#e2e8f0" stroke="#334155" stroke-width="2"/>
+<text x="437.5" y="143.3" text-anchor="middle" dominant-baseline="middle" font-family="DejaVu Sans,Arial,sans-serif" font-size="18" fill="#1e293b">Assemble + style</text>
+<text x="437.5" y="166.70000000000002" text-anchor="middle" dominant-baseline="middle" font-family="DejaVu Sans,Arial,sans-serif" font-size="18" fill="#1e293b">Geometry + visual brief</text>
+<path d="M 560 155 h 40" stroke="#334155" stroke-width="2" marker-end="url(#arrow)"/>
+<rect x="605" y="110" width="235" height="90" rx="12" fill="#e2e8f0" stroke="#334155" stroke-width="2"/>
+<text x="722.5" y="143.3" text-anchor="middle" dominant-baseline="middle" font-family="DejaVu Sans,Arial,sans-serif" font-size="18" fill="#1e293b">Render without text</text>
+<text x="722.5" y="166.70000000000002" text-anchor="middle" dominant-baseline="middle" font-family="DejaVu Sans,Arial,sans-serif" font-size="18" fill="#1e293b">Hardware + beams</text>
+<path d="M 845 155 h 40" stroke="#334155" stroke-width="2" marker-end="url(#arrow)"/>
+<rect x="890" y="110" width="235" height="90" rx="12" fill="#dcfce7" stroke="#334155" stroke-width="2"/>
+<text x="1007.5" y="143.3" text-anchor="middle" dominant-baseline="middle" font-family="DejaVu Sans,Arial,sans-serif" font-size="18" fill="#1e293b">Annotate in 2D</text>
+<text x="1007.5" y="166.70000000000002" text-anchor="middle" dominant-baseline="middle" font-family="DejaVu Sans,Arial,sans-serif" font-size="18" fill="#1e293b">Names + callouts</text>
+<text x="437.5" y="246.0" text-anchor="middle" dominant-baseline="middle" font-family="DejaVu Sans,Arial,sans-serif" font-size="19" fill="#1e293b">3D stage: no component names or text objects</text>
+<text x="1007.5" y="246.0" text-anchor="middle" dominant-baseline="middle" font-family="DejaVu Sans,Arial,sans-serif" font-size="17" fill="#1e293b">Separate editable overlay</text>
+</svg>

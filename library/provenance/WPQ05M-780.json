@@ -1,0 +1,70 @@
+{
+  "product": {
+    "id": "684f6b62-04a2-4097-98bb-883cbc88ace2",
+    "code": "WPQ05M-780",
+    "name": "WPQ05M-780",
+    "assets": [
+      {
+        "id": "6edc40ba-cf03-4836-9002-8b0499fd8df8",
+        "name": "0377-E0W.pdf",
+        "url": "https://thin01mstroc282prod.dxcloud.episerver.net/globalassets/items/w/wp/wpq/wpq05m-780/0377-e0w.pdf?v=0116035310",
+        "group": "CAD PDF",
+        "optiUrl": "https://media.thorlabs.com/globalassets/items/w/wp/wpq/wpq05m-780/0377-e0w.pdf?v=0116035310"
+      },
+      {
+        "id": "aa080d1c-d062-446e-a6a1-724f3e39cdcf",
+        "name": "0377-E0W.dxf",
+        "url": "https://thin01mstroc282prod.dxcloud.episerver.net/globalassets/items/w/wp/wpq/wpq05m-780/0377-e0w.dxf?v=0116035310",
+        "group": "CAD DXF",
+        "optiUrl": "https://media.thorlabs.com/globalassets/items/w/wp/wpq/wpq05m-780/0377-e0w.dxf?v=0116035310"
+      },
+      {
+        "id": "ada8b3aa-0902-49d4-a0c0-b88881c61766",
+        "name": "0377-E0W.sldprt",
+        "url": "https://thin01mstroc282prod.dxcloud.episerver.net/globalassets/items/w/wp/wpq/wpq05m-780/0377-e0w.sldprt?v=0116035311",
+        "group": "Solidworks",
+        "optiUrl": "https://media.thorlabs.com/globalassets/items/w/wp/wpq/wpq05m-780/0377-e0w.sldprt?v=0116035311"
+      },
+      {
+        "id": "78ea8418-6ea1-4e61-a28e-b19e1975ac52",
+        "name": "0377-E0W.step",
+        "url": "https://thin01mstroc282prod.dxcloud.episerver.net/globalassets/items/w/wp/wpq/wpq05m-780/0377-e0w.step?v=0116035311",
+        "group": "Step",
+        "optiUrl": "https://media.thorlabs.com/globalassets/items/w/wp/wpq/wpq05m-780/0377-e0w.step?v=0116035311"
+      },
+      {
+        "id": "535a0f02-6ee0-4f92-81e1-34ed662b6ff3",
+        "name": "0377-E0W.html",
+        "url": "https://thin01mstroc282prod.dxcloud.episerver.net/globalassets/items/w/wp/wpq/wpq05m-780/0377-e0w.html?v=0116035312",
+        "group": "eDrawing / 3D Model",
+        "optiUrl": "https://media.thorlabs.com/globalassets/items/w/wp/wpq/wpq05m-780/0377-e0w.html?v=0116035312"
+      },
+      {
+        "id": "870c5ff6-b1e7-4ab8-8c43-958ed178edb9",
+        "name": "0377-S02.zar",
+        "url": "https://thin01mstroc282prod.dxcloud.episerver.net/globalassets/items/w/wp/wpq/wpq05m-780/0377-s02.zar?v=0116035309",
+        "group": "Zemax (ZAR)",
+        "optiUrl": "https://media.thorlabs.com/globalassets/items/w/wp/wpq/wpq05m-780/0377-s02.zar?v=0116035309"
+      }
+    ],
+    "downloaded": [
+      {
+        "path": "WPQ05M-780/0377-E0W.pdf",
+        "url": "https://media.thorlabs.com/globalassets/items/w/wp/wpq/wpq05m-780/0377-e0w.pdf?v=0116035310",
+        "sha256": "f2b0f5d36e8780a0be6891500e56e2440152ef8d21da5091da65e8b91f57c50b",
+        "kind": "CAD PDF"
+      },
+      {
+        "path": "WPQ05M-780/0377-E0W.step",
+        "url": "https://media.thorlabs.com/globalassets/items/w/wp/wpq/wpq05m-780/0377-e0w.step?v=0116035311",
+        "sha256": "9d1ba1bc535a1a0e9fc5c79c956b593c79e157551d539586bde13225006d62c9",
+        "kind": "Step"
+      }
+    ],
+    "retrieved_utc": "2026-09-27T13:24:38.614465+00:00"
+  },
+  "source_sha256": "9d1ba1bc535a1a0e9fc5c79c956b593c79e157551d539586bde13225006d62c9",
+  "mesh_sha256": "60e734332339ee25878e842942fcc0d751754ac50f7f9c7f70a29f9d7112b753",
+  "label_treatment": "reviewed engraving removal",
+  "cleanup": null
+}

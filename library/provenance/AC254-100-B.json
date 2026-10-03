@@ -1,0 +1,70 @@
+{
+  "product": {
+    "id": "2cc1a77d-e44e-4f6e-850a-35f8f1d3df50",
+    "code": "AC254-100-B",
+    "name": "AC254-100-B",
+    "assets": [
+      {
+        "id": "151ad317-5101-484a-9eda-4c795f225418",
+        "name": "7409-E0W.pdf",
+        "url": "https://thin01mstroc282prod.dxcloud.episerver.net/globalassets/items/a/ac/ac2/ac254-100-b/7409-e0w.pdf?v=0116101922",
+        "group": "CAD PDF",
+        "optiUrl": "https://media.thorlabs.com/globalassets/items/a/ac/ac2/ac254-100-b/7409-e0w.pdf?v=0116101922"
+      },
+      {
+        "id": "a4c767c5-2185-447b-ae72-8625cce30082",
+        "name": "7409-E0W.dxf",
+        "url": "https://thin01mstroc282prod.dxcloud.episerver.net/globalassets/items/a/ac/ac2/ac254-100-b/7409-e0w.dxf?v=0116101923",
+        "group": "CAD DXF",
+        "optiUrl": "https://media.thorlabs.com/globalassets/items/a/ac/ac2/ac254-100-b/7409-e0w.dxf?v=0116101923"
+      },
+      {
+        "id": "b2f3e576-98fa-4b26-8c29-03c1362cdeac",
+        "name": "7409-E0W.sldprt",
+        "url": "https://thin01mstroc282prod.dxcloud.episerver.net/globalassets/items/a/ac/ac2/ac254-100-b/7409-e0w.sldprt?v=0116101923",
+        "group": "Solidworks",
+        "optiUrl": "https://media.thorlabs.com/globalassets/items/a/ac/ac2/ac254-100-b/7409-e0w.sldprt?v=0116101923"
+      },
+      {
+        "id": "462f4c66-dfff-4532-973b-ad037455a521",
+        "name": "7409-E0W.step",
+        "url": "https://thin01mstroc282prod.dxcloud.episerver.net/globalassets/items/a/ac/ac2/ac254-100-b/7409-e0w.step?v=0116101923",
+        "group": "Step",
+        "optiUrl": "https://media.thorlabs.com/globalassets/items/a/ac/ac2/ac254-100-b/7409-e0w.step?v=0116101923"
+      },
+      {
+        "id": "7486a548-0d2c-4e2e-9919-34fb8ce4d682",
+        "name": "7409-S02.zar",
+        "url": "https://thin01mstroc282prod.dxcloud.episerver.net/globalassets/items/a/ac/ac2/ac254-100-b/7409-s02.zar?v=0116101924",
+        "group": "Zemax (ZAR)",
+        "optiUrl": "https://media.thorlabs.com/globalassets/items/a/ac/ac2/ac254-100-b/7409-s02.zar?v=0116101924"
+      },
+      {
+        "id": "36cfef3c-0c34-4f74-83aa-df5940b554d9",
+        "name": "7409-S03.zmx",
+        "url": "https://thin01mstroc282prod.dxcloud.episerver.net/globalassets/items/a/ac/ac2/ac254-100-b/7409-s03.zmx?v=0116101924",
+        "group": "Zemax (ZMX)",
+        "optiUrl": "https://media.thorlabs.com/globalassets/items/a/ac/ac2/ac254-100-b/7409-s03.zmx?v=0116101924"
+      }
+    ],
+    "downloaded": [
+      {
+        "path": "AC254-100-B/7409-E0W.pdf",
+        "url": "https://media.thorlabs.com/globalassets/items/a/ac/ac2/ac254-100-b/7409-e0w.pdf?v=0116101922",
+        "sha256": "29a0c5610da6509b089095f012e007cead98ea8cd41d9d0ce488bd33172bc3b2",
+        "kind": "CAD PDF"
+      },
+      {
+        "path": "AC254-100-B/7409-E0W.step",
+        "url": "https://media.thorlabs.com/globalassets/items/a/ac/ac2/ac254-100-b/7409-e0w.step?v=0116101923",
+        "sha256": "6b33c5a627fde7a1814aef42b38b1c89c45c2abef2ac8d9098f04e878d2b6fcc",
+        "kind": "Step"
+      }
+    ],
+    "retrieved_utc": "2026-09-27T13:24:59.109129+00:00"
+  },
+  "source_sha256": "6b33c5a627fde7a1814aef42b38b1c89c45c2abef2ac8d9098f04e878d2b6fcc",
+  "mesh_sha256": "abd10e69e404b9ef6973573971798dfdb200b478d64e85b7e3382d6022dd7c8f",
+  "label_treatment": "source geometry retained",
+  "cleanup": null
+}

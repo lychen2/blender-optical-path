@@ -1,0 +1,119 @@
+{
+  "product": {
+    "id": "ed39aafd-1076-4fb4-93e1-d797fd5bd532",
+    "code": "CSN110",
+    "name": "CSN110",
+    "assets": [
+      {
+        "id": "50c775ca-41b6-4221-9e8d-46be89f49b84",
+        "name": "TTN320312-E0W.pdf",
+        "url": "https://thin01mstroc282prod.dxcloud.episerver.net/globalassets/items/c/cs/csn/csn110/ttn320312-e0w.pdf?v=0116110557",
+        "group": "CAD PDF",
+        "optiUrl": "https://media.thorlabs.com/globalassets/items/c/cs/csn/csn110/ttn320312-e0w.pdf?v=0116110557"
+      },
+      {
+        "id": "f63589f9-3f32-4ccc-a8e5-a57cf9c09c95",
+        "name": "TTN320312-E0W.dxf",
+        "url": "https://thin01mstroc282prod.dxcloud.episerver.net/globalassets/items/c/cs/csn/csn110/ttn320312-e0w.dxf?v=0116110557",
+        "group": "CAD DXF",
+        "optiUrl": "https://media.thorlabs.com/globalassets/items/c/cs/csn/csn110/ttn320312-e0w.dxf?v=0116110557"
+      },
+      {
+        "id": "52ead711-2b8f-47d3-897d-fa72bce43320",
+        "name": "TTN320312-E0W.sldprt",
+        "url": "https://thin01mstroc282prod.dxcloud.episerver.net/globalassets/items/c/cs/csn/csn110/ttn320312-e0w.sldprt?v=0116110557",
+        "group": "Solidworks",
+        "optiUrl": "https://media.thorlabs.com/globalassets/items/c/cs/csn/csn110/ttn320312-e0w.sldprt?v=0116110557"
+      },
+      {
+        "id": "b465333c-c3f9-443c-b345-a88f0eb897b9",
+        "name": "TTN320312-E0W.html",
+        "url": "https://thin01mstroc282prod.dxcloud.episerver.net/globalassets/items/c/cs/csn/csn110/ttn320312-e0w.html?v=0116110558",
+        "group": "eDrawing / 3D Model",
+        "optiUrl": "https://media.thorlabs.com/globalassets/items/c/cs/csn/csn110/ttn320312-e0w.html?v=0116110558"
+      },
+      {
+        "id": "1c31cbde-37ce-4d4f-b3f1-217c1e0c5385",
+        "name": "TTN320312-E0W.step",
+        "url": "https://thin01mstroc282prod.dxcloud.episerver.net/globalassets/items/c/cs/csn/csn110/ttn320312-e0w.step?v=0116110559",
+        "group": "Step",
+        "optiUrl": "https://media.thorlabs.com/globalassets/items/c/cs/csn/csn110/ttn320312-e0w.step?v=0116110559"
+      }
+    ],
+    "downloaded": [
+      {
+        "path": "CSN110/TTN320312-E0W.pdf",
+        "url": "https://media.thorlabs.com/globalassets/items/c/cs/csn/csn110/ttn320312-e0w.pdf?v=0116110557",
+        "sha256": "136e7a9d36b354c0b7e1225c286ac936a1f3854f4a0ee4dc0a402c1e2b968205",
+        "kind": "CAD PDF"
+      },
+      {
+        "path": "CSN110/TTN320312-E0W.step",
+        "url": "https://media.thorlabs.com/globalassets/items/c/cs/csn/csn110/ttn320312-e0w.step?v=0116110559",
+        "sha256": "c4491def937db8e9189e0fb4a3b56bab657933a6ff42858a2f2bd433c0363004",
+        "kind": "Step"
+      }
+    ],
+    "retrieved_utc": "2026-09-27T15:30:07.726065+00:00"
+  },
+  "source_sha256": "c4491def937db8e9189e0fb4a3b56bab657933a6ff42858a2f2bd433c0363004",
+  "mesh_sha256": "a433cbec9d8520f8f3b91f2aaa4111b1624d96923a408c55dcf0bad8d489dc4d",
+  "label_treatment": "reviewed engraving removal",
+  "cleanup": {
+    "source_sha256": "c4491def937db8e9189e0fb4a3b56bab657933a6ff42858a2f2bd433c0363004",
+    "source_type": "17 surface shells, no solids",
+    "method": "Replace engraved planar side wall with its outer-wire face; preserve all other structural faces and four screw shells",
+    "removed_body_faces": [
+      30,
+      31,
+      32,
+      33,
+      34,
+      35,
+      36,
+      37,
+      38,
+      39,
+      40,
+      41,
+      42,
+      43,
+      87,
+      88,
+      89,
+      90,
+      91,
+      92,
+      93,
+      94,
+      95,
+      96,
+      97,
+      98,
+      99,
+      100,
+      101,
+      102,
+      103
+    ],
+    "removed_marking_shells": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12
+    ],
+    "replaced_face": 86,
+    "bounds_max_delta_mm": 9.999999406318238e-08,
+    "faces_valid": true,
+    "volume_check": "not applicable to open-shell source",
+    "structural_face_count": 149
+  }
+}

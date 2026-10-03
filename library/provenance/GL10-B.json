@@ -1,0 +1,77 @@
+{
+  "product": {
+    "id": "0810501c-0bd5-4f27-98de-134d83f56035",
+    "code": "GL10-B",
+    "name": "GL10-B",
+    "assets": [
+      {
+        "id": "97f32b4e-4311-47c8-b774-a696a6305bbc",
+        "name": "0071-E0W.pdf",
+        "url": "https://thin01mstroc282prod.dxcloud.episerver.net/globalassets/items/g/gl/gl1/gl10-b/0071-e0w.pdf?v=0116114446",
+        "group": "CAD PDF",
+        "optiUrl": "https://media.thorlabs.com/globalassets/items/g/gl/gl1/gl10-b/0071-e0w.pdf?v=0116114446"
+      },
+      {
+        "id": "1140b152-6723-427c-a750-f8d632a148ec",
+        "name": "0071-E0W.dxf",
+        "url": "https://thin01mstroc282prod.dxcloud.episerver.net/globalassets/items/g/gl/gl1/gl10-b/0071-e0w.dxf?v=0116114446",
+        "group": "CAD DXF",
+        "optiUrl": "https://media.thorlabs.com/globalassets/items/g/gl/gl1/gl10-b/0071-e0w.dxf?v=0116114446"
+      },
+      {
+        "id": "c32e9ee0-d5cd-436f-b141-8a992824a2df",
+        "name": "0071-E0W.sldprt",
+        "url": "https://thin01mstroc282prod.dxcloud.episerver.net/globalassets/items/g/gl/gl1/gl10-b/0071-e0w.sldprt?v=0116114446",
+        "group": "Solidworks",
+        "optiUrl": "https://media.thorlabs.com/globalassets/items/g/gl/gl1/gl10-b/0071-e0w.sldprt?v=0116114446"
+      },
+      {
+        "id": "ba632c74-cdfe-4fac-a6c7-12a5fb4f8ef7",
+        "name": "0071-E0W.step",
+        "url": "https://thin01mstroc282prod.dxcloud.episerver.net/globalassets/items/g/gl/gl1/gl10-b/0071-e0w.step?v=0116114447",
+        "group": "Step",
+        "optiUrl": "https://media.thorlabs.com/globalassets/items/g/gl/gl1/gl10-b/0071-e0w.step?v=0116114447"
+      },
+      {
+        "id": "3ecf5b4e-7cf8-4a14-a346-72c53307c275",
+        "name": "0071-E0W.html",
+        "url": "https://thin01mstroc282prod.dxcloud.episerver.net/globalassets/items/g/gl/gl1/gl10-b/0071-e0w.html?v=0116114448",
+        "group": "eDrawing / 3D Model",
+        "optiUrl": "https://media.thorlabs.com/globalassets/items/g/gl/gl1/gl10-b/0071-e0w.html?v=0116114448"
+      },
+      {
+        "id": "1da8d565-ca56-43be-a949-1d7337e7c05a",
+        "name": "0330-APP.pdf",
+        "url": "https://thin01mstroc282prod.dxcloud.episerver.net/globalassets/items/g/gl/gl5/gl5-a/0330-app.pdf?v=0116114820",
+        "group": "App Notes",
+        "optiUrl": "https://media.thorlabs.com/globalassets/items/g/gl/gl5/gl5-a/0330-app.pdf?v=0116114820"
+      },
+      {
+        "id": "28c11a04-bd4d-4d17-97ae-79f21218efeb",
+        "name": "0071-S02.zar",
+        "url": "https://thin01mstroc282prod.dxcloud.episerver.net/globalassets/items/g/gl/gl1/gl10-b/0071-s02.zar?v=0116114445",
+        "group": "Zemax (ZAR)",
+        "optiUrl": "https://media.thorlabs.com/globalassets/items/g/gl/gl1/gl10-b/0071-s02.zar?v=0116114445"
+      }
+    ],
+    "downloaded": [
+      {
+        "path": "GL10-B/0071-E0W.pdf",
+        "url": "https://media.thorlabs.com/globalassets/items/g/gl/gl1/gl10-b/0071-e0w.pdf?v=0116114446",
+        "sha256": "f7e7881081b5364aa33fed65bfb85eda3e7883e0f4f343dfeb5d68ce49807886",
+        "kind": "CAD PDF"
+      },
+      {
+        "path": "GL10-B/0071-E0W.step",
+        "url": "https://media.thorlabs.com/globalassets/items/g/gl/gl1/gl10-b/0071-e0w.step?v=0116114447",
+        "sha256": "41b2d157438af8fd87bf4a0ad4459a13c5e8ea081a94d573570a779fc0498f84",
+        "kind": "Step"
+      }
+    ],
+    "retrieved_utc": "2026-09-27T13:24:40.559605+00:00"
+  },
+  "source_sha256": "41b2d157438af8fd87bf4a0ad4459a13c5e8ea081a94d573570a779fc0498f84",
+  "mesh_sha256": "d1936146bae0b515f1b1030512724b631d1d169775998486b5ea7b5cff63b116",
+  "label_treatment": "reviewed engraving removal",
+  "cleanup": null
+}

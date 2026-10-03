@@ -1,0 +1,1070 @@
+{
+  "units": "mm",
+  "blender": "5.2.2 LTS",
+  "assets": [
+    {
+      "id": "assembly/dpss_laser",
+      "label": "DPSS Laser",
+      "collection": "Assembly / DPSS Laser",
+      "kind": "mounted_assembly",
+      "sku": "",
+      "anchor_mm": [
+        0,
+        0,
+        100
+      ],
+      "axis": "+X",
+      "provenance": "Mixed assembly: reviewed Thorlabs support/mount CAD with illustrative optical geometry",
+      "source_record": "provenance/assembly_manifest.json"
+    },
+    {
+      "id": "assembly/hene_laser",
+      "label": "HeNe Laser",
+      "collection": "Assembly / HeNe Laser",
+      "kind": "mounted_assembly",
+      "sku": "",
+      "anchor_mm": [
+        0,
+        0,
+        100
+      ],
+      "axis": "+X",
+      "provenance": "Mixed assembly: reviewed Thorlabs support/mount CAD with illustrative optical geometry",
+      "source_record": "provenance/assembly_manifest.json"
+    },
+    {
+      "id": "assembly/kinematic_mirror",
+      "label": "Kinematic Mirror",
+      "collection": "Assembly / Kinematic Mirror",
+      "kind": "mounted_assembly",
+      "sku": "",
+      "anchor_mm": [
+        0,
+        0,
+        100
+      ],
+      "axis": "+X",
+      "provenance": "Mixed assembly: reviewed Thorlabs support/mount CAD with illustrative optical geometry",
+      "source_record": "provenance/assembly_manifest.json"
+    },
+    {
+      "id": "assembly/gold_mirror",
+      "label": "Gold Mirror",
+      "collection": "Assembly / Gold Mirror",
+      "kind": "mounted_assembly",
+      "sku": "",
+      "anchor_mm": [
+        0,
+        0,
+        100
+      ],
+      "axis": "+X",
+      "provenance": "Mixed assembly: reviewed Thorlabs support/mount CAD with illustrative optical geometry",
+      "source_record": "provenance/assembly_manifest.json"
+    },
+    {
+      "id": "assembly/biconvex_lens",
+      "label": "Biconvex Lens",
+      "collection": "Assembly / Biconvex Lens",
+      "kind": "mounted_assembly",
+      "sku": "",
+      "anchor_mm": [
+        0,
+        0,
+        100
+      ],
+      "axis": "+X",
+      "provenance": "Mixed assembly: reviewed Thorlabs support/mount CAD with illustrative optical geometry",
+      "source_record": "provenance/assembly_manifest.json"
+    },
+    {
+      "id": "assembly/biconcave_lens",
+      "label": "Biconcave Lens",
+      "collection": "Assembly / Biconcave Lens",
+      "kind": "mounted_assembly",
+      "sku": "",
+      "anchor_mm": [
+        0,
+        0,
+        100
+      ],
+      "axis": "+X",
+      "provenance": "Mixed assembly: reviewed Thorlabs support/mount CAD with illustrative optical geometry",
+      "source_record": "provenance/assembly_manifest.json"
+    },
+    {
+      "id": "assembly/plano_window",
+      "label": "Plano Window",
+      "collection": "Assembly / Plano Window",
+      "kind": "mounted_assembly",
+      "sku": "",
+      "anchor_mm": [
+        0,
+        0,
+        100
+      ],
+      "axis": "+X",
+      "provenance": "Mixed assembly: reviewed Thorlabs support/mount CAD with illustrative optical geometry",
+      "source_record": "provenance/assembly_manifest.json"
+    },
+    {
+      "id": "assembly/microscope_objective",
+      "label": "Microscope Objective",
+      "collection": "Assembly / Microscope Objective",
+      "kind": "mounted_assembly",
+      "sku": "",
+      "anchor_mm": [
+        0,
+        0,
+        100
+      ],
+      "axis": "+X",
+      "provenance": "Mixed assembly: reviewed Thorlabs support/mount CAD with illustrative optical geometry",
+      "source_record": "provenance/assembly_manifest.json"
+    },
+    {
+      "id": "assembly/half_wave_plate",
+      "label": "Half Wave Plate",
+      "collection": "Assembly / Half Wave Plate",
+      "kind": "mounted_assembly",
+      "sku": "",
+      "anchor_mm": [
+        0,
+        0,
+        100
+      ],
+      "axis": "+X",
+      "provenance": "Mixed assembly: reviewed Thorlabs support/mount CAD with illustrative optical geometry",
+      "source_record": "provenance/assembly_manifest.json"
+    },
+    {
+      "id": "assembly/quarter_wave_plate",
+      "label": "Quarter Wave Plate",
+      "collection": "Assembly / Quarter Wave Plate",
+      "kind": "mounted_assembly",
+      "sku": "",
+      "anchor_mm": [
+        0,
+        0,
+        100
+      ],
+      "axis": "+X",
+      "provenance": "Mixed assembly: reviewed Thorlabs support/mount CAD with illustrative optical geometry",
+      "source_record": "provenance/assembly_manifest.json"
+    },
+    {
+      "id": "assembly/pbs_cube",
+      "label": "PBS Cube",
+      "collection": "Assembly / PBS Cube",
+      "kind": "mounted_assembly",
+      "sku": "",
+      "anchor_mm": [
+        0,
+        0,
+        100
+      ],
+      "axis": "+X",
+      "provenance": "Mixed assembly: reviewed Thorlabs support/mount CAD with illustrative optical geometry",
+      "source_record": "provenance/assembly_manifest.json"
+    },
+    {
+      "id": "assembly/plate_beamsplitter",
+      "label": "Plate Beamsplitter",
+      "collection": "Assembly / Plate Beamsplitter",
+      "kind": "mounted_assembly",
+      "sku": "",
+      "anchor_mm": [
+        0,
+        0,
+        100
+      ],
+      "axis": "+X",
+      "provenance": "Mixed assembly: reviewed Thorlabs support/mount CAD with illustrative optical geometry",
+      "source_record": "provenance/assembly_manifest.json"
+    },
+    {
+      "id": "assembly/adjustable_iris",
+      "label": "Adjustable Iris",
+      "collection": "Assembly / Adjustable Iris",
+      "kind": "mounted_assembly",
+      "sku": "",
+      "anchor_mm": [
+        0,
+        0,
+        100
+      ],
+      "axis": "+X",
+      "provenance": "Mixed assembly: reviewed Thorlabs support/mount CAD with illustrative optical geometry",
+      "source_record": "provenance/assembly_manifest.json"
+    },
+    {
+      "id": "assembly/dispersive_prism",
+      "label": "Dispersive Prism",
+      "collection": "Assembly / Dispersive Prism",
+      "kind": "mounted_assembly",
+      "sku": "",
+      "anchor_mm": [
+        0,
+        0,
+        100
+      ],
+      "axis": "+X",
+      "provenance": "Mixed assembly: reviewed Thorlabs support/mount CAD with illustrative optical geometry",
+      "source_record": "provenance/assembly_manifest.json"
+    },
+    {
+      "id": "assembly/reflection_grating",
+      "label": "Reflection Grating",
+      "collection": "Assembly / Reflection Grating",
+      "kind": "mounted_assembly",
+      "sku": "",
+      "anchor_mm": [
+        0,
+        0,
+        100
+      ],
+      "axis": "+X",
+      "provenance": "Mixed assembly: reviewed Thorlabs support/mount CAD with illustrative optical geometry",
+      "source_record": "provenance/assembly_manifest.json"
+    },
+    {
+      "id": "assembly/fiber_collimator",
+      "label": "Fiber Collimator",
+      "collection": "Assembly / Fiber Collimator",
+      "kind": "mounted_assembly",
+      "sku": "",
+      "anchor_mm": [
+        0,
+        0,
+        100
+      ],
+      "axis": "+X",
+      "provenance": "Mixed assembly: reviewed Thorlabs support/mount CAD with illustrative optical geometry",
+      "source_record": "provenance/assembly_manifest.json"
+    },
+    {
+      "id": "assembly/scientific_camera",
+      "label": "Scientific Camera",
+      "collection": "Assembly / Scientific Camera",
+      "kind": "mounted_assembly",
+      "sku": "",
+      "anchor_mm": [
+        0,
+        0,
+        100
+      ],
+      "axis": "+X",
+      "provenance": "Mixed assembly: reviewed Thorlabs support/mount CAD with illustrative optical geometry",
+      "source_record": "provenance/assembly_manifest.json"
+    },
+    {
+      "id": "assembly/photodetector",
+      "label": "Photodetector",
+      "collection": "Assembly / Photodetector",
+      "kind": "mounted_assembly",
+      "sku": "",
+      "anchor_mm": [
+        0,
+        0,
+        100
+      ],
+      "axis": "+X",
+      "provenance": "Mixed assembly: reviewed Thorlabs support/mount CAD with illustrative optical geometry",
+      "source_record": "provenance/assembly_manifest.json"
+    },
+    {
+      "id": "assembly/beam_dump",
+      "label": "Beam Dump",
+      "collection": "Assembly / Beam Dump",
+      "kind": "mounted_assembly",
+      "sku": "",
+      "anchor_mm": [
+        0,
+        0,
+        100
+      ],
+      "axis": "+X",
+      "provenance": "Mixed assembly: reviewed Thorlabs support/mount CAD with illustrative optical geometry",
+      "source_record": "provenance/assembly_manifest.json"
+    },
+    {
+      "id": "assembly/translation_stage",
+      "label": "Translation Stage",
+      "collection": "Assembly / Translation Stage",
+      "kind": "mounted_assembly",
+      "sku": "",
+      "anchor_mm": null,
+      "axis": null,
+      "provenance": "Mixed assembly: reviewed Thorlabs support/mount CAD with illustrative optical geometry",
+      "source_record": "provenance/assembly_manifest.json"
+    },
+    {
+      "id": "assembly/rotation_stage",
+      "label": "Rotation Stage",
+      "collection": "Assembly / Rotation Stage",
+      "kind": "mounted_assembly",
+      "sku": "",
+      "anchor_mm": null,
+      "axis": null,
+      "provenance": "Mixed assembly: reviewed Thorlabs support/mount CAD with illustrative optical geometry",
+      "source_record": "provenance/assembly_manifest.json"
+    },
+    {
+      "id": "assembly/optical_breadboard",
+      "label": "Optical Breadboard",
+      "collection": "Assembly / Optical Breadboard",
+      "kind": "mounted_assembly",
+      "sku": "",
+      "anchor_mm": null,
+      "axis": null,
+      "provenance": "Mixed assembly: reviewed Thorlabs support/mount CAD with illustrative optical geometry",
+      "source_record": "provenance/assembly_manifest.json"
+    },
+    {
+      "id": "assembly/periscope",
+      "label": "Periscope",
+      "collection": "Assembly / Periscope",
+      "kind": "mounted_assembly",
+      "sku": "",
+      "anchor_mm": null,
+      "axis": null,
+      "provenance": "Mixed assembly: reviewed Thorlabs support/mount CAD with illustrative optical geometry",
+      "source_record": "provenance/assembly_manifest.json"
+    },
+    {
+      "id": "assembly/beam_segment",
+      "label": "Beam Segment",
+      "collection": "Assembly / Beam Segment",
+      "kind": "mounted_assembly",
+      "sku": "",
+      "anchor_mm": [
+        0,
+        0,
+        75
+      ],
+      "axis": "+X",
+      "provenance": "Mixed assembly: reviewed Thorlabs support/mount CAD with illustrative optical geometry",
+      "source_record": "provenance/assembly_manifest.json"
+    },
+    {
+      "id": "thorlabs/AC254-100-B",
+      "label": "Achromatic doublet",
+      "collection": "Standard part / Achromatic doublet",
+      "kind": "official_cad",
+      "sku": "AC254-100-B",
+      "anchor_mm": null,
+      "axis": null,
+      "provenance": "Official Thorlabs STEP; native mm; source geometry retained",
+      "source_record": "provenance/AC254-100-B.json"
+    },
+    {
+      "id": "thorlabs/CSN110",
+      "label": "Scientific camera",
+      "collection": "Standard part / Scientific camera",
+      "kind": "official_cad",
+      "sku": "CSN110",
+      "anchor_mm": null,
+      "axis": null,
+      "provenance": "Official Thorlabs STEP; native mm; reviewed engraving removal",
+      "source_record": "provenance/CSN110.json"
+    },
+    {
+      "id": "thorlabs/ER2",
+      "label": "Cage rod",
+      "collection": "Standard part / Cage rod",
+      "kind": "official_cad",
+      "sku": "ER2",
+      "anchor_mm": null,
+      "axis": null,
+      "provenance": "Official Thorlabs STEP; native mm; source geometry retained",
+      "source_record": "provenance/ER2.json"
+    },
+    {
+      "id": "thorlabs/GL10-B",
+      "label": "Glan-laser polarizer",
+      "collection": "Standard part / Glan-laser polarizer",
+      "kind": "official_cad",
+      "sku": "GL10-B",
+      "anchor_mm": null,
+      "axis": null,
+      "provenance": "Official Thorlabs STEP; native mm; reviewed engraving removal",
+      "source_record": "provenance/GL10-B.json"
+    },
+    {
+      "id": "thorlabs/KM100",
+      "label": "Kinematic mirror mount",
+      "collection": "Standard part / Kinematic mirror mount",
+      "kind": "official_cad",
+      "sku": "KM100",
+      "anchor_mm": null,
+      "axis": null,
+      "provenance": "Official Thorlabs STEP; native mm; reviewed engraving removal",
+      "source_record": "provenance/KM100.json"
+    },
+    {
+      "id": "thorlabs/LA1509-B",
+      "label": "Plano-convex lens",
+      "collection": "Standard part / Plano-convex lens",
+      "kind": "official_cad",
+      "sku": "LA1509-B",
+      "anchor_mm": null,
+      "axis": null,
+      "provenance": "Official Thorlabs STEP; native mm; source geometry retained",
+      "source_record": "provenance/LA1509-B.json"
+    },
+    {
+      "id": "thorlabs/LD2297-B",
+      "label": "Biconcave lens",
+      "collection": "Standard part / Biconcave lens",
+      "kind": "official_cad",
+      "sku": "LD2297-B",
+      "anchor_mm": null,
+      "axis": null,
+      "provenance": "Official Thorlabs STEP; native mm; source geometry retained",
+      "source_record": "provenance/LD2297-B.json"
+    },
+    {
+      "id": "thorlabs/LMR1/M",
+      "label": "Lens mount",
+      "collection": "Standard part / Lens mount",
+      "kind": "official_cad",
+      "sku": "LMR1/M",
+      "anchor_mm": null,
+      "axis": null,
+      "provenance": "Official Thorlabs STEP; native mm; reviewed engraving removal",
+      "source_record": "provenance/LMR1_M.json"
+    },
+    {
+      "id": "thorlabs/MY10X-823",
+      "label": "Long-working-distance objective",
+      "collection": "Standard part / Long-working-distance objective",
+      "kind": "official_cad",
+      "sku": "MY10X-823",
+      "anchor_mm": null,
+      "axis": null,
+      "provenance": "Official Thorlabs STEP; native mm; reviewed engraving removal",
+      "source_record": "provenance/MY10X-823.json"
+    },
+    {
+      "id": "thorlabs/POLARIS-K1S5",
+      "label": "Stable mirror mount",
+      "collection": "Standard part / Stable mirror mount",
+      "kind": "official_cad",
+      "sku": "POLARIS-K1S5",
+      "anchor_mm": null,
+      "axis": null,
+      "provenance": "Official Thorlabs STEP; native mm; reviewed engraving removal",
+      "source_record": "provenance/POLARIS-K1S5.json"
+    },
+    {
+      "id": "thorlabs/POLARIS-K1T",
+      "label": "Three-adjuster mirror mount",
+      "collection": "Standard part / Three-adjuster mirror mount",
+      "kind": "official_cad",
+      "sku": "POLARIS-K1T",
+      "anchor_mm": null,
+      "axis": null,
+      "provenance": "Official Thorlabs STEP; native mm; reviewed engraving removal",
+      "source_record": "provenance/POLARIS-K1T.json"
+    },
+    {
+      "id": "thorlabs/PRM1/MZ8",
+      "label": "Motorized rotation mount",
+      "collection": "Standard part / Motorized rotation mount",
+      "kind": "official_cad",
+      "sku": "PRM1/MZ8",
+      "anchor_mm": null,
+      "axis": null,
+      "provenance": "Official Thorlabs STEP; native mm; reviewed engraving removal",
+      "source_record": "provenance/PRM1_MZ8.json"
+    },
+    {
+      "id": "thorlabs/PS810",
+      "label": "Wedge prism",
+      "collection": "Standard part / Wedge prism",
+      "kind": "official_cad",
+      "sku": "PS810",
+      "anchor_mm": null,
+      "axis": null,
+      "provenance": "Official Thorlabs STEP; native mm; source geometry retained",
+      "source_record": "provenance/PS810.json"
+    },
+    {
+      "id": "thorlabs/RMS10X",
+      "label": "Microscope objective",
+      "collection": "Standard part / Microscope objective",
+      "kind": "official_cad",
+      "sku": "RMS10X",
+      "anchor_mm": null,
+      "axis": null,
+      "provenance": "Official Thorlabs STEP; native mm; reviewed engraving removal",
+      "source_record": "provenance/RMS10X.json"
+    },
+    {
+      "id": "thorlabs/RSP1/M",
+      "label": "Rotation mount",
+      "collection": "Standard part / Rotation mount",
+      "kind": "official_cad",
+      "sku": "RSP1/M",
+      "anchor_mm": null,
+      "axis": null,
+      "provenance": "Official Thorlabs STEP; native mm; reviewed engraving removal",
+      "source_record": "provenance/RSP1_M.json"
+    },
+    {
+      "id": "thorlabs/SM1RR",
+      "label": "Retaining ring",
+      "collection": "Standard part / Retaining ring",
+      "kind": "official_cad",
+      "sku": "SM1RR",
+      "anchor_mm": null,
+      "axis": null,
+      "provenance": "Official Thorlabs STEP; native mm; source geometry retained",
+      "source_record": "provenance/SM1RR.json"
+    },
+    {
+      "id": "thorlabs/WG11050-B",
+      "label": "Plane window",
+      "collection": "Standard part / Plane window",
+      "kind": "official_cad",
+      "sku": "WG11050-B",
+      "anchor_mm": null,
+      "axis": null,
+      "provenance": "Official Thorlabs STEP; native mm; source geometry retained",
+      "source_record": "provenance/WG11050-B.json"
+    },
+    {
+      "id": "thorlabs/WPQ05M-780",
+      "label": "Quarter-wave plate",
+      "collection": "Standard part / Quarter-wave plate",
+      "kind": "official_cad",
+      "sku": "WPQ05M-780",
+      "anchor_mm": null,
+      "axis": null,
+      "provenance": "Official Thorlabs STEP; native mm; reviewed engraving removal",
+      "source_record": "provenance/WPQ05M-780.json"
+    },
+    {
+      "id": "schematic/tube_lens",
+      "label": "Tube lens",
+      "collection": "Schematic / Tube lens",
+      "kind": "offline_schematic_module",
+      "sku": "",
+      "anchor_mm": [
+        0,
+        0,
+        100
+      ],
+      "axis": "+X",
+      "ports_mm": {},
+      "provenance": "Repository-authored nominal schematic geometry",
+      "source_record": "provenance/schematic_modules.json"
+    },
+    {
+      "id": "schematic/lens_tube",
+      "label": "Lens tube",
+      "collection": "Schematic / Lens tube",
+      "kind": "offline_schematic_module",
+      "sku": "",
+      "anchor_mm": [
+        0,
+        0,
+        100
+      ],
+      "axis": "+X",
+      "ports_mm": {},
+      "provenance": "Repository-authored nominal schematic geometry",
+      "source_record": "provenance/schematic_modules.json"
+    },
+    {
+      "id": "schematic/cage_plate",
+      "label": "Cage plate and rods",
+      "collection": "Schematic / Cage plate and rods",
+      "kind": "offline_schematic_module",
+      "sku": "",
+      "anchor_mm": [
+        0,
+        0,
+        100
+      ],
+      "axis": "+X",
+      "ports_mm": {},
+      "provenance": "Repository-authored nominal schematic geometry",
+      "source_record": "provenance/schematic_modules.json"
+    },
+    {
+      "id": "schematic/bandpass_filter",
+      "label": "Bandpass filter",
+      "collection": "Schematic / Bandpass filter",
+      "kind": "offline_schematic_module",
+      "sku": "",
+      "anchor_mm": [
+        0,
+        0,
+        100
+      ],
+      "axis": "+X",
+      "ports_mm": {},
+      "provenance": "Repository-authored nominal schematic geometry",
+      "source_record": "provenance/schematic_modules.json"
+    },
+    {
+      "id": "schematic/nd_filter",
+      "label": "Neutral density filter",
+      "collection": "Schematic / Neutral density filter",
+      "kind": "offline_schematic_module",
+      "sku": "",
+      "anchor_mm": [
+        0,
+        0,
+        100
+      ],
+      "axis": "+X",
+      "ports_mm": {},
+      "provenance": "Repository-authored nominal schematic geometry",
+      "source_record": "provenance/schematic_modules.json"
+    },
+    {
+      "id": "schematic/linear_polarizer",
+      "label": "Linear polarizer",
+      "collection": "Schematic / Linear polarizer",
+      "kind": "offline_schematic_module",
+      "sku": "",
+      "anchor_mm": [
+        0,
+        0,
+        100
+      ],
+      "axis": "+X",
+      "ports_mm": {},
+      "provenance": "Repository-authored nominal schematic geometry",
+      "source_record": "provenance/schematic_modules.json"
+    },
+    {
+      "id": "schematic/filter_wheel",
+      "label": "Filter wheel",
+      "collection": "Schematic / Filter wheel",
+      "kind": "offline_schematic_module",
+      "sku": "",
+      "anchor_mm": null,
+      "axis": null,
+      "ports_mm": {},
+      "provenance": "Repository-authored nominal schematic geometry",
+      "source_record": "provenance/schematic_modules.json"
+    },
+    {
+      "id": "schematic/cylindrical_lens",
+      "label": "Cylindrical lens",
+      "collection": "Schematic / Cylindrical lens",
+      "kind": "offline_schematic_module",
+      "sku": "",
+      "anchor_mm": [
+        0,
+        0,
+        100
+      ],
+      "axis": "+X",
+      "ports_mm": {},
+      "provenance": "Repository-authored nominal schematic geometry",
+      "source_record": "provenance/schematic_modules.json"
+    },
+    {
+      "id": "schematic/sample_slide",
+      "label": "Sample slide holder",
+      "collection": "Schematic / Sample slide holder",
+      "kind": "offline_schematic_module",
+      "sku": "",
+      "anchor_mm": [
+        0,
+        0,
+        100
+      ],
+      "axis": "+X",
+      "ports_mm": {},
+      "provenance": "Repository-authored nominal schematic geometry",
+      "source_record": "provenance/schematic_modules.json"
+    },
+    {
+      "id": "schematic/condenser",
+      "label": "Condenser",
+      "collection": "Schematic / Condenser",
+      "kind": "offline_schematic_module",
+      "sku": "",
+      "anchor_mm": [
+        0,
+        0,
+        100
+      ],
+      "axis": "+X",
+      "ports_mm": {},
+      "provenance": "Repository-authored nominal schematic geometry",
+      "source_record": "provenance/schematic_modules.json"
+    },
+    {
+      "id": "schematic/led_illuminator",
+      "label": "LED illuminator",
+      "collection": "Schematic / LED illuminator",
+      "kind": "offline_schematic_module",
+      "sku": "",
+      "anchor_mm": [
+        0,
+        0,
+        100
+      ],
+      "axis": "+X",
+      "ports_mm": {
+        "output": [
+          11,
+          0,
+          100
+        ]
+      },
+      "provenance": "Repository-authored nominal schematic geometry",
+      "source_record": "provenance/schematic_modules.json"
+    },
+    {
+      "id": "schematic/dichroic",
+      "label": "Dichroic mirror",
+      "collection": "Schematic / Dichroic mirror",
+      "kind": "offline_schematic_module",
+      "sku": "",
+      "anchor_mm": [
+        0,
+        0,
+        100
+      ],
+      "axis": "+X",
+      "ports_mm": {},
+      "provenance": "Repository-authored nominal schematic geometry",
+      "source_record": "provenance/schematic_modules.json"
+    },
+    {
+      "id": "schematic/epi_cube",
+      "label": "Epi illumination cube",
+      "collection": "Schematic / Epi illumination cube",
+      "kind": "offline_schematic_module",
+      "sku": "",
+      "anchor_mm": [
+        0,
+        0,
+        100
+      ],
+      "axis": "+X",
+      "ports_mm": {
+        "input": [
+          -19,
+          0,
+          100
+        ],
+        "transmitted": [
+          19,
+          0,
+          100
+        ],
+        "reflected": [
+          0,
+          19,
+          100
+        ]
+      },
+      "provenance": "Repository-authored nominal schematic geometry",
+      "source_record": "provenance/schematic_modules.json"
+    },
+    {
+      "id": "schematic/vertical_objective",
+      "label": "Vertical objective stand",
+      "collection": "Schematic / Vertical objective stand",
+      "kind": "offline_schematic_module",
+      "sku": "",
+      "anchor_mm": [
+        18,
+        0,
+        77
+      ],
+      "axis": "-Z",
+      "ports_mm": {
+        "front": [
+          18,
+          0,
+          77
+        ],
+        "rear": [
+          18,
+          0,
+          125
+        ]
+      },
+      "provenance": "Repository-authored nominal schematic geometry",
+      "source_record": "provenance/schematic_modules.json"
+    },
+    {
+      "id": "schematic/xy_stage",
+      "label": "XY sample stage",
+      "collection": "Schematic / XY sample stage",
+      "kind": "offline_schematic_module",
+      "sku": "",
+      "anchor_mm": null,
+      "axis": null,
+      "ports_mm": {},
+      "provenance": "Repository-authored nominal schematic geometry",
+      "source_record": "provenance/schematic_modules.json"
+    },
+    {
+      "id": "schematic/pinhole",
+      "label": "Spatial filter pinhole",
+      "collection": "Schematic / Spatial filter pinhole",
+      "kind": "offline_schematic_module",
+      "sku": "",
+      "anchor_mm": [
+        0,
+        0,
+        100
+      ],
+      "axis": "+X",
+      "ports_mm": {},
+      "provenance": "Repository-authored nominal schematic geometry",
+      "source_record": "provenance/schematic_modules.json"
+    },
+    {
+      "id": "schematic/beam_expander",
+      "label": "Beam expander",
+      "collection": "Schematic / Beam expander",
+      "kind": "offline_schematic_module",
+      "sku": "",
+      "anchor_mm": [
+        0,
+        0,
+        100
+      ],
+      "axis": "+X",
+      "ports_mm": {},
+      "provenance": "Repository-authored nominal schematic geometry",
+      "source_record": "provenance/schematic_modules.json"
+    },
+    {
+      "id": "schematic/retroreflector",
+      "label": "Corner cube retroreflector",
+      "collection": "Schematic / Corner cube retroreflector",
+      "kind": "offline_schematic_module",
+      "sku": "",
+      "anchor_mm": [
+        0,
+        0,
+        100
+      ],
+      "axis": "+X",
+      "ports_mm": {},
+      "provenance": "Repository-authored nominal schematic geometry",
+      "source_record": "provenance/schematic_modules.json"
+    },
+    {
+      "id": "schematic/delay_stage",
+      "label": "Delay stage",
+      "collection": "Schematic / Delay stage",
+      "kind": "offline_schematic_module",
+      "sku": "",
+      "anchor_mm": null,
+      "axis": null,
+      "ports_mm": {},
+      "provenance": "Repository-authored nominal schematic geometry",
+      "source_record": "provenance/schematic_modules.json"
+    },
+    {
+      "id": "schematic/npbs_cube",
+      "label": "Nonpolarizing splitter cube",
+      "collection": "Schematic / Nonpolarizing splitter cube",
+      "kind": "offline_schematic_module",
+      "sku": "",
+      "anchor_mm": [
+        0,
+        0,
+        100
+      ],
+      "axis": "+X",
+      "ports_mm": {
+        "input": [
+          -19,
+          0,
+          100
+        ],
+        "transmitted": [
+          19,
+          0,
+          100
+        ],
+        "reflected": [
+          0,
+          19,
+          100
+        ]
+      },
+      "provenance": "Repository-authored nominal schematic geometry",
+      "source_record": "provenance/schematic_modules.json"
+    },
+    {
+      "id": "schematic/etalon",
+      "label": "Fabry-Perot etalon",
+      "collection": "Schematic / Fabry-Perot etalon",
+      "kind": "offline_schematic_module",
+      "sku": "",
+      "anchor_mm": [
+        0,
+        0,
+        100
+      ],
+      "axis": "+X",
+      "ports_mm": {},
+      "provenance": "Repository-authored nominal schematic geometry",
+      "source_record": "provenance/schematic_modules.json"
+    },
+    {
+      "id": "schematic/uv_source",
+      "label": "UV illumination source",
+      "collection": "Schematic / UV illumination source",
+      "kind": "offline_schematic_module",
+      "sku": "",
+      "anchor_mm": [
+        0,
+        0,
+        100
+      ],
+      "axis": "+X",
+      "ports_mm": {
+        "output": [
+          11,
+          0,
+          100
+        ]
+      },
+      "provenance": "Repository-authored nominal schematic geometry",
+      "source_record": "provenance/schematic_modules.json"
+    },
+    {
+      "id": "schematic/shutter",
+      "label": "Beam shutter",
+      "collection": "Schematic / Beam shutter",
+      "kind": "offline_schematic_module",
+      "sku": "",
+      "anchor_mm": [
+        0,
+        0,
+        100
+      ],
+      "axis": "+X",
+      "ports_mm": {},
+      "provenance": "Repository-authored nominal schematic geometry",
+      "source_record": "provenance/schematic_modules.json"
+    },
+    {
+      "id": "schematic/photomask",
+      "label": "Photomask holder",
+      "collection": "Schematic / Photomask holder",
+      "kind": "offline_schematic_module",
+      "sku": "",
+      "anchor_mm": [
+        0,
+        0,
+        100
+      ],
+      "axis": "+X",
+      "ports_mm": {},
+      "provenance": "Repository-authored nominal schematic geometry",
+      "source_record": "provenance/schematic_modules.json"
+    },
+    {
+      "id": "schematic/wafer_chuck",
+      "label": "Wafer and vacuum chuck",
+      "collection": "Schematic / Wafer and vacuum chuck",
+      "kind": "offline_schematic_module",
+      "sku": "",
+      "anchor_mm": [
+        0,
+        0,
+        21.5
+      ],
+      "axis": "+Z",
+      "ports_mm": {},
+      "provenance": "Repository-authored nominal schematic geometry",
+      "source_record": "provenance/schematic_modules.json"
+    },
+    {
+      "id": "schematic/slm",
+      "label": "Reflective SLM",
+      "collection": "Schematic / Reflective SLM",
+      "kind": "offline_schematic_module",
+      "sku": "",
+      "anchor_mm": [
+        0,
+        0,
+        100
+      ],
+      "axis": "+X",
+      "ports_mm": {
+        "surface": [
+          1.5,
+          0,
+          100
+        ]
+      },
+      "provenance": "Repository-authored nominal schematic geometry",
+      "source_record": "provenance/schematic_modules.json"
+    },
+    {
+      "id": "schematic/dmd",
+      "label": "DMD modulator",
+      "collection": "Schematic / DMD modulator",
+      "kind": "offline_schematic_module",
+      "sku": "",
+      "anchor_mm": [
+        0,
+        0,
+        100
+      ],
+      "axis": "+X",
+      "ports_mm": {
+        "surface": [
+          1.5,
+          0,
+          100
+        ]
+      },
+      "provenance": "Repository-authored nominal schematic geometry",
+      "source_record": "provenance/schematic_modules.json"
+    },
+    {
+      "id": "schematic/scan_head",
+      "label": "Two-axis scanning head",
+      "collection": "Schematic / Two-axis scanning head",
+      "kind": "offline_schematic_module",
+      "sku": "",
+      "anchor_mm": [
+        0,
+        0,
+        100
+      ],
+      "axis": "+X",
+      "ports_mm": {
+        "input": [
+          22,
+          0,
+          100
+        ],
+        "output": [
+          -10,
+          36,
+          100
+        ]
+      },
+      "provenance": "Repository-authored nominal schematic geometry",
+      "source_record": "provenance/schematic_modules.json"
+    }
+  ],
+  "scenes": [
+    "01 ASSEMBLY GALLERY",
+    "02 STANDARD PARTS",
+    "03 FUNCTIONAL MODULES",
+    "04 BUILD HERE"
+  ],
+  "visible_branding": false,
+  "private_sku_metadata": true
+}
