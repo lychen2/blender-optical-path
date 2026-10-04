@@ -6,6 +6,8 @@
 
 [English](README.md)
 
+https://github.com/user-attachments/assets/b63bad65-843b-46b2-bf64-ec6e713d0830
+
 ![紧凑浮动光路与元件标注](docs/examples/floating-matte.webp)
 
 示例是一套双波长装置，用了元件库里的 17 个元件。647 nm 和 485 nm 两路光在二向色镜处合束，分进两条物镜臂，再在相机前重新合束。

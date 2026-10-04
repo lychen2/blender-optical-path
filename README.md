@@ -6,6 +6,8 @@ Typical subjects: imaging and microscopy paths, interferometers, lithography set
 
 [中文说明](README.zh-CN.md)
 
+https://github.com/user-attachments/assets/b63bad65-843b-46b2-bf64-ec6e713d0830
+
 ![Compact floating optical layout with component labels](docs/examples/floating-matte.webp)
 
 The example is a dual-wavelength apparatus built from 17 library components. Two channels (647 nm and 485 nm) merge at a dichroic mirror, split into two objective arms, and recombine before the camera.
