@@ -10,7 +10,7 @@ Default to **Matte Technical** for a restrained apparatus figure. The current du
 | Soft Lab | Matte dark hardware with broad side highlights | Teal edges, controlled transparent faces | Thick bodies with optional low-optical-depth scattering; charcoal field |
 | Illustrated Geometry | Warm continuous diffuse shading, selective hardware contours | Soft tinted faces; translucent splitters with fine cyan edges | Thick softly shaded colored bodies; warm paper field |
 | Textbook White | Flat neutral colors with thin black component edges | Flat cyan faces; translucent splitters with a visible film | Flat colored bodies without outlines or shadows; true white field |
-| Cel / Toon | Two or three broad shading bands | Distinct face and rim tones | Saturated thick paths without bloom; pale neutral field |
+| Cel / Toon | Hard shadow/base/lit bands, fixed glints, calligraphic navy ink | Hard-banded cyan faces with deep-cyan ink | Pale camera-facing beam cores, no outlines or bloom; flat butter-yellow field |
 
 ## Shared controls
 
@@ -66,14 +66,17 @@ Beams remain thick by default. Numerical tracing determines their envelope and p
 
 ## 5. Cel / Toon
 
-- Use two or three diffuse tone bands with a broad lighting direction. Avoid a thick black outline on every edge.
-- In EEVEE, an optional node path is Diffuse BSDF → Shader to RGB → ColorRamp with constant interpolation → Emission. Shader to RGB is engine-specific and is not a portable Cycles toon pipeline. Set separate ramps for hardware, optics and beam roles; do not quantize everything to identical colors.
-- For Cycles use a tested Toon BSDF setup or a composited lighting pass. Verify engine/node support before promising identical results across engines.
-- Optical glass uses a readable tinted face with a restrained deep-cyan silhouette cue, not black ink. Other hardware can use a fine dark-gray contour. Preserve the manufacturer objective shape and ring; use soft gray barrel shading without a broad black outline. Thick beams have no black outline or scattering. Keep floor shadows absent or subordinate so contours, not shadows, separate components.
+Cel / Toon uses hard lighting bands, crisp highlights and variable-width ink to give the apparatus a cel-animation appearance.
 
-**Prompt:** Create a restrained cel-shaded optical apparatus with discrete diffuse tone bands, fine dark-gray contours on hardware and fine deep-cyan contours on optical silhouettes. Keep lens faces readable, not black-rimmed. Preserve the manufacturer objective shape, smoothly shaded barrel and native ring color. Give traced beam bodies a solid saturated color with no black outline. Use a pale shadow-free field and preserve the fixed camera/optical geometry. No broad black objective rims, tangled internal outlines, heavy ground shadows, bloom or 3D lettering.
+- Use emission-only bands: `Geometry.Normal · key` through a constant-interpolation ColorRamp into Emission. Place the fixed key direction so broad light/shadow boundaries are visible on barrels and lenses. Keep flat faces away from band thresholds.
+- Use shadow, base and lit tones. Neutral shadows shift cool; beam tones retain their channel colors. Optics and hardware add a hard glint from a fixed direction. For beam cores, subtract the view component along the curve tangent, normalize, then compare with the surface normal. This keeps the pale stripe visible on oblique segments.
+- In EEVEE, Diffuse BSDF → Shader to RGB → constant ColorRamp → Emission is an alternative. Shader to RGB is EEVEE-only. The emission recipe above is tested in Cycles.
+- Draw Freestyle silhouette and border ink with a fixed pixel width and a calligraphy thickness modifier, about 2–5 px at 2100 px: deep cyan on optics, dark navy on hardware. Beams have no outline. Do not use facing-ratio rims; they blacken lens faces and objective barrels.
+- Use a flat butter-yellow field with no floor shadow. Splitter shells use pale tones to keep the internal junction readable. In Cycles, setting `min_transparent_bounces = transparent_max_bounces` suppresses Russian-roulette noise through stacked transparent faces.
 
-**Acceptance:** Clearly stepped shading and legible silhouettes; fine role-specific contour cues; no lost focal waist, blackened optics or dark floor shadow competing with the path.
+**Prompt:** Render a cel-shaded optical apparatus. Use emission-only hard tone bands from one fixed key direction, with clear light/shadow boundaries on objective barrels, laser housings and lenses. Shift neutral shadows cool. Give traced beams pale camera-facing cores, and give glass and metal crisp fixed glints. Draw calligraphic deep-cyan ink on optics and dark-navy ink on hardware silhouettes, with no beam outlines. Use a flat butter-yellow field. Keep translucent splitter shells pale, with a visible internal film and beam junction. Preserve the manufacturer objective shape and native ring color, and keep the camera and optical geometry fixed. No soft gradients, bloom, floor shadows or 3D lettering.
+
+**Acceptance:** At a 700–900 px preview width the figure reads as cel animation and is clearly different from Textbook White and Illustrated. Horizontal and oblique beam segments show pale cores at resolvable widths; focal waists remain visible. Objective barrels and laser housings show hard light/shadow boundaries. Flat faces have stable tones. Beams have no outline; splitter shells, films and junctions are readable and speckle-free. No lost focal waist, blackened optics or muddy splitter.
 
 ## Compare before committing a style
 

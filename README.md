@@ -32,7 +32,7 @@ Same layout and camera, different materials and lighting. Purple marks the combi
 | **Soft Lab**: dark field, softly lit beams | ![Soft Lab](docs/examples/floating-soft-lab.webp) |
 | **Illustrated Geometry**: warm soft shading, translucent cyan splitters | ![Illustrated Geometry](docs/examples/floating-illustrated.webp) |
 | **Textbook White**: white field, thin black edges | ![Textbook White](docs/examples/floating-textbook.webp) |
-| **Cel / Toon**: stepped shading, cyan and gray contours | ![Cel shading](docs/examples/floating-toon.webp) |
+| **Cel / Toon**: hard light/shadow bands, bright beam cores, bold ink | ![Cel shading](docs/examples/floating-toon.webp) |
 
 Recipes and prompts: [shading presets](references/shading-presets.md) · [compact composition](references/compact-floating-prompt.md) · [visual style](references/visual-style.md)
 

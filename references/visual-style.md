@@ -32,7 +32,7 @@ Use [five shading recipes](shading-presets.md). Their differences must come from
 - **Soft Lab:** dark field, directional highlights and bounded faint beam scattering where useful.
 - **Illustrated Geometry:** warm paper field, muted continuous volume shading, selective hardware contours; no black glass, beam or objective-barrel outline. PBS shells may use a slightly stronger cyan edge cue so the split/merge junction remains visible.
 - **Textbook White:** true white field, flat lighting-independent or near-flat colors, thin black component edges, no gloss, no floor shadows. Exclude beams from the contour pass.
-- **Cel / Toon:** discrete tone bands and fine role-specific contours; cyan optic edges, gray hardware edges, no black beam outline or broad black objective rim.
+- **Cel / Toon:** hard shadow/base/lit bands from one fixed key, pale beam cores, fixed glints and calligraphic ink (deep cyan on optics, dark navy on hardware) on a flat butter-yellow field; no beam outline or facing-ratio rim.
 
 For a style comparison, hold geometry, camera, framing, optical topology, labels and channel identities fixed. Confirm the variants remain distinguishable at thumbnail size. For a new unrelated figure, vary key light, palette emphasis and view purposefully; preserve any locked user/venue conditions. Do not add random optical tilt, decenter or uneven supports to remove a synthetic appearance. Physical symmetry may be required.
 

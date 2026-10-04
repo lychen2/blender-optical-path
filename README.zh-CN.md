@@ -32,7 +32,7 @@
 | **Soft Lab**：暗色背景，光束柔和发亮 | ![Soft Lab](docs/examples/floating-soft-lab.webp) |
 | **Illustrated Geometry**：暖色柔和阴影，青色半透明分光镜 | ![Illustrated Geometry](docs/examples/floating-illustrated.webp) |
 | **Textbook White**：白底，细黑边 | ![Textbook White](docs/examples/floating-textbook.webp) |
-| **Cel / Toon**：色阶分层，青色和灰色轮廓线 | ![Cel shading](docs/examples/floating-toon.webp) |
+| **Cel / Toon**：硬边明暗分区，光束亮芯，粗墨线 | ![Cel shading](docs/examples/floating-toon.webp) |
 
 配方与提示词：[着色预设](references/shading-presets.md) · [紧凑构图](references/compact-floating-prompt.md) · [视觉风格](references/visual-style.md)
 
