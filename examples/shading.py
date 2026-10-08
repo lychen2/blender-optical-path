@@ -125,7 +125,14 @@ def toon_surface(material, color, role, shadow_band=True):
 
 def component_contours(scene, objects, style):
     """Fixed-pixel component edges: thin black (Textbook), calligraphic
-    role-colored ink (Toon), or subtle cyan splitter edges (Illustrated)."""
+    role-colored ink (Toon), or subtle cyan splitter edges (Illustrated).
+
+    This pass does not guarantee complete feature-edge coverage. Callers must
+    include required components, including visible nanostructures. Inspect
+    bevels, CAD end-face circles and barrel steps in the render. Add selected
+    source-geometry curves for missing boundaries; retain opaque occlusion.
+    Tune width after coverage is complete. Exclude CAD triangulation.
+    """
     scene.render.use_freestyle = True
     scene.render.line_thickness_mode = 'ABSOLUTE'
     scene.render.line_thickness = 1

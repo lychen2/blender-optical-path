@@ -38,6 +38,6 @@ For a wide apparatus, first inspect at roughly 700–900 pixels across, then at 
 2. Are small optics identifiable, and are sources subordinate to the optical train? Check resizing has not moved apertures off the beam.
 3. Do the envelope boundaries visibly show the intended optical changes without implying unsupported measurements?
 4. Does the system occupy the canvas, with only the space needed for optical separation and labels?
-5. Are labels readable and close to their targets, and are glass edges visible against the background? For splitters, can the cube, its film and the internal beam junction all be identified? For flat shading, do thin black component outlines separate adjacent faces without outlining the beams?
+5. Are labels readable and close to their targets, and are glass edges visible against the background? For splitters, can the cube, its film and the internal beam junction all be identified? For flat shading, are visible boundaries complete, including nanostructures, substrate corners, objective end faces and barrel steps? Check edge coverage first, then stroke width. Keep beams free of outlines.
 
 For a floating/mechanical comparison, preserve topology, terminology and channel colors. Floating mode may use tighter spacing and enlarged symbols; mechanical mode retains native dimensions and checks physical interfaces. State the differing display scale so the comparison is not read as a dimensional overlay.
