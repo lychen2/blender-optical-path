@@ -1,6 +1,24 @@
-# Dual-wavelength apparatus: presentation and shading
+# Paper templates and dual-wavelength apparatus
 
-The example uses 17 shared-library instances and renders two presentation modes and five shading schemes. Default: compact floating optics, Matte Technical materials. The mechanical view retains native parts; floating mode uses shorter display distances and larger optical symbols. All names and the image-plane/z markers are added afterward in a 2D SVG.
+## Start with an editable paper figure
+
+```bash
+blender -b --factory-startup --python-exit-code 1 \
+  --python tools/paper_scene.py -- --template beam-relay \
+  --output /chosen/new-paper-figure
+```
+
+Choose `beam-relay`, `polarimetry`, or `microscope`. Templates default to `floating`, which hides mounts, sample frames and supports. Use `compact` for mounts without supports, or `full` for native assemblies. Component Pack Studio uses lit glass and reflective metal. `--style illustrated` selects flat three-tone Journal Editorial with fine contours on white.
+
+Outputs: `figure.blend`, `clean.png`, `annotated.svg`, and `scene.json`. Open the blend to edit component transforms, curve points and the beam modifier's **Radius Scale**. Open the SVG beside `clean.png` to edit labels. These templates use authored beam widths and require no numerical prescription.
+
+Current previews: [Component Pack Studio](../docs/examples/paper-studio.svg) · [Journal Editorial](../docs/examples/paper-editorial.svg). Keep each SVG beside its referenced clean WebP.
+
+Reproduce both previews at 1500 pixels with `--resolution 1500 --samples 48`. Add `--style illustrated` for the editorial preview. Both use the default floating presentation and the same camera.
+
+## Dual-wavelength apparatus
+
+The example uses 17 shared-library instances and supports two presentation modes and six shading schemes. Default: floating optics, Component Pack Studio materials. The mechanical view retains native parts; floating mode uses shorter display distances and larger optical symbols. All names and the image-plane/z markers are added afterward in a 2D SVG.
 
 ## Reproduce
 
@@ -14,7 +32,7 @@ python examples/annotate_reference.py /chosen/floating-matte /chosen/floating-ma
 rsvg-convert /chosen/floating-matte/annotated.svg -o /chosen/floating-matte/annotated.png
 ```
 
-`--mode` accepts `floating` (default) or `mechanical`. `--style` accepts `matte` (default), `soft-lab`, `illustrated`, `textbook`, or `toon`. The checked renderer is Blender 5.2.2 Cycles, including its Toon BSDF and Freestyle. Textbook component edges and Illustrated splitter edges require a Blender build with Freestyle support. Use `--mode mechanical --style matte` for the mounted comparison. Run each floating style with unchanged topology and framing for a material comparison.
+`--mode` accepts `floating` (default) or `mechanical`. `--style` accepts `component-pack` (default), `matte`, `soft-lab`, `illustrated`, `textbook`, or `toon`. The checked renderer is Blender 5.2.2 Cycles, including its Toon BSDF and Freestyle. Textbook component edges require a Blender build with Freestyle support. Use `--mode mechanical --style matte` for the mounted comparison. Run each floating style with unchanged topology and framing for a material comparison.
 
 The script writes `.blend`, `clean.png`, `layout.json` and `trace.json`. The SVG generator embeds its raster and supports an optional `--raster image.webp` for smaller files. Export with `rsvg-convert` or a graphics editor. Do not add intermediate renders, test reports or generated `.blend` copies to the package.
 
@@ -38,4 +56,4 @@ Purple represents the combined channels, not a new wavelength. This topology con
 
 ## Rendering boundaries
 
-Materials are copied locally. Textbook White uses flat colors on true white with thin black component edges; beams have no outline. Illustrated retains warm paper and continuous soft shading, with subtle cyan edges on its splitter cubes. Textbook, Illustrated and Toon show the internal beam junction through a translucent shell and a stronger film, with no refraction. The current per-surface opacity factors are 0.09/0.24 (shell/film) for Textbook, 0.26/0.34 for Illustrated and 0.30/0.42 for Toon; overlapping surfaces compound opacity, and these values do not represent physical transmission or splitting ratios. Illustrated edge ramps exclude ordinary glass, beams and RMS objective barrels. Cel shading uses emission-only hard bands from a fixed key, pale beam cores and calligraphic navy/cyan ink on a butter-yellow field; beams have no outline. Labels are dark on light fields and light on the dark variant. Library CAD, optical layout and channel meanings do not change between styles. The package checker verifies scene structure, native components, selected seating interfaces and APIs; it does not certify the complete optical or mechanical design.
+Materials are copied locally. Textbook White uses flat colors on true white with thin black component edges; beams have no outline. Journal Editorial uses flat three-tone fills and fine grey-teal silhouette lines on a true white field. Component Pack Studio and Journal Editorial use nonrefractive illustrative glass to keep beam paths readable. Transparent shell and interface layers show splitter junctions. Their opacity controls are artistic values. The archived Illustrated gallery image shows the previous recipe. Cel shading uses emission-only hard bands from a fixed key, pale beam cores and calligraphic navy/cyan ink on a butter-yellow field; beams have no outline. Labels are dark on light fields and light on the dark variant. Library CAD, optical layout and channel meanings do not change between styles. The package checker verifies scene structure, native components, selected seating interfaces and APIs; it does not certify the complete optical or mechanical design.

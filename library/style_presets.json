@@ -1,0 +1,12 @@
+{
+  "default": "component-pack",
+  "presets": {
+    "component-pack": {"label": "Component Pack Studio", "description": "Lit pale-blue glass, reflective silver barrels and soft studio depth on a light-grey field.", "lens_color": [0.90675, 0.97078, 1.0], "lens_display_color": [0.32, 0.58, 0.78], "lens_roughness": 0.1, "lens_transmission": 1.0, "lens_ior": 1.5, "field": [0.86, 0.88, 0.91], "world_strength": 0.45, "beam_emission": 0.0, "metal_roughness": 0.26, "source": "references/style-sources.md#local-component-pack-studio-source"},
+    "matte": {"label": "Matte Technical", "description": "Satin hardware and pale-cyan optics on a cool field.", "source": "references/shading-presets.md"},
+    "soft-lab": {"label": "Soft Lab", "description": "Charcoal field and bounded, faint beam scattering.", "source": "references/shading-presets.md"},
+    "illustrated": {"label": "Journal Editorial", "description": "Flat grey-teal illustration with three face tones, fine silhouette lines and a true white field.", "lens_color": [0.24, 0.53, 0.56], "lens_roughness": 0.4, "lens_transmission": 0.0, "lens_ior": 1.5, "field": [1.0, 1.0, 1.0], "world_strength": 0.7, "beam_emission": 0.0, "metal_roughness": 0.58, "source": "references/style-sources.md"},
+    "textbook": {"label": "Textbook White", "description": "Flat colors, thin black component edges and an exactly white field.", "source": "references/shading-presets.md"},
+    "toon": {"label": "Cel / Toon", "description": "Hard tone bands, narrow beam cores and calligraphic component edges.", "source": "references/shading-presets.md"}
+  },
+  "aliases": {"journal-editorial": "illustrated", "pack": "component-pack"}
+}

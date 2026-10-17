@@ -17,6 +17,8 @@ PACKAGE = Path(__file__).resolve().parents[1]
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument('--output', type=Path, required=True, help='New output directory')
+    parser.add_argument('--style', default='component-pack',
+                        choices=('component-pack', 'matte', 'soft-lab', 'illustrated', 'textbook', 'toon'))
     args = parser.parse_args(sys.argv[sys.argv.index('--')+1:] if '--' in sys.argv else [])
     output = args.output.resolve()
     if output.exists():
@@ -42,14 +44,7 @@ def main():
     camera.location = target + Vector((240,-450,300))
     camera.rotation_euler = (target-camera.location).to_track_quat('-Z','Y').to_euler()
     scene.camera = camera
-    scene.render.engine = 'BLENDER_WORKBENCH'
-    scene.display.shading.light = 'STUDIO'
-    scene.display.shading.color_type = 'MATERIAL'
-    scene.display.shading.show_cavity = True
-    scene.display.shading.background_type = 'WORLD'
-    scene.world = bpy.data.worlds.new('Example background')
-    scene.world.color = (.9,.9,.9)
-    scene.view_settings.view_transform = 'Standard'
+    api['apply_style'](scene, args.style)
     scene.render.resolution_x = 1400
     scene.render.resolution_y = 900
     scene.render.resolution_percentage = 100

@@ -59,7 +59,8 @@ def new_workspace(name='Optical workspace'):
     scene.unit_settings.system = 'METRIC'
     scene.unit_settings.scale_length = .001
     scene.unit_settings.length_unit = 'MILLIMETERS'
-    scene['diagram_scope'] = 'Editable optical schematic; beam paths are authored curves.'
+    scene['diagram_scope'] = 'Editable publication illustration; authored beam paths and display spacing.'
+    scene['opl_default_style'] = 'component-pack'
     if bpy.context.window:
         bpy.context.window.scene = scene
     return scene
@@ -136,6 +137,8 @@ def add_beam(points_mm, name='Beam', radius_mm=3, color=(.05, .65, .18), scene=N
     curve.materials.append(material)
     obj = bpy.data.objects.new(name, curve)
     scene.collection.objects.link(obj)
+    obj['opl_beam'] = True
+    material['figure_material_role'] = 'beam'
     obj['radii_mm'] = json.dumps(radii)
     obj['diagram_scope'] = 'Authored schematic envelope; no ray tracing or propagation calculation'
     return obj
@@ -221,6 +224,23 @@ def import_cad(mesh_path, label=None):
     return col
 
 
+def list_styles():
+    import runpy
+    return runpy.run_path(str(PACKAGE / 'tools/styles.py'))['list_styles']()
+
+
+def apply_style(scene=None, style='component-pack'):
+    import runpy
+    return runpy.run_path(str(PACKAGE / 'tools/styles.py'))['apply_style'](scene, style)
+
+
+def add_beam_nodes(points_mm, name='Beam', radius_mm=2, color=(.05, .65, .18),
+                   scene=None, radii_mm=None, profile='tube', opacity=.55):
+    import runpy
+    return runpy.run_path(str(PACKAGE / 'tools/geometry_nodes.py'))['add_beam_nodes'](
+        points_mm, name, radius_mm, color, scene, radii_mm, profile, opacity)
+
+
 def inspect_scene(scene=None):
     scene = scene or bpy.context.scene
     return {'scene': scene.name, 'unit_system': scene.unit_settings.system,
@@ -229,4 +249,8 @@ def inspect_scene(scene=None):
                            'collection': o.instance_collection.name,
                            'position_scene_units': list(o.location)}
                           for o in scene.objects if o.instance_type == 'COLLECTION' and o.instance_collection],
-            'objects': len(scene.objects)}
+            'objects': len(scene.objects),
+            'style': scene.get('opl_applied_style', scene.get('opl_default_style', 'component-pack')),
+            'beams': [{'name': o.name, 'geometry_nodes': any(m.type == 'NODES' for m in o.modifiers),
+                       'scope': o.get('diagram_scope', 'Illustrative beam')}
+                      for o in scene.objects if o.get('opl_beam')]}

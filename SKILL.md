@@ -1,51 +1,41 @@
 ---
 name: blender-optical-path
-description: Build editable Blender optical-path figures from optical topology, aligned components and a deliberate visual style. Use Python or Blender MCP, render hardware and beams without text, and add labels afterward in a separate 2D overlay.
+description: Build editable Blender optical-path illustrations from a brief topology, component-library assets, editable beam geometry, deliberate styling, and a separate 2D annotation layer. Use Python or Blender MCP when available; physics-based modeling is optional unless the user asks for a physical design.
 ---
 
 # Blender optical path
 
-Build a source-to-detector apparatus figure through **optical model → display geometry → shading → 2D annotation**. Use the bundled components and shared API; do not substitute a mechanism diagram for the requested apparatus. Resolve paths relative to this skill directory. Explicit user choices override style defaults.
+Create a **pure paper illustration by default**, not a simulated or certified instrument. The ordinary path is **brief topology → Thorlabs/library components → editable Geometry Nodes beams → style → separate editable 2D labels → visual and scene checks**. Keep all scene geometry editable. Do not invent a prescription, numerical optical parameters, or physics claims to complete a conceptual figure. Explicit user choices override defaults.
 
 ## Defaults and invariants
 
-- **Compact floating optics by default.** Enlarge optical symbols uniformly about their optical anchors and shorten schematic gaps for clarity; record display scale separately. Use full mechanical assemblies when requested, retaining native CAD dimensions and checking interfaces. Preserve source assets through scene-local copies.
-- **Thick beam envelopes by default.** Thin paths need an explicit request. Derive focal structure from the agreed optical model; do not invent radii, conjugates or an extra focus at a detector. Default to coaxial operation unless the design says otherwise.
-- **Reviewed manufacturer objectives, preferably RMS series.** Preserve object/image-side orientation; never reverse or hand-model an objective to fit a beam cartoon. Prefer compatible KM100 adjustable lens mounts and POLARIS-K1S5 mirror mounts in mechanical views; verify seating and fasteners.
-- **No component names or other text in the 3D render.** Add labels in a separate editable 2D overlay. Preserve source provenance in metadata; do not show manufacturer branding/model inscriptions. Preserve functional graduations and original CAD.
-- **Model validity, scene validity and visual quality are separate checks.** Do not claim one from another. Do not introduce random optical tilt/decenter to create an imperfect look. Keep actual optical data distinct from illustrative assumptions.
+- **Default presentation: floating optics.** Hide mounts, retaining rings, sample frames, support posts and bases. Retain optical elements and recognizable functional source/detector housings. Choose `compact` for mounts without supports, or `full` for native mechanical assemblies.
+- **Default look: Component Pack Studio.** Use `component-pack`: lit pale-blue glass, reflective silver barrels and soft three-dimensional shading on a light-grey field. Choose Journal Editorial (`illustrated`) for three-tone flat fills, fine silhouette lines and a true white field. See [shading presets](references/shading-presets.md) and [style sources](references/style-sources.md). It preserves the inspected local component pack's palette/finish direction, not a claim that every source object has a material or that the rendered scene reproduces the source lighting exactly.
+- **Illustrative beams by default.** Make editable beam bodies with `tools/geometry_nodes.py` `add_beam_nodes`; use artist-authored radii and the interactive `Radius Scale`. They communicate route, branches and visual emphasis, not calculated propagation. Do not represent them as physically calculated unless the user requests a physical design and the relevant model/checks are actually performed.
+- **Use real library/CAD parts where helpful.** Browse `library/index.json`, including Thorlabs components and standard parts. Preserve native source geometry and provenance. Scale floating display copies only for legibility; retain native CAD dimensions for mechanical views and verify mechanical interfaces when those matter.
+- **Objective orientation remains meaningful.** In specimen-imaging usage, objective front/object side faces the specimen; rear/infinity port faces the tube/relay lens. Confirm from the drawing and scene axis. Do not reverse an objective to make an illustrative beam fit.
+- **No text in the 3D render.** Add labels, dimensions and leaders later in a separate editable 2D overlay. `add_annotation` records intent only; it does not create or composite visible text.
+- **Separate scene and visual checks from optical validity.** An ordinary conceptual illustration needs no numerical prescription, optical preflight, or quantitative beam check. If a user requests physical design, quantitative optics and applicable mechanical interfaces become part of that task; do not claim validation without executed evidence.
+- **Keep provenance honest.** Distinguish sourced CAD, authored geometry, display scaling and conceptual assumptions. Do not show manufacturer branding/model inscriptions in the final art; retain source metadata and observe applicable reuse permissions.
 
-## Six-step workflow
+## Workflow
 
-### 1. Understand
+1. **Brief the topology.** Identify components, source-to-detector route, branches, beam/channel meanings, presentation mode, reference style, figure size and requested deliverables. Ask only about a genuine ambiguity that blocks the requested illustration or physical design. For a conceptual figure, use clear symbolic choices rather than requesting unavailable optical prescriptions. See [brief and optional physical design](references/optical-preflight.md).
+2. **Assemble components.** Choose assets from `library/index.json`; use [Python/MCP](references/python-mcp.md) for scripted work or [manual assembly](references/manual.md) for UI work. Use exact manufacturer CAD only when requested or needed. Preserve native dimensions and source hierarchy. Check objective orientation and, for mechanical illustrations, mount/clearance interfaces. See [official CAD workflow](references/thorlabs-workflow.md) when an exact requested part is missing.
+3. **Draw editable beams.** Add Geometry Nodes beam geometry from the chosen topology using `tools/geometry_nodes.py` `add_beam_nodes`. Set point radii deliberately and tune with `Radius Scale`. For a conceptual figure, the radii are artist-authored, not inferred from the optics. Beam geometry can be tubes; do not promise unverified profile options.
+4. **Style and compose.** Apply a named style through `tools/styles.py` (`apply_style`, `list_styles`, `setup_lighting`); `examples/shading.py` is a compatibility entry point. Available styles and aliases are in `library/style_presets.json`. Use the recipe and reference links below. Inspect a preview and high-risk details before final rendering.
+5. **Annotate separately.** Render components and beams without text; add labels in a distinct editable 2D layer after rendering. Choose final positions, type size, leaders and dimensions at the target image size. Do not invent measurements.
+6. **Check and deliver.** Inspect the rendered image at intended final size and verify scene structure as appropriate. Preserve edited `.blend`, assets/scripts and provenance as requested. For a physical-design task, also run appropriate quantitative and interface checks and report their actual results. See [release checks](references/release-checks.md).
 
-Read [optical preflight](references/optical-preflight.md). Inspect the request, reference, existing scene and established choices. Identify topology, beam meaning, lens groups, conjugate planes, direction and physical versus display coordinates. Reason through plausible interpretations yourself before asking questions; source CAD describes shape, not automatically an optical prescription.
+## Optional technical modeling
 
-### 2. Clarify once
-
-If material decisions remain unresolved, ask one prepared batch covering all currently identifiable optical and style blockers, with up to four grouped questions. Omit information already established. Offer coherent choices, not guesses the user must repair. Continue independent asset work while answers are pending. Record the agreed brief; ask again only for genuinely new contradictions.
-
-### 3. Model the optics
-
-Use the agreed prescription or explicitly accepted symbolic/illustrative model. Calculate conjugates and envelopes before drawing them. Trace actual surface/port geometry, including reflection/transmission, local frames and off-axis fields when required. Save inputs and numerical checkpoints. See preflight for 4f conventions, grating dispersion and model limits. Structural Blender validation does not establish optical validity.
-
-### 4. Assemble
-
-Choose bundled assets via `library/index.json` and place through `tools/optics.py`. Read [Python/MCP](references/python-mcp.md) for scripted work or [manual assembly](references/manual.md) for UI work. Use [official CAD workflow](references/thorlabs-workflow.md) only when an exact requested part is missing. Measure bare-CAD interfaces before alignment; preserve native geometry and source hierarchy. Apply the optical/assembly sections of [required checks](references/release-checks.md), especially coating normals, objective front direction and lens stop contact.
-
-### 5. Style and preview
-
-Read [visual style](references/visual-style.md), which owns the shared visual rules. Choose one [shading recipe and reusable prompt](references/shading-presets.md); use the [compact composition prompt](references/compact-floating-prompt.md) for floating layouts. Assign explicit material roles, not one shader to everything. Inspect a small preview and high-risk details before final rendering. Compare style variants with fixed geometry/camera/channel meaning. When feedback reveals a recurring problem, update the shared visual rule, affected prompt and implementation together; avoid accumulating contradictory patches.
-
-### 6. Verify and deliver
-
-Apply [required checks](references/release-checks.md). Check trace, geometry, materials and final-size labels independently; inspect every style variant. Save a new editable `.blend`, clean render, assembly script and trace inputs/checkpoints; include annotated artwork and editable overlay when requested. Keep limitations beside the claims they qualify. For package changes run `tools/check_package.py`, the affected example CLI and a fresh independent-copy check. Publish only curated documentation assets, useful scripts and provenance, not intermediate renders, reports, bytecode or original STEP files.
+Physics is an incremental, opt-in layer rather than a prerequisite for ordinary conceptual illustration. If requested, distinguish physical coordinates from display coordinates and use inputs and calculations appropriate to the design. `tools/advanced.py` contains parametric conic/aspheric lens geometry and calculated Gaussian-beam helpers; `tools/optical_model.py` contains ideal ABCD/paraxial, Gaussian, Jones and Fresnel calculations with explicit limitations. These capabilities do not turn CAD into a prescription, certify an instrument, or imply that a calculation was run. See [optional physics and upstream tools](references/optional-physics.md).
 
 ## Runtime and resources
 
 - New workspaces use metric `scale_length=0.001`; API inputs are millimetres and convert to existing metric scenes. Never silently reset an existing scene's units.
-- Most mounted assemblies have nominal optical anchor `(0,0,100)` and axis `+X`. Bare CAD has no calibrated anchor; other modules have their own ports. Inspect and measure before placement.
+- Many mounted assemblies have nominal optical anchor `(0,0,100)` and axis `+X`; bare CAD has no calibrated anchor unless documented. Inspect and measure before placement.
 - `load_asset` returns `(collection, record)`. Use `place_asset`, `add_beam`, `add_annotation` and `inspect_scene` through the shared API. `add_annotation` stores metadata only; it does not composite labels.
-- For MCP, discover an actually connected Blender tool and run `tools/blender_mcp_entry.py` using the documented request/result properties. Do not assume a tool prefix or infer live transport success from local Python execution.
-- `library/Optical_Components.blend` contains individual assemblies, standard parts, functional modules and an empty workspace. The gallery is a resource, not a complete layout template. Its captions are browsing aids only.
+- For MCP, discover an actually connected Blender tool and use `tools/blender_mcp_entry.py` with its documented request/result properties. Do not assume a tool prefix or infer live transport success from local Python execution.
+- `library/Optical_Components.blend` contains individual assemblies, standard parts, functional modules and an empty workspace. The gallery is a resource, not a complete layout template.
 - [Coverage](references/system-coverage.md) · [Examples and reproduction](examples/README.md) · [Third-party rights](THIRD_PARTY_NOTICES.md). Publish CAD derivatives only within applicable permission after branding review; authored-code licensing does not relicense manufacturer geometry.

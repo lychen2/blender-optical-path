@@ -20,7 +20,7 @@ def main():
     parser=argparse.ArgumentParser(description=__doc__)
     parser.add_argument('--output',type=Path,required=True)
     parser.add_argument('--mode',choices=['floating','mechanical'],default='floating')
-    parser.add_argument('--style',choices=['matte','soft-lab','illustrated','textbook','toon'],default='matte')
+    parser.add_argument('--style',choices=['component-pack','matte','soft-lab','illustrated','textbook','toon'],default='component-pack')
     args=parser.parse_args(sys.argv[sys.argv.index('--')+1:] if '--' in sys.argv else [])
     out=args.output.resolve()
     if out.exists():raise FileExistsError('Use a new output directory')
@@ -31,7 +31,7 @@ def main():
     scene=api['new_workspace']('Dual-wavelength mechanical layout')
     scene['opl_presentation_mode']='floating_optics' if args.mode=='floating' else 'full_mechanical_assembly'
     scene['scope']='Positive-positive 4f illumination model; normalized focal ratios, schematic spacing, coaxial recombination'
-    scene['style']='Editorial laboratory apparatus; cool ivory field, upper-right soft key, satin metal, thick violet beam bodies'
+    scene['style']='Publication apparatus; neutral field, controlled soft light, satin hardware and narrow muted beam envelopes'
     nodes={};placed=[]
     # Schematic spacing and display magnification apply only to floating mode.
     xmap=[(-320,-245),(-279,-216.3),(-240,-170),(-168,-115),(-98,-60),
@@ -127,12 +127,12 @@ def main():
     nodes['Image plane']=point((490,-170,100))
     nodes['z distance']=point((510,-170,60))
     def beam(name,pts,color,r=2,radii=None):
-        factor=1.4 if args.mode=='floating' else 1
+        factor=(.45 if args.mode=='floating' else .32) if args.style in ('component-pack','illustrated') else (1.4 if args.mode=='floating' else 1)
         return api['add_beam']([point(p) for p in pts],name=name,radius_mm=r*factor,color=color,scene=scene,
                                radii_mm=[v*factor for v in radii] if radii else None)
-    beam('647 nm',[(-279,0,100),(-240,0,100)],(.78,.035,.025))
-    beam('485 nm',[(-279,-125,100),(-240,-125,100),(-240,0,100)],(.04,.24,.8))
-    violet=(.47,.06,.66)
+    beam('647 nm',[(-279,0,100),(-240,0,100)],(.57,.055,.035))
+    beam('485 nm',[(-279,-125,100),(-240,-125,100),(-240,0,100)],(.035,.19,.48))
+    violet=(.24,.12,.40)
     # Trace in normalized optical coordinates, then map its surface/focus
     # stations to authored display coordinates. No mm prescription is inferred.
     expander, upper, lower=trace['pairs']
@@ -245,8 +245,9 @@ def main():
     def light(name,pos,energy,size):
         d=bpy.data.lights.new(name,'AREA');d.energy=energy;d.shape='DISK';d.size=size
         o=bpy.data.objects.new(name,d);scene.collection.objects.link(o);o.location=pos;o.rotation_euler=(target-o.location).to_track_quat('-Z','Y').to_euler()
-    light('Upper-right soft key',(380,100,700),13000000,700)
-    light('Front fill',(-250,-450,500),6500000,650)
+    if args.style not in ('component-pack','illustrated'):
+        light('Upper-right soft key',(380,100,700),13000000,700)
+        light('Front fill',(-250,-450,500),6500000,650)
     scene.render.engine='CYCLES';scene.cycles.samples=40;scene.cycles.use_denoising=True
     width,height=2100,(820 if args.mode=='floating' else 1050)
     scene.render.resolution_x=width;scene.render.resolution_y=height;scene.render.resolution_percentage=100
