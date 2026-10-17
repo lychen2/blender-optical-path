@@ -9,7 +9,7 @@ For an ordinary conceptual illustration, no prescription, numerical model, optic
 - The visible source-to-detector topology and branch connections match the brief; no unsupported wavelengths, foci, interference or measurement claims were added.
 - Components are recognizable, the objective faces the specimen in specimen-imaging depictions, and source provenance is preserved.
 - Artist-authored Geometry Nodes beams remain editable, communicate the intended route, and have readable junctions and widths. Treat radii as illustrative, not calculated.
-- Component-pack studio is the default unless a reference or user choice overrides it. Inspect optical surface readability, material roles, beam contrast, lighting, composition and cropping.
+- Journal Editorial is the default unless a reference or user choice overrides it. Inspect glass clarity, material roles, beam contrast, lighting, composition and cropping.
 - Final-size 2D labels, leaders, dimensions and plane markers are legible, correct and separate/editable. Do not invent measurements.
 - Any floating display scaling is not confused with native mechanical dimensions. Mechanical illustrations additionally need appropriate mount, seating and clearance review.
 

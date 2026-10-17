@@ -125,7 +125,7 @@ def toon_surface(material, color, role, shadow_band=True):
 
 def component_contours(scene, objects, style):
     """Fixed-pixel component edges: thin black (Textbook), calligraphic
-    role-colored ink (Toon), or subtle cyan splitter edges (Illustrated).
+    role-colored ink (Toon), or fine neutral silhouettes (Illustrated).
 
     This pass does not guarantee complete feature-edge coverage. Callers must
     include required components, including visible nanostructures. Inspect
@@ -143,8 +143,8 @@ def component_contours(scene, objects, style):
     for line_set in settings.linesets:
         line_set.show_render = False
     if style == 'illustrated':
-        groups = {'Optics': ((.08, .23, .26), .8),
-                  'Hardware': ((.10, .15, .18), .7)}
+        groups = {'Optics': ((.18, .18, .18), .8),
+                  'Hardware': ((.12, .12, .12), .7)}
     elif style == 'toon':
         groups = {'Optics': (TOON_INK['Optics'][:3], 2.8),
                   'Hardware': (TOON_INK['Hardware'][:3], 3.4)}
@@ -200,7 +200,7 @@ def component_contours(scene, objects, style):
             roles = {slot.material.get('figure_material_role') for slot in obj.material_slots if slot.material}
             if roles & {'beam', 'background'}:
                 continue
-            role = 'Optics' if roles & {'optic', 'mirror', 'splitter_shell', 'splitter_interface'} else 'Hardware'
+            role = 'Optics' if roles & {'optic', 'mirror', 'splitter_shell', 'splitter_interface', 'optical_coating'} else 'Hardware'
         else:
             role = 'Optics' if any(k in names for k in
                                   ('glass', 'prism', 'coating', 'optical', 'substrate')) else 'Hardware'

@@ -92,7 +92,7 @@ def _display_copy(instance, presentation):
     instance.instance_collection = target
 
 
-def build_scene(template='beam-relay', style='component-pack', presentation='floating',
+def build_scene(template='beam-relay', style='illustrated', presentation='floating',
                 resolution=1500):
     if template not in TEMPLATES:
         raise ValueError(f'Unknown template: {template}')
@@ -198,7 +198,7 @@ def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument('--output', type=Path, required=True, help='New output directory')
     parser.add_argument('--template', choices=TEMPLATES, default='beam-relay')
-    parser.add_argument('--style', choices=styles['STYLES'], default=styles['DEFAULT_STYLE'])
+    parser.add_argument('--style', choices=(*styles['STYLES'], *styles['CONFIG']['aliases']), default=styles['DEFAULT_STYLE'])
     parser.add_argument('--presentation', choices=('compact', 'full', 'floating'), default='floating')
     parser.add_argument('--resolution', type=int, default=1500)
     parser.add_argument('--samples', type=int, default=48)

@@ -20,7 +20,9 @@ def main():
     parser=argparse.ArgumentParser(description=__doc__)
     parser.add_argument('--output',type=Path,required=True)
     parser.add_argument('--mode',choices=['floating','mechanical'],default='floating')
-    parser.add_argument('--style',choices=['component-pack','matte','soft-lab','illustrated','textbook','toon'],default='component-pack')
+    parser.add_argument('--style',choices=['journal-editorial','component-pack','pack','matte','soft-lab','illustrated','textbook','toon'],default='illustrated')
+    parser.add_argument('--opticore',type=Path,help='Optional local CodeFHD/OptiCore checkout for lens meshes')
+    parser.add_argument('--glass-reference',type=Path,help='Optional source .blend containing the Lens material')
     args=parser.parse_args(sys.argv[sys.argv.index('--')+1:] if '--' in sys.argv else [])
     out=args.output.resolve()
     if out.exists():raise FileExistsError('Use a new output directory')
@@ -31,7 +33,7 @@ def main():
     scene=api['new_workspace']('Dual-wavelength mechanical layout')
     scene['opl_presentation_mode']='floating_optics' if args.mode=='floating' else 'full_mechanical_assembly'
     scene['scope']='Positive-positive 4f illumination model; normalized focal ratios, schematic spacing, coaxial recombination'
-    scene['style']='Publication apparatus; neutral field, controlled soft light, satin hardware and narrow muted beam envelopes'
+    scene['style']='Editable optical apparatus; authored display spacing and beam envelopes'
     nodes={};placed=[]
     # Schematic spacing and display magnification apply only to floating mode.
     xmap=[(-320,-245),(-279,-216.3),(-240,-170),(-168,-115),(-98,-60),
@@ -78,6 +80,8 @@ def main():
     for o in dichroic.all_objects:
         if o.name.startswith(('Mirror glass substrate','Reflective coated face')):
             o.data=o.data.copy();o.data.materials.clear();o.data.materials.append(glass)
+            if o.name.startswith('Reflective coated face'):
+                o['figure_material_role']='optical_coating'
     place('L1','assembly/biconvex_lens',-168,0)
     place('L2','assembly/biconvex_lens',-98,0)
     place('P','schematic/linear_polarizer',-30,0)
@@ -114,22 +118,43 @@ def main():
     place('M3','assembly/kinematic_mirror',390,0,225)
     npbs('NPBS2',390,-170)
     place('Color CMOS camera','assembly/scientific_camera',550,-170,180)
-    # Editorial glass: clear silhouette at README size, not measured transmission.
-    lens_material=mat('Readable pale cyan optical glass',(.14,.52,.59),.08,.27,.18)
+    # Copy the inspected pack's clear Lens shader, or reconstruct its portable recipe.
+    if args.glass_reference:
+        with bpy.data.libraries.load(str(args.glass_reference.resolve()),link=False) as (src,dst):
+            if 'Lens' not in src.materials:raise ValueError('Source file has no Lens material')
+            dst.materials=['Lens']
+        lens_material=dst.materials[0]
+    else:
+        lens_material=mat('Component pack / clear Lens',(.906751573,.970782459,1),0,.1,1)
+        lens_material.node_tree.nodes['Principled BSDF'].inputs['IOR'].default_value=1.5
+    lens_material['figure_material_role']='optic'
+    lens_material['opl_preserve_glass']=True
+    generator=runpy.run_path(str(PACKAGE/'tools/opticore_geometry.py')) if args.opticore else None
     for instance in placed:
         if instance['opl_asset_id'] not in ('assembly/biconvex_lens','assembly/biconcave_lens'):
             continue
-        col=local_copy(instance,instance.name+' / editorial glass')
-        for obj in col.all_objects:
-            if obj.name.startswith('Polished spherical optical'):
+        col=local_copy(instance,instance.name+' / clear glass')
+        old_lenses=[obj for obj in col.all_objects if obj.name.startswith('Polished spherical optical')]
+        if generator:
+            lens=generator['add_opticore_lens'](args.opticore,name=instance.name+' / OptiCore glass',
+                position_mm=(0,0,100),scene=scene,material=lens_material)
+            col.objects.link(lens)
+            for owner in tuple(lens.users_collection):
+                if owner!=col:owner.objects.unlink(lens)
+            for obj in old_lenses:obj.hide_render=True;obj.hide_viewport=True
+            instance['opl_lens_generator']='CodeFHD/OptiCore'
+        else:
+            for obj in old_lenses:
                 obj.data=obj.data.copy();obj.data.materials.clear();obj.data.materials.append(lens_material)
     # An image plane is an annotation, not another floating physical plate.
     nodes['Image plane']=point((490,-170,100))
     nodes['z distance']=point((510,-170,60))
     def beam(name,pts,color,r=2,radii=None):
-        factor=(.45 if args.mode=='floating' else .32) if args.style in ('component-pack','illustrated') else (1.4 if args.mode=='floating' else 1)
-        return api['add_beam']([point(p) for p in pts],name=name,radius_mm=r*factor,color=color,scene=scene,
-                               radii_mm=[v*factor for v in radii] if radii else None)
+        editorial=args.style in ('component-pack','pack','journal-editorial','illustrated')
+        factor=(.45 if args.mode=='floating' else .32) if editorial else (1.4 if args.mode=='floating' else 1)
+        draw=api['add_beam_nodes'] if editorial else api['add_beam']
+        return draw([point(p) for p in pts],name=name,radius_mm=r*factor,color=color,scene=scene,
+                    radii_mm=[v*factor for v in radii] if radii else None,**({'opacity':.85} if editorial else {}))
     beam('647 nm',[(-279,0,100),(-240,0,100)],(.57,.055,.035))
     beam('485 nm',[(-279,-125,100),(-240,-125,100),(-240,0,100)],(.035,.19,.48))
     violet=(.24,.12,.40)
@@ -215,7 +240,7 @@ def main():
                 if o.type!='MESH':continue
                 n=o.name
                 if asset in ('assembly/biconvex_lens','assembly/biconcave_lens'):
-                    keep=n.startswith('Polished spherical optical')
+                    keep=n.startswith('Polished spherical optical') if not generator else bool(o.get('opl_geometry_generator'))
                 elif asset=='assembly/kinematic_mirror':
                     keep=n.startswith(('Mirror glass substrate','Reflective coated face'))
                 elif asset=='assembly/pbs_cube':
@@ -245,7 +270,7 @@ def main():
     def light(name,pos,energy,size):
         d=bpy.data.lights.new(name,'AREA');d.energy=energy;d.shape='DISK';d.size=size
         o=bpy.data.objects.new(name,d);scene.collection.objects.link(o);o.location=pos;o.rotation_euler=(target-o.location).to_track_quat('-Z','Y').to_euler()
-    if args.style not in ('component-pack','illustrated'):
+    if args.style not in ('component-pack','pack','journal-editorial','illustrated'):
         light('Upper-right soft key',(380,100,700),13000000,700)
         light('Front fill',(-250,-450,500),6500000,650)
     scene.render.engine='CYCLES';scene.cycles.samples=40;scene.cycles.use_denoising=True
@@ -264,13 +289,42 @@ def main():
         v=world_to_camera_view(scene,camera,Vector(p));anchors[name]=[round(v.x*width,2),round((1-v.y)*height,2)]
     meta={'anchors_px':anchors,'image_size':[width,height],'style':args.style,'mode':scene['opl_presentation_mode'],'scope':scene['scope'],
           'components':[{'name':o.name,'asset_id':o['opl_asset_id'],'display_scale':o.get('display_scale',1)} for o in placed],
-          'mechanical_parts':'Native PH50/M + TR50/M, pedestal and fork clamp where present in library assemblies',
-          'limitations':['Reference supplies no dimensions, objective prescription, coatings or sensor conjugate.','Laser housings are generic, not verified 647/485 nm products.','NPBS coating and dichroic are nominal derivatives; standard mounts and supports retained.','Envelope derived from a normalized paraxial model; display distances are not an optical prescription. No internal objective tracing or interference simulation.','Breadboard grid is schematic and does not establish screw-hole fit.','POLARIS-K1S5 uses measured bottom mounting faces with nominal M4 fasteners; thread engagement is unverified.'],
+          'mechanical_parts':('Hidden mounts and supports' if args.mode=='floating' else
+                              'Native PH50/M + TR50/M, pedestal and fork clamp where present'),
+          'limitations':['Reference supplies no dimensions, objective prescription, coatings or sensor conjugate.','Laser housings are generic, not verified 647/485 nm products.','NPBS coating and dichroic are nominal derivatives; floating presentation hides standard mounts and supports.','Envelope derived from a normalized paraxial model; display distances are not an optical prescription. No internal objective tracing or interference simulation.','Breadboard grid is schematic and does not establish screw-hole fit.','POLARIS-K1S5 uses measured bottom mounting faces with nominal M4 fasteners; thread engagement is unverified.'],
           'beam_model':scene['beam_model'],
           'validation':checked}
+    meta['lens_geometry']='CodeFHD/OptiCore' if generator else 'Bundled component library'
+    meta['glass_reference']='Source Lens material' if args.glass_reference else 'Inspected component-pack Lens recipe'
+    meta['style']=scene['opl_applied_style']
     (out/'layout.json').write_text(json.dumps(meta,indent=2)+'\n')
+    write_overlay(scene,out/'annotated.svg',anchors,width,height)
     bpy.ops.wm.save_as_mainfile(filepath=str(out/'dual_wavelength_interferometer.blend'))
     bpy.ops.render.render(write_still=True)
     print('MECHANICAL_LAYOUT_PASSED',len(placed))
+
+def write_overlay(scene,output,anchors,width,height):
+    """Write separate editable labels for the complex floating layout."""
+    from xml.sax.saxutils import escape
+    offsets={'647 nm source':(-5,-72),'485 nm source':(-5,76),'M1':(-42,52),
+        'DM':(-40,-70),'L1':(-28,-100),'L2':(5,95),'P':(0,-80),
+        'NPBS1':(0,-128),'M2':(-35,90),'Specimen':(30,195),
+        'Objective 1':(0,-105),'Objective 2':(0,105),'L3':(0,-80),'L4':(0,92),
+        'M3':(0,-90),'NPBS2':(-12,116),'Color CMOS camera':(-50,110)}
+    labels={'647 nm source':'647 nm','485 nm source':'485 nm','Specimen':'Sample',
+        'Objective 1':'Obj. 1','Objective 2':'Obj. 2','Color CMOS camera':'Camera'}
+    parts=[f'<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="{width}" height="{height}" viewBox="0 0 {width} {height}">',
+        f'<image width="{width}" height="{height}" xlink:href="clean.png"/>',
+        '<g fill="#263238" font-family="Adwaita Sans, DejaVu Sans, sans-serif" font-size="23" text-anchor="middle">']
+    for name,(dx,dy) in offsets.items():
+        x,y=anchors[name];tx,ty=x+dx,y+dy
+        assert 18<tx<width-18 and 24<ty<height-15,(name,tx,ty)
+        if abs(dy)>80:
+            end=ty+10 if dy<0 else ty-26
+            parts.append(f'<path d="M {x:.2f},{y:.2f} L {tx:.2f},{end:.2f}" stroke="#889397" stroke-width="1" fill="none"/>')
+        parts.append(f'<text x="{tx:.2f}" y="{ty:.2f}">{escape(labels.get(name,name))}</text>')
+    parts.append('</g></svg>')
+    Path(output).write_text('\n'.join(parts)+'\n')
+
 
 if __name__=='__main__':main()

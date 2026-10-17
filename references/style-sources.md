@@ -1,6 +1,6 @@
 # Visual style sources and provenance
 
-This page records the basis for the default studio direction and editorial references. The published figures were visually inspected as examples of scientific illustration. They support observations about visual composition only; this is not a journal endorsement, ranking, or claim that the style was praised by a venue.
+Journal Editorial combines clear component-pack glass with restrained hardware and scientific-figure composition. The sources below record the material settings and visual references.
 
 ## Inspected scientific figures
 
@@ -12,10 +12,14 @@ This page records the basis for the default studio direction and editorial refer
 - Scientific Reports (2018), “Fast stabilization of a high-energy ultrafast OPA with adaptive lenses,” Fig. 1. DOI: [10.1038/s41598-018-32182-y](https://doi.org/10.1038/s41598-018-32182-y); PMC: [PMC6156574](https://pmc.ncbi.nlm.nih.gov/articles/PMC6156574/).
 - Scientific Reports (2025), “Large tolerance for incidence angle in Terahertz parametric detection,” Figs. 1a–f. DOI: [10.1038/s41598-025-06264-7](https://doi.org/10.1038/s41598-025-06264-7); PMC: [PMC12218185](https://pmc.ncbi.nlm.nih.gov/articles/PMC12218185/).
 
-Across these inspected figures, useful visual observations include sparse geometry, consistent visual channels, clear subsystem grouping and multi-panel detail. These are observations from particular figures, not prescriptions for every drawing or endorsements by their journals. Preserve the actual topology and meaning of the figure being made.
+These figures use sparse geometry, consistent visual channels, clear subsystem grouping and multi-panel detail. Apply those techniques while preserving the drawing's topology and meaning.
 
-## Local Component Pack Studio source
+## Local component-pack glass
 
-The default `component-pack` style is based on inspection of the local file `/home/zonazcy/Downloads/Optical components pack V1.blend` in Blender 5.2.2. Do not embed, copy, or redistribute this user blend or its assets as part of the skill.
+The material reference is `Optical components pack V1.blend`, inspected in Blender 5.2.2. The skill records its shader settings; the user's source file and geometry are not bundled.
 
-The inspected Lens material had base color `(0.906751573, 0.970782459, 1.0)`, roughness `0.1`, IOR `1.5` and transmission `1`. The inspected scene used Cycles with Filmic and one top area light: 171.4524 W, size 1, at approximately `(0.004917, -0.221193, 2.780707)`. These values describe the inspected source settings only. The source biconvex object had a **null material**; do not say this material was assigned to that object. The default renderer strengthens the pale-blue display tint and increases opacity at grazing angles to keep lens edges visible. It uses nonrefractive translucent surfaces for continuous beam junctions.
+The `Lens` material uses a Principled shader with base color `(0.906751573, 0.970782459, 1.0)`, metallic 0, roughness 0.1, IOR 1.5 and transmission 1. The inspected biconvex object has an empty material slot. The `Lens` datablock supplies the material reference independently of that object.
+
+The source scene uses Cycles, Filmic and one top area light: 171.4524 W, size 1, near `(0.004917, -0.221193, 2.780707)`. Journal Editorial uses the glass parameters with a white field, broad lights and restrained hardware face tones.
+
+The complex preview uses four OptiCore biconvex meshes and the source `Lens` material. OptiCore revision `f9b0029009846abbf34a0947971dc4c6ba1a21f6` was executed in Blender 5.2.2. See [reproduction details](opticore.md).

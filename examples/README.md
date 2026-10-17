@@ -1,6 +1,6 @@
-# Paper templates and dual-wavelength apparatus
+# Paper figures and dual-wavelength apparatus
 
-## Start with an editable paper figure
+## Generate a paper figure
 
 ```bash
 blender -b --factory-startup --python-exit-code 1 \
@@ -8,52 +8,71 @@ blender -b --factory-startup --python-exit-code 1 \
   --output /chosen/new-paper-figure
 ```
 
-Choose `beam-relay`, `polarimetry`, or `microscope`. Templates default to `floating`, which hides mounts, sample frames and supports. Use `compact` for mounts without supports, or `full` for native assemblies. Component Pack Studio uses lit glass and reflective metal. `--style illustrated` selects flat three-tone Journal Editorial with fine contours on white.
+Choose `beam-relay`, `polarimetry` or `microscope`. Defaults are floating optics and Journal Editorial: clear glass, restrained hardware, fine contours and white background.
 
-Outputs: `figure.blend`, `clean.png`, `annotated.svg`, and `scene.json`. Open the blend to edit component transforms, curve points and the beam modifier's **Radius Scale**. Open the SVG beside `clean.png` to edit labels. These templates use authored beam widths and require no numerical prescription.
+Floating hides mounts, sample frames and supports. Choose `compact` for mounts without supports, or `full` for native assemblies.
 
-Current previews: [Component Pack Studio](../docs/examples/paper-studio.svg) · [Journal Editorial](../docs/examples/paper-editorial.svg). Keep each SVG beside its referenced clean WebP.
+Outputs are `figure.blend`, `clean.png`, `annotated.svg` and `scene.json`. Edit component transforms, curve points and **Radius Scale** in the blend. Keep the SVG beside `clean.png` to edit labels.
 
-Reproduce both previews at 1500 pixels with `--resolution 1500 --samples 48`. Add `--style illustrated` for the editorial preview. Both use the default floating presentation and the same camera.
+[Relay preview](../docs/examples/paper-editorial.svg). Reproduce it with `--resolution 1400 --samples 48`. Template beam widths are authored drawing controls.
 
-## Dual-wavelength apparatus
-
-The example uses 17 shared-library instances and supports two presentation modes and six shading schemes. Default: floating optics, Component Pack Studio materials. The mechanical view retains native parts; floating mode uses shorter display distances and larger optical symbols. All names and the image-plane/z markers are added afterward in a 2D SVG.
-
-## Reproduce
-
-From the skill directory, choose a new output directory for each render:
+## Generate the complex dual-wavelength figure
 
 ```bash
 blender -b --factory-startup --python-exit-code 1 \
   --python examples/dual_wavelength_interferometer.py -- \
-  --mode floating --style matte --output /chosen/floating-matte
-python examples/annotate_reference.py /chosen/floating-matte /chosen/floating-matte/annotated.svg
-rsvg-convert /chosen/floating-matte/annotated.svg -o /chosen/floating-matte/annotated.png
+  --output /chosen/new-dual-figure
 ```
 
-`--mode` accepts `floating` (default) or `mechanical`. `--style` accepts `component-pack` (default), `matte`, `soft-lab`, `illustrated`, `textbook`, or `toon`. The checked renderer is Blender 5.2.2 Cycles, including its Toon BSDF and Freestyle. Textbook component edges require a Blender build with Freestyle support. Use `--mode mechanical --style matte` for the mounted comparison. Run each floating style with unchanged topology and framing for a material comparison.
+The example uses 17 library components, two input channels and two recombined arms. Defaults are `--mode floating --style illustrated`.
 
-The script writes `.blend`, `clean.png`, `layout.json` and `trace.json`. The SVG generator embeds its raster and supports an optional `--raster image.webp` for smaller files. Export with `rsvg-convert` or a graphics editor. Do not add intermediate renders, test reports or generated `.blend` copies to the package.
+The script writes `dual_wavelength_interferometer.blend`, `clean.png`, `annotated.svg`, `layout.json` and `trace.json`. The SVG references the adjacent clean image. Render its labels with:
 
-## Optical model and scope
+```bash
+rsvg-convert /chosen/new-dual-figure/annotated.svg \
+  -o /chosen/new-dual-figure/annotated.png
+```
 
-Two channels labeled 647 nm and 485 nm combine at DM. Positive L1 focuses the input; positive L2 recollimates the expanded beam. P precedes NPBS1. The two arms each include an objective and a following positive lens, L3/L4; one arm includes the illuminated specimen. NPBS2 recombines them coaxially toward the camera. The two mirror/splitter paths are checked using normals measured from the actual coating geometry and directions derived from placed neighbors, including the transmitted path from L4 into the camera.
+Use `--mode mechanical` for native assemblies. Other styles are `matte`, `soft-lab`, `textbook` and `toon`. The [shading guide](../references/shading-presets.md) describes them.
 
-`paraxial_4f.py` verifies normalized ideal thin-lens models. The user-approved illustrative ratios are 1:2 for L1/L2 and 1:1 for each objective/relay pair; these are not the RMS10X imaging magnification. Checks cover the common internal focus, collimated output, beam expansion and the plane-to-plane relay matrix. Run `python examples/paraxial_4f.py` independently. The drawing depicts the illumination envelope, not the ray pencil from one specimen point. A conjugate image-plane marker therefore does not create a focus of the displayed collimated illumination. The camera z offset is unspecified.
+### OptiCore lenses and source glass
 
-The normalized optical coordinates and display coordinates are different. Focal-plane order and beam action are retained, but displayed millimetre spacings are not a lens prescription. The objective-front direction stays toward the specimen. Its manufacturer CAD provides the external shape, not its internal powers, principal planes or high-NA behavior. The ideal two-lens model is an illustrative relation; it does not establish that these housings, distances and a particular tube lens realize a corrected instrument. Both wavelengths use ideal achromatic powers. The finite drawn waist is a display floor, not a diffraction calculation. No fringe pattern, propagation of a specimen field or aberration performance is simulated.
+The [complex preview](../docs/examples/dual-editorial.svg) uses OptiCore for four singlet lens meshes. Pass a local checkout:
 
-Purple represents the combined channels, not a new wavelength. This topology contains no grating; no dispersion is added. Off-axis tracing applies only when explicitly specified or required by evidence; this example is coaxial within each arm and at recombination.
+```bash
+blender -b --factory-startup --python-exit-code 1 \
+  --python examples/dual_wavelength_interferometer.py -- \
+  --opticore /path/to/OptiCore --output /chosen/new-opticore-figure
+```
 
-## Component provenance and mechanics
+Add `--glass-reference "/path/to/Optical components pack V1.blend"` to use its `Lens` material. Otherwise the script reconstructs the inspected glass recipe.
 
-- The mounted spherical lenses use reviewed KM100 geometry, with the lens bore centered and the correct edge side seated against the annular stop. Native parts are not stretched. The nominal biconcave asset can protrude beyond the pocket; retaining force and compatibility are not certified. This example uses positive lenses only.
-- Mirrors use reviewed POLARIS-K1S5 geometry with measured bottom faces seated on native TR50/M posts. M4 socket-head screws are nominal geometry; thread engagement/torque remain unverified.
-- Horizontal and vertical objective assets now use reviewed RMS10X manufacturer derivatives. The yellow magnification band colors the original ring surface. No substitute objective barrel is modeled. Adapter plates and the vertical focus stand remain nominal.
-- Laser/camera housings, specimen/polarizer modules and some adapters are nominal. Wavelength labels do not identify verified laser products. NPBS geometry reuses the cube shape with an explicitly nominal non-polarizing coating; it is not a claim that a PBS coating is non-polarizing. DM transmission/reflection spectra remain unspecified.
-- The breadboard grid is illustrative, not a verified bolt-hole plan. The cylindrical-lens and tube-lens modules retain their distinct nominal housings; they are not silently squeezed into a one-inch mount. Additional stages, unused-port termination, enclosures and an actual instrument prescription require separate design work.
+The adapter loads OptiCore in the current process. It assigns glass separately from geometry. Generated mesh parameters describe the drawing; they do not infer a manufacturer prescription.
 
-## Rendering boundaries
+See [OptiCore setup and tested revision](../references/opticore.md). The saved blend can reopen without OptiCore because it contains the generated mesh.
 
-Materials are copied locally. Textbook White uses flat colors on true white with thin black component edges; beams have no outline. Journal Editorial uses flat three-tone fills and fine grey-teal silhouette lines on a true white field. Component Pack Studio and Journal Editorial use nonrefractive illustrative glass to keep beam paths readable. Transparent shell and interface layers show splitter junctions. Their opacity controls are artistic values. The archived Illustrated gallery image shows the previous recipe. Cel shading uses emission-only hard bands from a fixed key, pale beam cores and calligraphic navy/cyan ink on a butter-yellow field; beams have no outline. Labels are dark on light fields and light on the dark variant. Library CAD, optical layout and channel meanings do not change between styles. The package checker verifies scene structure, native components, selected seating interfaces and APIs; it does not certify the complete optical or mechanical design.
+## Optical topology and model
+
+Channels labeled 647 nm and 485 nm combine at DM. L1 and L2 form the illustrative expander. P precedes NPBS1. Each arm contains an objective and a following lens, L3 or L4. One arm contains the sample. NPBS2 recombines both arms toward the camera.
+
+The script checks mirror and splitter directions from actual coating normals and neighboring component positions. Purple represents combined channels. The topology has no grating or spectral-dispersion stage.
+
+`paraxial_4f.py` checks normalized thin-lens relations: 1:2 for L1/L2 and 1:1 for each objective/relay pair. Those ratios differ from the RMS10X manufacturer's imaging magnification.
+
+The drawing uses compressed display distances and a finite waist floor. The envelope illustrates illumination, not a ray pencil from one sample point. It does not simulate interference, aberrations or high-NA objective behavior. Run `python examples/paraxial_4f.py` for the independent normalized checks.
+
+## Component provenance
+
+Manufacturer objective geometry retains its reviewed orientation: object side toward the sample, rear port toward the relay lens. The yellow band follows the original ring surface.
+
+Library lens mounts and mirrors retain reviewed native geometry in mechanical mode. OptiCore lenses use authored dimensions and carry generator metadata. Optical surfaces, standard mounts and source assets remain separate.
+
+Laser and camera housings, sample and polarizer modules, and some adapters are nominal. Wavelength labels do not identify verified laser products. NPBS uses a cube-shaped derivative with an unspecified coating. DM spectra remain unspecified.
+
+Breadboard holes and fasteners illustrate mounting. They do not establish thread engagement, clearances or a build-ready instrument.
+
+## Editing and rendering
+
+All default beams are editable Geometry Nodes curves. Change point radii or **Radius Scale** to adjust their width. Labels remain in the separate SVG.
+
+Materials are scene-local copies. Journal Editorial uses transparent glass, neutral hardware face tones and fine silhouettes. Inspect lens edges, beam junctions and labels at final size after changing the camera or lighting.

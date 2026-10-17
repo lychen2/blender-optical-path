@@ -17,11 +17,11 @@ def execute(request, scene):
     if action == 'list_styles':
         return api['list_styles']()
     if action == 'apply_style':
-        return api['apply_style'](scene, request.get('style', 'component-pack'))
+        return api['apply_style'](scene, request.get('style', 'illustrated'))
     if action == 'build_template':
         paper = runpy.run_path(str(HERE / 'paper_scene.py'))
         target = paper['build_scene'](request.get('template', 'beam-relay'),
-            request.get('style', 'component-pack'), request.get('presentation', 'floating'),
+            request.get('style', 'illustrated'), request.get('presentation', 'floating'),
             request.get('resolution', 1500))
         return api['inspect_scene'](target)
     if action == 'export_overlay':

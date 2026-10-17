@@ -24,7 +24,7 @@ camera = api['place_asset']('assembly/scientific_camera', (160, 0, 100),
                            rotation_deg=(0, 0, 180), name='Detector',
                            scene=scene, at_optical_center=True)
 api['add_beam_nodes']([(-120, 0, 100), (0, 0, 100), (150, 0, 100)], scene=scene)
-api['apply_style'](scene)  # Component Pack Studio
+api['apply_style'](scene)  # Journal Editorial
 # Save to a new path after choosing the destination; saving is an explicit action.
 # bpy.ops.wm.save_as_mainfile(filepath='/chosen/output/imaging.blend')
 ```
@@ -40,10 +40,10 @@ This example shows placement, not an image-forming prescription. The camera anch
 ```bash
 blender -b --factory-startup --python-exit-code 1 \
   --python tools/paper_scene.py -- --template beam-relay \
-  --style component-pack --presentation floating --output /chosen/new-figure
+  --output /chosen/new-figure
 ```
 
-Templates are `beam-relay`, `polarimetry`, and `microscope`. Presentation defaults to `floating`, which hides mounts, sample frames and supports. Compact mode retains mounts and hides supports. Full mode retains native assembly dimensions. Display scaling and authored beam widths are recorded in the scene. Outputs are `figure.blend`, `clean.png`, `annotated.svg`, and `scene.json`.
+Templates are `beam-relay`, `polarimetry`, and `microscope`. Journal Editorial is the default style. Presentation defaults to `floating`, which hides mounts, sample frames and supports. Compact mode retains mounts and hides supports. Full mode retains native assembly dimensions. Display scaling and authored beam widths are recorded in the scene. Outputs are `figure.blend`, `clean.png`, `annotated.svg`, and `scene.json`.
 
 Inside Blender, load `tools/paper_scene.py` with `runpy`. Call `build_scene(template='microscope', style='illustrated')` to create a new scene. Call `write_overlay(scene, '/chosen/annotated.svg', image='clean.png')` after camera framing. The SVG references the rendered image and keeps text editable.
 
@@ -84,7 +84,7 @@ The request property and response JSON avoid reliance on shell quoting. For `new
 | `add_beam` | `points_mm`, optional `radius_mm` (default 3 mm), `radii_mm`, `color`, `name` | Created beam object name |
 | `add_annotation` | `text`, optional `position_mm`, `size_mm` | Post-render annotation record; no 3D text |
 | `add_beam_nodes` | `points_mm`, optional `radius_mm`, `radii_mm`, `color`, `name`, `profile`, `opacity` | Editable Geometry Nodes beam |
-| `list_styles` | None | Six recipes and default |
+| `list_styles` | None | Available recipes and default |
 | `apply_style` | Optional `style` | Applied scene-local recipe |
 | `build_template` | Optional `template`, `style`, `presentation`, `resolution` | New scene inventory |
 | `export_overlay` | `output`, optional `image` | SVG path; writes the requested file |

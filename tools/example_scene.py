@@ -17,7 +17,7 @@ PACKAGE = Path(__file__).resolve().parents[1]
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument('--output', type=Path, required=True, help='New output directory')
-    parser.add_argument('--style', default='component-pack',
+    parser.add_argument('--style', default='illustrated',
                         choices=('component-pack', 'matte', 'soft-lab', 'illustrated', 'textbook', 'toon'))
     args = parser.parse_args(sys.argv[sys.argv.index('--')+1:] if '--' in sys.argv else [])
     output = args.output.resolve()

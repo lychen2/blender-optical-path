@@ -95,42 +95,30 @@ for style in ('matte', 'soft-lab', 'textbook', 'toon', 'textbook', 'journal-edit
         assert any(node.bl_idname == 'ShaderNodeEmission' for node in material.node_tree.nodes)
         assert all(not lineset.linestyle.thickness_modifiers.get('Ink pen')
                    for lineset in scene.view_layers[0].freestyle_settings.linesets)
-    if style == 'journal-editorial':
+    if style in ('journal-editorial', 'pack'):
         output, reachable = reachable_nodes(material)
-        by_type = {node_type: [node for node in reachable if node.bl_idname == node_type]
-                   for node_type in ('ShaderNodeEmission', 'ShaderNodeNewGeometry',
-                                     'ShaderNodeVectorMath', 'ShaderNodeValToRGB')}
-        assert all(by_type.values()), 'Editorial surface graph is missing a required reachable node'
-        emission = by_type['ShaderNodeEmission'][0]
-        geometry = by_type['ShaderNodeNewGeometry'][0]
-        dot = next(node for node in by_type['ShaderNodeVectorMath'] if node.operation == 'DOT_PRODUCT')
-        ramp = next(node for node in by_type['ShaderNodeValToRGB']
-                    if node.color_ramp.interpolation == 'CONSTANT'
-                    and len(node.color_ramp.elements) == 3)
-        assert has_link(material, geometry, 'Normal', dot, 'Vector')
-        assert has_link(material, dot, 'Value', ramp, 'Fac')
-        assert has_link(material, ramp, 'Color', emission, 'Color')
-        assert any(link.from_node == emission and link.to_node == output
-                   for link in material.node_tree.links) or any(
-                       link.from_node == emission and link.to_node in reachable
-                       for link in material.node_tree.links), 'Editorial emission must reach Material Output'
-        assert scene.render.use_freestyle, 'Editorial preset should enable Freestyle contours'
-    if style == 'pack':
-        output, reachable = reachable_nodes(material)
-        assert not any(node.bl_idname == 'ShaderNodeEmission' for node in material.node_tree.nodes), (
-            'Studio pack optic should not use an emission shader')
-        principled = next((node for node in reachable if node.bl_idname == 'ShaderNodeBsdfPrincipled'), None)
-        transparent = next((node for node in reachable if node.bl_idname == 'ShaderNodeBsdfTransparent'), None)
-        mix = next((node for node in reachable if node.bl_idname == 'ShaderNodeMixShader'), None)
-        assert principled and transparent and mix, 'Studio optic should mix lit Principled with transparency'
-        assert principled.inputs['Transmission Weight'].default_value == 0, (
-            'Studio optic transparency must not use refraction')
-        assert any(link.from_node == principled and link.to_node == mix for link in material.node_tree.links)
-        assert any(link.from_node == transparent and link.to_node == mix for link in material.node_tree.links)
-        assert any(link.from_node == mix and link.to_node == output for link in material.node_tree.links)
-        assert not scene.render.use_freestyle, 'Studio pack should not enable Freestyle contours'
+        assert {node.bl_idname for node in reachable} == {'ShaderNodeBsdfPrincipled'}, (
+            'Clear lens must use real glass without a colored emission or opacity layer')
+        principled = next(iter(reachable))
+        assert has_link(material, principled, 'BSDF', output, 'Surface')
+        assert principled.inputs['Transmission Weight'].default_value == 1
+        assert principled.inputs['Metallic'].default_value == 0
+        assert math.isclose(principled.inputs['Roughness'].default_value, .1, abs_tol=1e-6)
+        assert principled.inputs['IOR'].default_value == 1.5
+        assert all(math.isclose(actual, expected, abs_tol=1e-6) for actual, expected in zip(
+            principled.inputs['Base Color'].default_value[:3], (.906751573, .970782459, 1)))
+        assert scene.render.use_freestyle
+        assert scene['opl_applied_style'] == 'illustrated'
+        hardware = next(slot.material for obj in nested_copy.instance_collection.all_objects
+                        for slot in obj.material_slots if slot.material
+                        and slot.material.get('figure_material_role') == 'coated_mount')
+        _, hardware_nodes = reachable_nodes(hardware)
+        assert any(node.bl_idname == 'ShaderNodeEmission' for node in hardware_nodes)
+        assert any(node.bl_idname == 'ShaderNodeValToRGB' and len(node.color_ramp.elements) == 3
+                   and node.color_ramp.interpolation == 'CONSTANT' for node in hardware_nodes)
     assert lamp.data.energy == 17 and tuple(lamp.location) == (123, 234, 345)
-assert scene['opl_applied_style'] == 'component-pack'
+assert scene['opl_applied_style'] == 'illustrated'
+assert styles['DEFAULT_STYLE'] == 'illustrated'
 for obj, materials in source_slots.items():
     assert tuple(slot.material for slot in obj.material_slots) == materials, obj.name
 for material, (color, fake_user) in source_colors.items():
@@ -139,7 +127,19 @@ for material, (color, fake_user) in source_colors.items():
 assert not any(obj.type == 'FONT' for obj in scene.objects)
 assert request({'action': 'validate'}, scene)['errors'] == []
 assert request({'action': 'inspect'}, scene)['beams'][0]['geometry_nodes']
-assert len(request({'action': 'list_styles'}, scene)) == 6
+listed = request({'action': 'list_styles'}, scene)
+assert len(listed) == 5
+assert [style['id'] for style in listed if style['default']] == ['illustrated']
+# A thin coating over a glass substrate must not become a second refracting solid.
+coating = bpy.data.objects.new('Dichroic coating', bpy.data.meshes.new('Coating mesh'))
+scene.collection.objects.link(coating)
+coating['figure_material_role'] = 'optical_coating'
+coating.data.materials.append(next(iter(source_colors)))
+request({'action': 'apply_style'}, scene)
+_, coating_nodes = reachable_nodes(coating.material_slots[0].material)
+assert {node.bl_idname for node in coating_nodes} == {
+    'ShaderNodeMixShader', 'ShaderNodeBsdfTransparent', 'ShaderNodeEmission'}
+assert next(node for node in coating_nodes if node.bl_idname == 'ShaderNodeMixShader').inputs[0].default_value < .2
 with tempfile.TemporaryDirectory(prefix='opl-overlay-') as directory:
     output = Path(directory) / 'figure.svg'
     request({'action': 'export_overlay', 'output': str(output), 'image': 'figure "draft" & final.png'}, scene)
@@ -194,6 +194,7 @@ expected_modes = {
 }
 for template in paper['TEMPLATES']:
     default_scene = paper['build_scene'](template, resolution=320)
+    assert default_scene['opl_applied_style'] == 'illustrated'
     assert default_scene['opl_presentation_mode'] == expected_modes['floating'], (
         f'{template}: build_scene default should be floating')
     default_instances = [obj for obj in default_scene.objects if obj.get('opl_asset_id')]

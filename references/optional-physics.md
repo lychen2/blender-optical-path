@@ -52,7 +52,7 @@ Repository: [emircbngl/blender-optics-simulator](https://github.com/emircbngl/bl
 
 ## Upstream OptiCore
 
-Repository: [CodeFHD/OptiCore](https://github.com/CodeFHD/OptiCore), version `2.0`. Repository metadata reports Blender `4.2.5`; its README reports testing with Blender `4.2.1` (these are different version claims). License: GPL-3.0-or-later. It documents operator-oriented workflows rather than a stable public API for this skill. No bundling, installation, compatibility guarantee or adapter is promised.
+Repository: [CodeFHD/OptiCore](https://github.com/CodeFHD/OptiCore), version `2.0`, GPL-3.0-or-later. The optional `tools/opticore_geometry.py` adapter generates spherical singlet meshes from a local checkout. Revision `f9b0029009846abbf34a0947971dc4c6ba1a21f6` was exercised in Blender 5.2.2. Materials are assigned separately. See [setup, geometry controls and tested boundary](opticore.md).
 
 ## Use and reporting
 

@@ -8,35 +8,23 @@ Typical subjects: imaging and microscopy paths, interferometers, lithography set
 
 https://github.com/user-attachments/assets/b63bad65-843b-46b2-bf64-ec6e713d0830
 
-![Floating paper illustration in Component Pack Studio](docs/examples/paper-studio.webp)
+![Journal Editorial dual-wavelength optical path with clear glass](docs/examples/dual-editorial.webp)
 
-The beam-relay template combines library optics, editable Geometry Nodes beams and separate SVG labels. The default `floating` view shows optics without mounts or supports. Conceptual figures need no numerical prescription.
+The dual-wavelength example combines 17 components, editable Geometry Nodes beams and separate SVG labels. The preview uses OptiCore meshes for four clear singlet lenses. The default floating view hides mounts and supports.
 
-[Generate a figure](examples/README.md) · [Editable studio SVG](docs/examples/paper-studio.svg) · [Template script](tools/paper_scene.py)
+[Generate a figure](examples/README.md) · [Editable SVG](docs/examples/dual-editorial.svg) · [Example script](examples/dual_wavelength_interferometer.py)
 
 ## Three presentation modes
 
 Paper templates default to `floating`: optical elements and necessary source/detector housings, without mounts or supports. Choose `compact` to retain recognizable mounts, or `full` for native assembly dimensions and supports.
 
-The [dual-wavelength example](examples/dual_wavelength_interferometer.py) retains its `floating` and `mechanical` modes. It depicts 17 components and two illustrative wavelength channels. [Labeled floating view](docs/examples/floating-matte.svg) · [Mechanical view](docs/examples/mechanical-matte.svg).
+The [dual-wavelength example](examples/dual_wavelength_interferometer.py) retains its `floating` and `mechanical` modes. It depicts 17 components and two illustrative wavelength channels. [Labeled floating view](docs/examples/dual-editorial.svg) · [Mechanical view](docs/examples/mechanical-matte.svg).
 
-## Six shading styles
+## Journal Editorial by default
 
-**Component Pack Studio** (`component-pack`) is the default: lit pale-blue glass, reflective barrels and soft three-dimensional shading on a light-grey field. **Journal Editorial** (`illustrated`) uses three flat face tones, fine grey-teal silhouette lines and a true white field. Both keep optical edges and beam junctions visible. The other styles remain available. [Sources and figure references](references/style-sources.md).
+**Journal Editorial** (`illustrated`, alias `journal-editorial`) combines clear glass, restrained three-tone hardware, fine contours and a white field. Glass follows the inspected component pack's `Lens` material. [Material source](references/style-sources.md#local-component-pack-glass).
 
-| Component Pack Studio, default | Journal Editorial |
-| --- | --- |
-| ![Component Pack Studio relay](docs/examples/paper-studio.webp) | ![White-field Journal Editorial relay](docs/examples/paper-editorial.webp) |
-
-[Editable editorial SVG](docs/examples/paper-editorial.svg). Both previews use the same topology and camera. The gallery below records previous example recipes. Purple marks the combined beam.
-
-| Style | Preview |
-| --- | --- |
-| **Matte Technical**: restrained metal, readable glass | ![Matte Technical](docs/examples/floating-matte.webp) |
-| **Soft Lab**: dark field, softly lit beams | ![Soft Lab](docs/examples/floating-soft-lab.webp) |
-| **Illustrated Geometry, previous recipe**: warm soft shading, translucent cyan splitters | ![Illustrated Geometry](docs/examples/floating-illustrated.webp) |
-| **Textbook White**: white field, thin black edges | ![Textbook White](docs/examples/floating-textbook.webp) |
-| **Cel / Toon**: hard light/shadow bands, bright beam cores, bold ink | ![Cel shading](docs/examples/floating-toon.webp) |
+[Simple relay SVG](docs/examples/paper-editorial.svg). Purple marks the combined channels. Additional rendering options are described in the [shading guide](references/shading-presets.md).
 
 Recipes and prompts: [shading presets](references/shading-presets.md) · [compact composition](references/compact-floating-prompt.md) · [visual style](references/visual-style.md)
 
@@ -64,7 +52,7 @@ Run `/reload`, then `/skill:blender-optical-path`. For other agents, copy the wh
 
 Example request:
 
-> Draw an editable Michelson interferometer. Use a simplified 3D schematic with a high oblique camera, narrow colored beam envelopes, a white background and matte mounts. Render without text; add BS, M1, M2 and Detector in a separate 2D overlay afterward.
+> Draw an editable Michelson interferometer with floating optics, clear glass, narrow colored beam envelopes and a white background. Use a high oblique camera. Add BS, M1, M2 and Detector in a separate SVG.
 
 Include the topology, any known dimensions and the target figure size.
 
@@ -84,7 +72,7 @@ scene = api['new_workspace']('Optical diagram')
 api['place_asset']('assembly/biconvex_lens', (0, 0, 100),
                    scene=scene, at_optical_center=True)
 api['add_beam_nodes']([(-100, 0, 100), (100, 0, 100)], scene=scene)
-api['apply_style'](scene)  # component-pack
+api['apply_style'](scene)  # Journal Editorial
 ```
 
 Positions are in millimetres. Generate a complete paper-figure template in a new output directory:
@@ -96,7 +84,17 @@ blender -b --factory-startup --python-exit-code 1 \
 
 The directory receives `figure.blend`, `clean.png`, `annotated.svg` and `scene.json`. Templates: `beam-relay`, `polarimetry`, `microscope`. Use `--presentation compact` for mounts without supports, `floating` for optical symbols, or `full` for native assemblies. Use `--style illustrated` for Journal Editorial. Adjust **Radius Scale** in the beam's Geometry Nodes modifier.
 
-`tools/example_scene.py` retains the minimal assembly example. The dual-wavelength example includes an optional-model demonstration; paper templates require no numerical input.
+`tools/example_scene.py` retains the minimal assembly example. Paper templates require no numerical input.
+
+For OptiCore lens meshes, pass a local checkout to the complex example:
+
+```bash
+blender -b --factory-startup --python-exit-code 1 \
+  --python examples/dual_wavelength_interferometer.py -- \
+  --opticore /path/to/OptiCore --output /chosen/new-dual-figure
+```
+
+The adapter loads OptiCore in that Blender process. Glass materials are assigned separately. See [reproduction and source-material options](examples/README.md#opticore-lenses-and-source-glass).
 
 With a Blender MCP server connected, `tools/blender_mcp_entry.py` runs the same API from JSON requests. See the [API and MCP reference](references/python-mcp.md).
 

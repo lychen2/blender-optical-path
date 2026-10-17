@@ -167,9 +167,9 @@ def apply_style(scene=None, style=DEFAULT_STYLE):
                 slot.link = 'OBJECT'
                 slot.material = source
     # Every application starts with source colors, so changing styles is reversible.
-    if style not in ('component-pack', 'illustrated'):
+    if style != 'illustrated':
         legacy = runpy.run_path(str(PACKAGE / 'tools/graphic_styles.py'))
-        setup_lighting(scene, style='component-pack')
+        setup_lighting(scene, style=DEFAULT_STYLE)
         scene['opl_presentation_mode'] = scene.get('opl_presentation_mode', 'floating_optics')
         for obj in objects:
             for slot in obj.material_slots:
@@ -209,38 +209,33 @@ def apply_style(scene=None, style=DEFAULT_STYLE):
                     elif role == 'background':
                         color = recipe['field']
                         options = {'roughness': .85, 'unlit': True}
+                    elif role == 'optical_coating':
+                        color = (.76, .76, .76)
+                        options = {'opacity': .18, 'unlit': True}
                     elif role in ('splitter_shell', 'splitter_interface', 'optic'):
-                        color = recipe.get('lens_display_color', recipe['lens_color'])
-                        shell = role == 'splitter_shell'
-                        if style == 'component-pack':
-                            options = {'opacity': .16 if shell else .48,
-                                       'edge_opacity': .86, 'roughness': recipe['lens_roughness'],
-                                       'ior': recipe['lens_ior'], 'metallic': .08,
-                                       'edge_color': (.13, .30, .46)}
-                        else:
-                            options = {'opacity': .22 if shell else .56,
-                                       'unlit': True, 'graphic': True}
-                        # Transparency is nonrefractive so authored beam routes remain visible.
+                        # Use the inspected pack's near-white transmissive Lens recipe.
+                        color = recipe['lens_color']
+                        options = {'roughness': recipe['lens_roughness'],
+                                   'transmission': recipe['lens_transmission'],
+                                   'ior': recipe['lens_ior']}
                     elif role == 'mirror':
-                        color = (.68, .76, .82) if style == 'component-pack' else (.32, .55, .59)
-                        options = {'roughness': .16, 'metallic': .85} if style == 'component-pack' else {'unlit': True, 'graphic': True}
+                        color = (.76, .76, .76)
+                        options = {'roughness': .1, 'metallic': 1}
                     elif role == 'coated_mount':
-                        color = (.035, .045, .055) if style == 'component-pack' else (.10, .14, .17)
-                        options = {'roughness': .35, 'metallic': .32} if style == 'component-pack' else {'unlit': True, 'graphic': True}
+                        color = (.10, .12, .13)
+                        options = {'unlit': True, 'graphic': True}
                     else:
                         neutral = max(color[:3]) - min(color[:3]) < .2
                         if neutral and max(color[:3]) > .25:
-                            color = (.40, .44, .48) if style == 'component-pack' else (.48, .53, .56)
-                        options = {'roughness': recipe['metal_roughness'], 'metallic': .7} if style == 'component-pack' else {'unlit': True, 'graphic': True}
-                    _surface(local, color, **options)
+                            color = (.48, .50, .51)
+                        options = {'unlit': True, 'graphic': True}
+                    if not (role == 'optic' and old.get('opl_preserve_glass')):
+                        _surface(local, color, **options)
                     local['figure_material_role'] = role
                 slot.link = 'OBJECT'
                 slot.material = materials[key]
         setup_lighting(scene, style)
-        if style == 'illustrated':
-            runpy.run_path(str(PACKAGE / 'tools/graphic_styles.py'))['component_contours'](scene, objects, style)
-        else:
-            scene['component_contours'] = 'Lit glass and satin metal; no graphic outlines'
+        runpy.run_path(str(PACKAGE / 'tools/graphic_styles.py'))['component_contours'](scene, objects, style)
     # GN Set Material references must follow scene-local display materials.
     for obj in objects:
         if obj.get('opl_beam') and obj.material_slots:
@@ -288,13 +283,13 @@ def setup_lighting(scene=None, style=DEFAULT_STYLE, target_mm=(0, 0, 100), span_
         obj['opl_studio_light'] = name
         obj.location = target + Vector(offset) * span
         obj.rotation_euler = (target - obj.location).to_track_quat('-Z', 'Y').to_euler()
-        obj.data.energy = energy * span * span * (.18 if style == 'component-pack' else 0 if style == 'illustrated' else 1)
+        obj.data.energy = energy * span * span * (.18 if style == 'illustrated' else 1)
         obj.data.size = size * span
     scene.render.engine = 'CYCLES'
     scene.cycles.samples = 48
     scene.cycles.use_denoising = True
     scene.cycles.transmission_bounces = 12
     scene.cycles.transparent_max_bounces = 16
-    scene.view_settings.view_transform = 'Standard' if style in ('component-pack', 'illustrated') else 'AgX'
+    scene.view_settings.view_transform = 'Standard' if style == 'illustrated' else 'AgX'
     scene.view_settings.exposure = 0
     return {'style': style, 'lights': 2, 'span_mm': span_mm}

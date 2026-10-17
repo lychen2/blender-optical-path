@@ -4,7 +4,7 @@ This file owns shared visual rules. [Shading presets](shading-presets.md) own in
 
 ## 1. Set a visual brief
 
-Default to **floating optics** and **Component Pack Studio** (`component-pack`) unless the user chooses otherwise. Hide mounts and supports in floating; use compact for mounts or full for mechanical assemblies. Record presentation mode, final figure size, composition/camera, component prominence, material roles, beam/channel encoding, lighting/background and separate 2D-label plan. Manufacturer dimensions remain intact in source assets and mechanical views. Floating display copies can use shorter gaps and enlarged optical symbols; do not present those changes as physical dimensions.
+Default to **floating optics** and **Journal Editorial** (`illustrated`) unless the user chooses otherwise. Hide mounts and supports in floating; use compact for mounts or full for mechanical assemblies. Record presentation mode, final figure size, composition/camera, component prominence, material roles, beam/channel encoding, lighting/background and separate 2D-label plan. Manufacturer dimensions remain intact in source assets and mechanical views. Floating display copies can use shorter gaps and enlarged optical symbols; do not present those changes as physical dimensions.
 
 Extract the reference's visual hierarchy and spacing, not just its palette. Make small optics identifiable, keep sources subordinate and let the beam route connect the composition. Use the canvas efficiently while reserving room for nearby labels. Renderer names and journal names are not complete styles: specify actual materials, light and camera.
 
@@ -14,28 +14,27 @@ Extract the reference's visual hierarchy and spacing, not just its palette. Make
 | --- | --- | --- |
 | Coated mount | Dark anodized finish; readable aperture | Unassigned white material, bright bare-metal shader |
 | Exposed metal/barrel | Restrained satin depth and actual component shape | Uniform oily plastic, clipped reflections, broad black RMS barrel bands (thin Textbook outlines are intentional) |
-| Optical surface | Visible tint, edge and aperture | Nearly invisible glass, milky white face, all-purpose black ink ramp |
+| Optical surface | Clear glass with visible edges and aperture | Milky white faces, excessive tint, all-purpose black ink ramp |
 | Beam | Clear topology and stable channel meaning | Unreadable or disconnected paths, black outlines, washed-out color |
 | Background | Clear separation from optics and labels | Large floor shadows, decorative fog, dirty AO, gradient overwhelming the route |
 
 Assign roles explicitly where possible. A blanket shader based on one material or a loose name match can tint the wrong objects. Inspect node inputs and rendered appearance; viewport color alone is insufficient. Copy materials locally rather than changing source CAD for one illustration.
 
-Give the two publication presets distinct material treatments. Studio uses lit glass, reflective metal and continuous shading on a light-grey field. Editorial uses three-tone flat fills and fine silhouette lines on true white. Both use Standard color management and narrow unlit beams. Avoid bloom, particles, vignettes and decorative floor grids.
+Journal Editorial uses clear glass, restrained hardware face tones and fine neutral silhouettes on white. Use Standard color management and narrow unlit beams. Avoid bloom, particles, vignettes and decorative floor grids.
 
-Optical glass is a readable symbol in an apparatus overview. Lower transmission and moderate reflections when physical transparency erases its shape. Keep the face visible before adding a rim. For splitters, balance a clearly visible tinted shell against the need to see the internal film and beam junction. Use a nonrefractive transparent/surface mixture for an illustrative view. A glass IOR is material- and wavelength-dependent; illustrative opacity is not measured transmission or a splitting ratio.
+Use the inspected component pack's clear glass recipe. Preserve user-supplied glass shaders on local copies when requested. Adjust lighting and neutral edge contours when the glass disappears. Inspect refraction at beam junctions and keep the intended route legible. Material settings describe appearance; optical design requires separate inputs and checks.
 
 ## 3. Choose a distinct shading recipe
 
-`library/style_presets.json` is authoritative for style IDs, aliases and default. Use these six recipes:
+`library/style_presets.json` defines style IDs, aliases and the default.
 
-- **Component Pack Studio (`component-pack`, default):** lit pale-blue glass, reflective silver barrels, continuous soft shading and a light-grey field. The locally inspected component-pack lens material's color/finish informs the visual direction; the original biconvex source object has a null material, so do not claim that source glass material was assigned to it. The skill applies nonrefractive translucent illustrative glass for beam readability.
-- **Matte Technical (`matte`):** satin/diffuse material separation, soft continuous shading, restrained optical transparency.
+- **Journal Editorial (`illustrated`, default):** clear glass, neutral hardware face tones, fine silhouettes and a white field.
+- **Matte Technical (`matte`):** satin metal, continuous shading and pale-cyan optics.
 - **Soft Lab (`soft-lab`):** dark field, directional highlights and bounded faint beam scattering where useful.
-- **Journal Editorial (`illustrated`, alias `journal-editorial`):** true white field, flat grey-teal three-tone fills and fine silhouette contours. Optical faces have no specular highlights. Beams and hidden CAD creases have no contour lines. It replaces the former warm-paper Illustrated recipe.
-- **Textbook White (`textbook`):** true white field, flat colors, thin black component edges, no gloss or floor shadows.
-- **Cel / Toon (`toon`):** hard shadow/base/lit bands, pale beam cores and calligraphic component edges.
+- **Textbook White (`textbook`):** white field, flat colors and thin black component edges.
+- **Cel / Toon (`toon`):** hard face bands, pale beam cores and calligraphic component edges.
 
-`pack` aliases `component-pack`. `tools/styles.py` owns shared `apply_style`, `list_styles` and `setup_lighting`; `examples/shading.py` remains a compatibility entry point. See [style sources](style-sources.md) for research and local-pack provenance. Do not infer endorsement from visual references.
+`journal-editorial`, `component-pack` and `pack` alias `illustrated`. `tools/styles.py` provides `apply_style`, `list_styles` and `setup_lighting`. `examples/shading.py` preserves the example entry point. See [style sources](style-sources.md) for figure references and material provenance.
 
 For style comparisons, hold geometry, camera, framing, topology, labels and channel identities fixed. Confirm variants remain distinguishable at thumbnail size. For a new unrelated figure, vary key light, palette emphasis and view purposefully; preserve locked user/venue conditions. Do not add random optical tilt, decenter or uneven supports to change appearance. Physical symmetry may be required.
 

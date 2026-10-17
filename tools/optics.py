@@ -60,7 +60,7 @@ def new_workspace(name='Optical workspace'):
     scene.unit_settings.scale_length = .001
     scene.unit_settings.length_unit = 'MILLIMETERS'
     scene['diagram_scope'] = 'Editable publication illustration; authored beam paths and display spacing.'
-    scene['opl_default_style'] = 'component-pack'
+    scene['opl_default_style'] = 'illustrated'
     if bpy.context.window:
         bpy.context.window.scene = scene
     return scene
@@ -229,7 +229,7 @@ def list_styles():
     return runpy.run_path(str(PACKAGE / 'tools/styles.py'))['list_styles']()
 
 
-def apply_style(scene=None, style='component-pack'):
+def apply_style(scene=None, style='illustrated'):
     import runpy
     return runpy.run_path(str(PACKAGE / 'tools/styles.py'))['apply_style'](scene, style)
 
@@ -250,7 +250,7 @@ def inspect_scene(scene=None):
                            'position_scene_units': list(o.location)}
                           for o in scene.objects if o.instance_type == 'COLLECTION' and o.instance_collection],
             'objects': len(scene.objects),
-            'style': scene.get('opl_applied_style', scene.get('opl_default_style', 'component-pack')),
+            'style': scene.get('opl_applied_style', scene.get('opl_default_style', 'illustrated')),
             'beams': [{'name': o.name, 'geometry_nodes': any(m.type == 'NODES' for m in o.modifiers),
                        'scope': o.get('diagram_scope', 'Illustrative beam')}
                       for o in scene.objects if o.get('opl_beam')]}

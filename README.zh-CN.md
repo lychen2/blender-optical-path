@@ -8,35 +8,23 @@
 
 https://github.com/user-attachments/assets/b63bad65-843b-46b2-bf64-ec6e713d0830
 
-![默认 floating 视图的 Component Pack Studio 论文插图](docs/examples/paper-studio.webp)
+![透明玻璃的 Journal Editorial 双波长光路](docs/examples/dual-editorial.webp)
 
-光束中继模板组合了元件库光学件、可编辑 Geometry Nodes 光束和独立 SVG 标注。默认使用 `floating`，隐藏镜架和支撑件。概念示意图无需输入光学处方。
+双波长示例组合了 17 个组件、可编辑 Geometry Nodes 光束和独立 SVG 标注。这张预览中的四片透明单透镜使用 OptiCore 生成的网格。默认使用 floating，隐藏镜架和支撑件。
 
-[生成插图](examples/README.md) · [可编辑 Studio SVG](docs/examples/paper-studio.svg) · [模板脚本](tools/paper_scene.py)
+[生成插图](examples/README.md) · [可编辑 SVG](docs/examples/dual-editorial.svg) · [示例脚本](examples/dual_wavelength_interferometer.py)
 
 ## 三种呈现模式
 
 论文模板默认使用 `floating`：保留光学元件及必要的光源、探测器外形，隐藏镜架和支撑件。需要展示镜架时选 `compact`；需要原尺寸完整装配时选 `full`。
 
-[双波长示例](examples/dual_wavelength_interferometer.py) 继续提供 `floating` 和 `mechanical` 模式，展示 17 个组件和两个示意波长通道。[带标注的浮动视图](docs/examples/floating-matte.svg) · [机械视图](docs/examples/mechanical-matte.svg)。
+[双波长示例](examples/dual_wavelength_interferometer.py) 继续提供 `floating` 和 `mechanical` 模式，展示 17 个组件和两个示意波长通道。[带标注的浮动视图](docs/examples/dual-editorial.svg) · [机械视图](docs/examples/mechanical-matte.svg)。
 
-## 六种着色风格
+## 默认 Journal Editorial
 
-默认采用 **Component Pack Studio**（`component-pack`）：浅蓝玻璃、金属反光和柔和立体明暗，使用浅灰背景。**Journal Editorial**（`illustrated`）使用纯白背景、三档平面色块和灰青色细轮廓。两种风格都保留清楚的光学边缘和光束节点。其他风格继续保留。详见[来源与论文图例](references/style-sources.md)。
+**Journal Editorial**（`illustrated`，别名 `journal-editorial`）采用透明玻璃、三档硬件明暗、细轮廓和白底。玻璃参考组件包的 `Lens` 材质。详见[材质来源](references/style-sources.md#local-component-pack-glass)。
 
-| Component Pack Studio，默认 | Journal Editorial |
-| --- | --- |
-| ![Component Pack Studio 中继光路](docs/examples/paper-studio.webp) | ![白底 Journal Editorial 中继光路](docs/examples/paper-editorial.webp) |
-
-[可编辑 Editorial SVG](docs/examples/paper-editorial.svg)。这两张预览使用相同拓扑与相机。下方图库记录旧版示例配方，紫色表示合束后的光。
-
-| 风格 | 预览 |
-| --- | --- |
-| **Matte Technical**：哑光金属，玻璃清晰可辨 | ![Matte Technical](docs/examples/floating-matte.webp) |
-| **Soft Lab**：暗色背景，光束柔和发亮 | ![Soft Lab](docs/examples/floating-soft-lab.webp) |
-| **Illustrated Geometry，旧版配方**：暖色柔和阴影，青色半透明分光镜 | ![Illustrated Geometry](docs/examples/floating-illustrated.webp) |
-| **Textbook White**：白底，细黑边 | ![Textbook White](docs/examples/floating-textbook.webp) |
-| **Cel / Toon**：硬边明暗分区，光束亮芯，粗墨线 | ![Cel shading](docs/examples/floating-toon.webp) |
+[简单中继光路 SVG](docs/examples/paper-editorial.svg)。紫色表示合束后的光。其他渲染选项见[着色说明](references/shading-presets.md)。
 
 配方与提示词：[着色预设](references/shading-presets.md) · [紧凑构图](references/compact-floating-prompt.md) · [视觉风格](references/visual-style.md)
 
@@ -64,7 +52,7 @@ git clone https://github.com/lychen2/blender-optical-path.git \
 
 示例请求：
 
-> 画一个可编辑的迈克尔逊干涉仪。用简化的 3D 示意风格、高角度斜视相机、较细的彩色光束、白色背景和哑光支架。渲染时不带文字，之后在单独的 2D 图层里加上 BS、M1、M2 和 Detector。
+> 画一个可编辑的迈克尔逊干涉仪。使用浮动光学元件、透明玻璃、较细的彩色光束、白色背景和高角度斜视相机。标注单独放在 SVG 中：BS、M1、M2 和 Detector。
 
 请写明拓扑、已知尺寸和目标成图尺寸。
 
@@ -84,7 +72,7 @@ scene = api['new_workspace']('Optical diagram')
 api['place_asset']('assembly/biconvex_lens', (0, 0, 100),
                    scene=scene, at_optical_center=True)
 api['add_beam_nodes']([(-100, 0, 100), (100, 0, 100)], scene=scene)
-api['apply_style'](scene)  # component-pack
+api['apply_style'](scene)  # Journal Editorial
 ```
 
 坐标单位为毫米。传入一个新的输出目录，即可生成完整论文插图模板：
@@ -96,7 +84,17 @@ blender -b --factory-startup --python-exit-code 1 \
 
 输出包括 `figure.blend`、`clean.png`、`annotated.svg` 和 `scene.json`。模板有 `beam-relay`、`polarimetry`、`microscope`。`--presentation compact` 保留镜架并隐藏支柱底座，`floating` 显示光学符号，`full` 保留原尺寸装配。`--style illustrated` 选择 Journal Editorial。选中光束后，可以在 Geometry Nodes 修改器里调节 **Radius Scale**。
 
-`tools/example_scene.py` 保留最小装配示例。双波长示例另含理想模型演示；论文模板无需输入定量参数。
+`tools/example_scene.py` 保留最小装配示例。论文模板无需输入定量参数。
+
+需要 OptiCore 镜片网格时，向复杂示例传入本地源码目录：
+
+```bash
+blender -b --factory-startup --python-exit-code 1 \
+  --python examples/dual_wavelength_interferometer.py -- \
+  --opticore /path/to/OptiCore --output /chosen/new-dual-figure
+```
+
+适配器只在当前 Blender 进程加载 OptiCore，玻璃材质单独赋予。参见[重现命令与源材质选项](examples/README.md#opticore-lenses-and-source-glass)。
 
 连接 Blender MCP 服务器后，`tools/blender_mcp_entry.py` 可以通过 JSON 请求调用同一套 API。详见 [API 与 MCP 参考](references/python-mcp.md)。
 

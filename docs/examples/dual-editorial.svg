@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="2100" height="820" viewBox="0 0 2100 820">
+<image width="2100" height="820" xlink:href="dual-editorial-clean.webp" />
+<g fill="#263238" font-family="Adwaita Sans, DejaVu Sans, sans-serif" font-size="23" text-anchor="middle">
+<text x="224.12" y="156.03">647 nm</text>
+<text x="187.64" y="459.04">485 nm</text>
+<text x="333.69" y="454.29">M1</text>
+<text x="372.16" y="177.28">DM</text>
+<path d="M 546.39,261.40 L 518.39,171.40" stroke="#889397" stroke-width="1" fill="none" />
+<text x="518.39" y="161.40">L1</text>
+<path d="M 680.62,275.51 L 685.62,344.51" stroke="#889397" stroke-width="1" fill="none" />
+<text x="685.62" y="370.51">L2</text>
+<text x="814.85" y="209.63">P</text>
+<path d="M 961.29,305.03 L 961.29,187.03" stroke="#889397" stroke-width="1" fill="none" />
+<text x="961.29" y="177.03">NPBS1</text>
+<path d="M 911.69,515.85 L 876.69,579.85" stroke="#889397" stroke-width="1" fill="none" />
+<text x="876.69" y="605.85">M2</text>
+<path d="M 1058.12,531.25 L 1088.12,700.25" stroke="#889397" stroke-width="1" fill="none" />
+<text x="1088.12" y="726.25">Sample</text>
+<path d="M 1266.36,337.12 L 1266.36,242.12" stroke="#889397" stroke-width="1" fill="none" />
+<text x="1266.36" y="232.12">Obj. 1</text>
+<path d="M 1216.76,547.93 L 1216.76,626.93" stroke="#889397" stroke-width="1" fill="none" />
+<text x="1216.76" y="652.93">Obj. 2</text>
+<text x="1473.81" y="278.93">L3</text>
+<path d="M 1424.21,569.75 L 1424.21,635.75" stroke="#889397" stroke-width="1" fill="none" />
+<text x="1424.21" y="661.75">L4</text>
+<path d="M 1644.65,376.90 L 1644.65,296.90" stroke="#889397" stroke-width="1" fill="none" />
+<text x="1644.65" y="286.90">M3</text>
+<path d="M 1595.05,587.72 L 1583.05,677.72" stroke="#889397" stroke-width="1" fill="none" />
+<text x="1583.05" y="703.72">NPBS2</text>
+<path d="M 1912.32,621.08 L 1862.32,705.08" stroke="#889397" stroke-width="1" fill="none" />
+<text x="1862.32" y="731.08">Camera</text>
+</g></svg>
