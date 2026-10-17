@@ -22,7 +22,7 @@ https://github.com/user-attachments/assets/b63bad65-843b-46b2-bf64-ec6e713d0830
 
 ## 默认 Journal Editorial
 
-**Journal Editorial**（`illustrated`，别名 `journal-editorial`）采用透明玻璃、三档硬件明暗、细轮廓和白底。玻璃参考组件包的 `Lens` 材质。详见[材质来源](references/style-sources.md#local-component-pack-glass)。
+**Journal Editorial**（`illustrated`，别名 `journal-editorial`）采用组件包的 Cycles 材质、柔和灯光和 Filmic 色彩管理。玻璃通光面保持抛光透明，透镜圆柱侧面使用磨砂玻璃。画面背景不显示地面投影。详见[材质来源](references/style-sources.md#local-component-pack-glass)。
 
 [简单中继光路 SVG](docs/examples/paper-editorial.svg)。紫色表示合束后的光。其他渲染选项见[着色说明](references/shading-presets.md)。
 

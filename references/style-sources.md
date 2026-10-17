@@ -1,6 +1,6 @@
 # Visual style sources and provenance
 
-Journal Editorial combines clear component-pack glass with restrained hardware and scientific-figure composition. The sources below record the material settings and visual references.
+Journal Editorial uses the component pack’s glass, metal, lighting and Filmic view with scientific-figure composition. The sources below record the material settings and visual references.
 
 ## Inspected scientific figures
 
@@ -20,6 +20,10 @@ The material reference is `Optical components pack V1.blend`, inspected in Blend
 
 The `Lens` material uses a Principled shader with base color `(0.906751573, 0.970782459, 1.0)`, metallic 0, roughness 0.1, IOR 1.5 and transmission 1. The inspected biconvex object has an empty material slot. The `Lens` datablock supplies the material reference independently of that object.
 
-The source scene uses Cycles, Filmic and one top area light: 171.4524 W, size 1, near `(0.004917, -0.221193, 2.780707)`. Journal Editorial uses the glass parameters with a white field, broad lights and restrained hardware face tones.
+The source scene uses Cycles, Filmic, Medium High Contrast and a zero-strength world. Its square top area light is 171.4524 W, size 1, near `(0.004917, -0.221193, 2.780707)`. The white `Backplane` is a curved reflective studio surface, roughness 0 and IOR 1.45.
+
+The default scales that studio to the figure and adds a weak broad front fill. The floor and curved wall remain visible to indirect rays but hidden from the camera. This preserves material reflections without lower floor shadows.
+
+Hardware recipes use `Objective rough` (white metal, roughness 0.3), `Objective shiny` (0.8 metal, roughness 0.1), and `Laser body` (0.29569 metal, roughness 0.36232). Dark housings use the pack’s near-black finish. Cylindrical lens edges use a separate rough-glass material, roughness 0.55.
 
 The complex preview uses four OptiCore biconvex meshes and the source `Lens` material. OptiCore revision `f9b0029009846abbf34a0947971dc4c6ba1a21f6` was executed in Blender 5.2.2. See [reproduction details](opticore.md).

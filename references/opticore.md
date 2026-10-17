@@ -47,13 +47,13 @@ These dimensions describe an authored drawing mesh. Replace them with a supplied
 
 OptiCore generates surface geometry. Its operator's optical IOR setting does not configure a render material.
 
-Journal Editorial assigns a Principled shader with transmission 1, IOR 1.5, roughness 0.1 and the source's near-white base color. Reflections and refraction reveal the glass shape. Fine contours help edges remain visible on white. Hardware uses restrained face tones.
+Journal Editorial assigns a Principled shader with transmission 1, IOR 1.5, roughness 0.1 and the source's near-white base color. Reflections and refraction reveal the glass shape. The cylindrical nonoptical edge uses a separate glass material with roughness 0.55. Optical faces keep roughness 0.1. Hardware uses lit metal and housing shaders.
 
 Inspect the final image after changing camera, light or background. Shader values alone do not determine the rendered appearance.
 
 ## Tested boundary
 
-Revision `f9b0029009846abbf34a0947971dc4c6ba1a21f6` generated spherical singlets in Blender 5.2.2 LTS without upstream edits. Checks covered dimensions, biconvex sag, closed edges, millimetre conversion and clear-glass assignment.
+Revision `f9b0029009846abbf34a0947971dc4c6ba1a21f6` generated spherical singlets in Blender 5.2.2 LTS without upstream edits. Checks covered dimensions, biconvex sag, closed edges, millimetre conversion, clear-glass assignment and frosted-side separation.
 
 Run the optional integration check against the same checkout:
 

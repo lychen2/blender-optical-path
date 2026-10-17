@@ -1,7 +1,7 @@
 {
   "default": "illustrated",
   "presets": {
-    "illustrated": {"label": "Journal Editorial", "description": "Clear component-pack glass, restrained three-tone hardware, fine silhouettes and a white field.", "lens_color": [0.9067515730857849, 0.970782458782196, 1.0], "lens_roughness": 0.10000000149011612, "lens_transmission": 1.0, "lens_ior": 1.5, "field": [1.0, 1.0, 1.0], "world_strength": 0.6, "beam_emission": 0.0, "metal_roughness": 0.58, "source": "references/style-sources.md#local-component-pack-glass"},
+    "illustrated": {"label": "Journal Editorial", "description": "Component-pack Cycles rendering with clear glass, reflective metal, soft studio lighting and a seamless reflective backdrop.", "lens_color": [0.9067515730857849, 0.970782458782196, 1.0], "lens_roughness": 0.10000000149011612, "lens_transmission": 1.0, "lens_ior": 1.5, "field": [1.0, 1.0, 1.0], "world_strength": 0.0, "beam_emission": 0.0, "metal_roughness": 0.58, "source": "references/style-sources.md#local-component-pack-glass"},
     "matte": {"label": "Matte Technical", "description": "Satin hardware and pale-cyan optics on a cool field.", "source": "references/shading-presets.md"},
     "soft-lab": {"label": "Soft Lab", "description": "Charcoal field and bounded, faint beam scattering.", "source": "references/shading-presets.md"},
     "textbook": {"label": "Textbook White", "description": "Flat colors, thin black component edges and an exactly white field.", "source": "references/shading-presets.md"},

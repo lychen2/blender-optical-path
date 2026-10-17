@@ -20,15 +20,15 @@ Extract the reference's visual hierarchy and spacing, not just its palette. Make
 
 Assign roles explicitly where possible. A blanket shader based on one material or a loose name match can tint the wrong objects. Inspect node inputs and rendered appearance; viewport color alone is insufficient. Copy materials locally rather than changing source CAD for one illustration.
 
-Journal Editorial uses clear glass, restrained hardware face tones and fine neutral silhouettes on white. Use Standard color management and narrow unlit beams. Avoid bloom, particles, vignettes and decorative floor grids.
+Journal Editorial uses the component pack’s real glass and metal shaders, area lights and Filmic color management. Keep the reflective floor and curved wall visible to reflection rays and hidden from the camera. Use narrow unlit beams. Avoid bloom, particles, vignettes and decorative floor grids.
 
-Use the inspected component pack's clear glass recipe. Preserve user-supplied glass shaders on local copies when requested. Adjust lighting and neutral edge contours when the glass disappears. Inspect refraction at beam junctions and keep the intended route legible. Material settings describe appearance; optical design requires separate inputs and checks.
+Use the inspected component pack's clear glass recipe. Preserve user-supplied glass shaders on local copies when requested. Adjust lighting and reflection coverage when the glass disappears. Inspect refraction at beam junctions and keep the intended route legible. Material settings describe appearance; optical design requires separate inputs and checks.
 
 ## 3. Choose a distinct shading recipe
 
 `library/style_presets.json` defines style IDs, aliases and the default.
 
-- **Journal Editorial (`illustrated`, default):** clear glass, neutral hardware face tones, fine silhouettes and a white field.
+- **Journal Editorial (`illustrated`, default):** Cycles glass and metal, soft studio illumination and a shadow-free camera background. Frost cylindrical lens edges while keeping optical faces polished.
 - **Matte Technical (`matte`):** satin metal, continuous shading and pale-cyan optics.
 - **Soft Lab (`soft-lab`):** dark field, directional highlights and bounded faint beam scattering where useful.
 - **Textbook White (`textbook`):** white field, flat colors and thin black component edges.

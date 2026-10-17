@@ -8,7 +8,7 @@ blender -b --factory-startup --python-exit-code 1 \
   --output /chosen/new-paper-figure
 ```
 
-Choose `beam-relay`, `polarimetry` or `microscope`. Defaults are floating optics and Journal Editorial: clear glass, restrained hardware, fine contours and white background.
+Choose `beam-relay`, `polarimetry` or `microscope`. Defaults are floating optics and Journal Editorial: Cycles glass and metal, soft studio lighting and a shadow-free camera background.
 
 Floating hides mounts, sample frames and supports. Choose `compact` for mounts without supports, or `full` for native assemblies.
 
@@ -75,4 +75,4 @@ Breadboard holes and fasteners illustrate mounting. They do not establish thread
 
 All default beams are editable Geometry Nodes curves. Change point radii or **Radius Scale** to adjust their width. Labels remain in the separate SVG.
 
-Materials are scene-local copies. Journal Editorial uses transparent glass, neutral hardware face tones and fine silhouettes. Inspect lens edges, beam junctions and labels at final size after changing the camera or lighting.
+Materials are scene-local copies. Journal Editorial uses the component pack’s glass, metal and housing shaders with Filmic color management. Cylindrical lens edges use rough glass. The reflective floor and curved wall affect lighting but remain invisible to the camera. Inspect lens edges, beam junctions and labels at final size after changing the camera or lighting.

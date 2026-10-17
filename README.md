@@ -22,7 +22,7 @@ The [dual-wavelength example](examples/dual_wavelength_interferometer.py) retain
 
 ## Journal Editorial by default
 
-**Journal Editorial** (`illustrated`, alias `journal-editorial`) combines clear glass, restrained three-tone hardware, fine contours and a white field. Glass follows the inspected component pack's `Lens` material. [Material source](references/style-sources.md#local-component-pack-glass).
+**Journal Editorial** (`illustrated`, alias `journal-editorial`) uses the component pack’s Cycles materials, soft studio lighting and Filmic view. Glass surfaces stay polished; cylindrical lens edges are frosted. The camera background has no floor shadows. [Material source](references/style-sources.md#local-component-pack-glass).
 
 [Simple relay SVG](docs/examples/paper-editorial.svg). Purple marks the combined channels. Additional rendering options are described in the [shading guide](references/shading-presets.md).
 

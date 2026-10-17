@@ -41,7 +41,14 @@ assert math.isclose(max(rim) - min(rim), 6 - 2*sag, abs_tol=1e-4), 'Expected bic
 edges = Counter(tuple(sorted((p.vertices[i], p.vertices[(i+1) % len(p.vertices)])))
     for p in lens.data.polygons for i in range(len(p.vertices)))
 assert set(edges.values()) == {2}, 'Glass mesh must be closed'
+# The documented adapter call omits material; styling must still split faces and rim.
+bare_lens = adapter['add_opticore_lens'](args.checkout, scene=scene, position_mm=(60, 20, 100))
 api['apply_style'](scene)
+assert len(bare_lens.material_slots) == 2, 'Material-free lenses need polished-face and frosted-edge slots'
+assert sum(polygon.material_index == 0 for polygon in bare_lens.data.polygons) == 6144
+assert sum(polygon.material_index == 1 for polygon in bare_lens.data.polygons) == 96
+bare_shader = bare_lens.material_slots[0].material.node_tree.nodes['Principled BSDF']
+assert math.isclose(bare_shader.inputs['Roughness'].default_value, .1, abs_tol=1e-6)
 shader = next(node for node in lens.material_slots[0].material.node_tree.nodes
               if node.bl_idname == 'ShaderNodeBsdfPrincipled')
 assert shader.inputs['Transmission Weight'].default_value == 1
@@ -49,6 +56,17 @@ assert shader.inputs['Metallic'].default_value == 0
 assert all(value > .9 for value in shader.inputs['Base Color'].default_value[:3])
 assert material.use_nodes == source_nodes and tuple(material.diffuse_color) == source_color, 'Source material was modified'
 assert lens['opl_geometry_generator'] == 'CodeFHD/OptiCore'
+edge_index = next(i for i, slot in enumerate(lens.material_slots)
+                  if slot.material.get('figure_material_role') == 'optic_edge')
+edge_faces = [polygon for polygon in lens.data.polygons if polygon.material_index == edge_index]
+assert len(edge_faces) == 96, 'Only the 96 cylindrical side faces should be frosted'
+assert all(abs(polygon.normal.x) < 1e-5 for polygon in edge_faces)
+assert all(all(math.isclose(math.hypot(vertices[i].y, vertices[i].z), 12.7, abs_tol=1e-4)
+                   for i in polygon.vertices) for polygon in edge_faces)
+edge_shader = lens.material_slots[edge_index].material.node_tree.nodes['Principled BSDF']
+assert math.isclose(edge_shader.inputs['Roughness'].default_value, .55, abs_tol=1e-6)
+assert edge_shader.inputs['Transmission Weight'].default_value == 1
+assert math.isclose(shader.inputs['Roughness'].default_value, .1, abs_tol=1e-6)
 # An explicitly supplied source shader must survive the editorial material pass.
 material.use_nodes = True
 material['figure_material_role'] = 'optic'

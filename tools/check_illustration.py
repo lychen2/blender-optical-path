@@ -83,7 +83,7 @@ def has_link(material, from_node, from_socket, to_node, to_socket):
                for link in material.node_tree.links)
 
 
-for style in ('matte', 'soft-lab', 'textbook', 'toon', 'textbook', 'journal-editorial', 'pack'):
+for style in ('matte', 'soft-lab', 'textbook', 'toon', 'textbook', 'journal-editorial', 'matte', 'illustrated', 'pack'):
     request({'action': 'apply_style', 'style': style}, scene)
     check_material()
     nested_copy = next(obj for obj in nested.instance_collection.objects if obj.instance_collection)
@@ -107,15 +107,39 @@ for style in ('matte', 'soft-lab', 'textbook', 'toon', 'textbook', 'journal-edit
         assert principled.inputs['IOR'].default_value == 1.5
         assert all(math.isclose(actual, expected, abs_tol=1e-6) for actual, expected in zip(
             principled.inputs['Base Color'].default_value[:3], (.906751573, .970782459, 1)))
-        assert scene.render.use_freestyle
+        assert not scene.render.use_freestyle
+        assert scene.view_settings.view_transform == 'Filmic'
+        assert scene.view_settings.look == 'Medium High Contrast'
+        assert scene.world.node_tree.nodes['Background'].inputs['Strength'].default_value == 0
         assert scene['opl_applied_style'] == 'illustrated'
         hardware = next(slot.material for obj in nested_copy.instance_collection.all_objects
                         for slot in obj.material_slots if slot.material
                         and slot.material.get('figure_material_role') == 'coated_mount')
         _, hardware_nodes = reachable_nodes(hardware)
-        assert any(node.bl_idname == 'ShaderNodeEmission' for node in hardware_nodes)
-        assert any(node.bl_idname == 'ShaderNodeValToRGB' and len(node.color_ramp.elements) == 3
-                   and node.color_ramp.interpolation == 'CONSTANT' for node in hardware_nodes)
+        assert {node.bl_idname for node in hardware_nodes} == {'ShaderNodeBsdfPrincipled'}
+        assert next(iter(hardware_nodes)).inputs['Emission Strength'].default_value == 0
+        # The reference's floor and curved wall must participate in actual lighting.
+        backdrop = next(obj for obj in scene.objects if obj.get('opl_studio_backdrop'))
+        _, backdrop_nodes = reachable_nodes(backdrop.material_slots[0].material)
+        assert {node.bl_idname for node in backdrop_nodes} == {'ShaderNodeBsdfPrincipled'}
+        assert not backdrop.hide_render and not backdrop.visible_camera
+        assert backdrop.visible_glossy and backdrop.visible_transmission
+        assert scene.world.node_tree.nodes.get('Camera field')
+        edge = next(slot.material for slot in optic.material_slots if slot.material
+                    and slot.material.get('figure_material_role') == 'optic_edge')
+        _, edge_nodes = reachable_nodes(edge)
+        edge_shader = next(node for node in edge_nodes if node.bl_idname == 'ShaderNodeBsdfPrincipled')
+        assert math.isclose(edge_shader.inputs['Roughness'].default_value, .55, abs_tol=1e-6)
+        edge_indices = [i for i, slot in enumerate(optic.material_slots) if slot.material == edge]
+        assert len(edge_indices) == 1, 'Repeated styling must not add edge slots'
+        edge_faces = [polygon for polygon in optic.data.polygons if polygon.material_index == edge_indices[0]]
+        assert len(edge_faces) == optic['opl_frosted_edge_faces'] == 128
+        assert all(abs(polygon.normal.z) < 1e-4 for polygon in edge_faces)
+        owned_lights = [obj for obj in scene.objects if obj.get('opl_studio_light') and not obj.hide_render]
+        assert len(owned_lights) == 2
+        key = next(obj for obj in owned_lights if obj['opl_studio_light'] == 'OPL broad overhead key')
+        fill = next(obj for obj in owned_lights if obj['opl_studio_light'] == 'OPL soft fill')
+        assert math.isclose(fill.data.energy / key.data.energy, .35, abs_tol=1e-6)
     assert lamp.data.energy == 17 and tuple(lamp.location) == (123, 234, 345)
 assert scene['opl_applied_style'] == 'illustrated'
 assert styles['DEFAULT_STYLE'] == 'illustrated'
@@ -138,7 +162,7 @@ coating.data.materials.append(next(iter(source_colors)))
 request({'action': 'apply_style'}, scene)
 _, coating_nodes = reachable_nodes(coating.material_slots[0].material)
 assert {node.bl_idname for node in coating_nodes} == {
-    'ShaderNodeMixShader', 'ShaderNodeBsdfTransparent', 'ShaderNodeEmission'}
+    'ShaderNodeMixShader', 'ShaderNodeBsdfTransparent', 'ShaderNodeBsdfPrincipled'}
 assert next(node for node in coating_nodes if node.bl_idname == 'ShaderNodeMixShader').inputs[0].default_value < .2
 with tempfile.TemporaryDirectory(prefix='opl-overlay-') as directory:
     output = Path(directory) / 'figure.svg'

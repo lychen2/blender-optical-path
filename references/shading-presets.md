@@ -1,6 +1,6 @@
 # Optical-figure shading
 
-**Journal Editorial** is the default. It combines transparent glass, restrained hardware, fine neutral contours and a white background.
+**Journal Editorial** is the default. It uses the component pack’s Cycles materials, soft studio lighting and Filmic color management.
 
 [Visual style](visual-style.md) covers composition and readability. `library/style_presets.json` defines style IDs, aliases and the default. `tools/styles.py` applies materials to scene-local copies.
 
@@ -9,14 +9,16 @@
 Use `illustrated` or `journal-editorial`.
 
 - Use the component pack's clear `Lens` shader for optical glass: transmission 1, IOR 1.5 and roughness 0.1.
-- Use neutral hardware with three restrained face tones. Preserve dark source and detector housings.
-- Use fine neutral silhouettes, approximately 0.7–0.8 px. Exclude beam outlines and hidden CAD creases.
-- Keep the background white. Broad area lights provide glass reflections; hardware face tones remain stable.
+- Use source-referenced metal and housing shaders with continuous light response.
+- Give cylindrical nonoptical lens edges rough glass, roughness 0.55. Keep optical faces polished.
+- Use the source’s overhead area light and a weak broad front fill.
+- Retain a reflective floor and curved wall for indirect rays. Hide them from the camera to remove floor shadows.
+- Use Filmic with Medium High Contrast. Let reflections and refraction reveal edges.
 - Draw narrow editable beams with consistent channel colors. Add concise labels in a separate SVG layer.
 
-Glass base color is `(0.906751573, 0.970782459, 1.0)`, from the inspected source material. Reflections, refraction and edge contours reveal its shape. See [material provenance](style-sources.md#local-component-pack-glass).
+Glass base color is `(0.906751573, 0.970782459, 1.0)`, from the inspected source material. Reflections, refraction and the frosted rim reveal its shape. See [material provenance](style-sources.md#local-component-pack-glass).
 
-**Prompt:** Draw a floating optical apparatus on white with clear glass, restrained neutral hardware and fine silhouettes. Keep component proportions and optical topology. Use narrow colored beams and separate editable labels.
+**Prompt:** Render a floating optical apparatus using the component pack’s clear glass, reflective metal, soft area lights and Filmic view. Frost only cylindrical lens edges. Keep the camera background free of floor shadows. Preserve component proportions and optical topology. Use narrow colored beams and separate editable labels.
 
 ## Other rendering options
 
@@ -57,4 +59,4 @@ Use hard shadow, base and light bands from a fixed key direction. Beams may have
 
 Keep geometry, camera and channel identities fixed during style comparisons. Inspect glass edges, splitter junctions, objective barrels and labels at final size.
 
-Correct lighting or contour coverage when transparent glass disappears. Preserve the selected material's character and keep beam routes readable. Do not tilt optics to create highlights.
+Correct lighting and reflection coverage when transparent glass disappears. Preserve the selected material's character and keep beam routes readable. Do not tilt optics to create highlights.
